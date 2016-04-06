@@ -25,7 +25,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     override func viewDidAppear(animated: Bool) {
         
         
-        let task = ORKOrderedTask(identifier: "task", steps: [workdayOneStep, workdayTwoStep, workdayThreeStep, workdayFourStep])
+        let task = ORKOrderedTask(identifier: "task", steps: [instructionStep,workdayOneStep, workdayTwoStep, workdayThreeStep, workdayFourStep])
         
         let taskViewController = ORKTaskViewController(task: task, taskRunUUID: nil)
         taskViewController.delegate = self
@@ -33,6 +33,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         presentViewController(taskViewController, animated: true, completion: nil)
     }
 
+    
     
     func taskViewController(taskViewController: ORKTaskViewController,
                             didFinishWithReason reason: ORKTaskViewControllerFinishReason,
@@ -58,6 +59,16 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
  
      */
     
+    
+    private var instructionStep : ORKInstructionStep {
+        
+        let instructionStep = ORKInstructionStep(identifier: "intro")
+        instructionStep.title = "Welcome to RTI's Work Study"
+        instructionStep.text = "This survey can help us understand you at work"
+        
+        return instructionStep
+        
+    }
     //Workday
     //How did you get to work today?
      private var workdayOneStep : ORKQuestionStep {
@@ -76,7 +87,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
         
-        let questionStep = ORKQuestionStep(identifier: "mood category", title: "How is your day going today?", answer: answerFormat)
+        let questionStep = ORKQuestionStep(identifier: "how did you get to work", title: "How is your day going today?", answer: answerFormat)
         
         return questionStep
         
@@ -101,7 +112,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
         
-        let questionStep = ORKQuestionStep(identifier: "mood category", title: "How is your day going today?", answer: answerFormat)
+        let questionStep = ORKQuestionStep(identifier: "how do you feel", title: "How is your day going today?", answer: answerFormat)
         
         return questionStep
 
@@ -129,7 +140,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
         
-        let questionStep = ORKQuestionStep(identifier: "mood category", title: "How is your day going today?", answer: answerFormat)
+        let questionStep = ORKQuestionStep(identifier: "activity level", title: "How is your day going today?", answer: answerFormat)
         
         return questionStep
         
@@ -156,7 +167,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
         
-        let questionStep = ORKQuestionStep(identifier: "mood category", title: "How is your day going today?", answer: answerFormat)
+        let questionStep = ORKQuestionStep(identifier: "how do you feel", title: "How is your day going today?", answer: answerFormat)
         
         return questionStep
         
