@@ -112,7 +112,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
         
-        let questionStep = ORKQuestionStep(identifier: "how do you feel", title: "How is your day going today?", answer: answerFormat)
+        let questionStep = ORKQuestionStep(identifier: "how do you feel today", title: "How is your day going today?", answer: answerFormat)
         
         return questionStep
 
@@ -167,7 +167,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
         
-        let questionStep = ORKQuestionStep(identifier: "how do you feel", title: "How is your day going today?", answer: answerFormat)
+        let questionStep = ORKQuestionStep(identifier: "how do you feel this week", title: "How is your day going today?", answer: answerFormat)
         
         return questionStep
         
