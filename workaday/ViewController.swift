@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import ResearchKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ORKTaskViewControllerDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,22 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func taskViewController(taskViewController: ORKTaskViewController,
+                            didFinishWithReason reason: ORKTaskViewControllerFinishReason,
+                                                error: NSError?) {
+        
+        
+        
+        // Then, dismiss the task view controller.
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
+
+    func taskResultFinishedCompletionHandler(_: ORKResult -> Void) {
+        print("I am done")
+    }
 
 }
 
