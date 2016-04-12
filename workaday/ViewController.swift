@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             print("on to the study")
+            // toStudy()
         }
         else {
             print("on to onboarding")
@@ -23,12 +24,21 @@ class ViewController: UIViewController {
         }
     }
 
+    // MARK: Unwind segues
+    
+    @IBAction func unwindToStudy(segue: UIStoryboardSegue) {
+        toStudy()
+    }
+    
+
     
     func toOnboarding() {
         performSegueWithIdentifier("toOnboarding", sender: self)
     }
 
-
+    func toStudy() {
+        performSegueWithIdentifier("toStudy", sender: self)
+    }
     
     
 
