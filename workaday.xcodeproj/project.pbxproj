@@ -15,6 +15,9 @@
 		4B03D0AB1CB5B4E1003ACFD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B03D0A91CB5B4E1003ACFD2 /* LaunchScreen.storyboard */; };
 		4B03D0B61CB5B4E1003ACFD2 /* workadayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B03D0B51CB5B4E1003ACFD2 /* workadayTests.swift */; };
 		4B03D0C11CB5B4E1003ACFD2 /* workadayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B03D0C01CB5B4E1003ACFD2 /* workadayUITests.swift */; };
+		4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550DB1CBD963700878588 /* OnboardingViewController.swift */; };
+		4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E51CBDA91D00878588 /* ConsentDocument.swift */; };
+		4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */; };
 		92D6A1AB4CAA6774CB643BD6 /* Pods_workadayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DE1A8E096047A139C5921 /* Pods_workadayTests.framework */; };
 		CC5ACDB158FFECEEF7F83358 /* Pods_workaday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,9 @@
 		4B03D0BC1CB5B4E1003ACFD2 /* workadayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = workadayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B03D0C01CB5B4E1003ACFD2 /* workadayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workadayUITests.swift; sourceTree = "<group>"; };
 		4B03D0C21CB5B4E1003ACFD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B1550DB1CBD963700878588 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4B1550E51CBDA91D00878588 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
+		4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerSegue.swift; sourceTree = "<group>"; };
 		717D0C0125A566E34932B8F8 /* Pods-workadayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workaday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9712226E4922783444984808 /* Pods-workaday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workaday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-workaday/Pods-workaday.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 		4B03D09C1CB5B4E1003ACFD2 /* workaday */ = {
 			isa = PBXGroup;
 			children = (
+				4B1550E41CBDA8E400878588 /* Consent */,
+				4B1550DA1CBD95FA00878588 /* Onboarding */,
 				4B03D09D1CB5B4E1003ACFD2 /* AppDelegate.swift */,
 				4B03D09F1CB5B4E1003ACFD2 /* ViewController.swift */,
 				4B03D0A11CB5B4E1003ACFD2 /* Main.storyboard */,
@@ -118,6 +126,7 @@
 				4B03D0A91CB5B4E1003ACFD2 /* LaunchScreen.storyboard */,
 				4B03D0AC1CB5B4E1003ACFD2 /* Info.plist */,
 				4B03D0A41CB5B4E1003ACFD2 /* workaday.xcdatamodeld */,
+				4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */,
 			);
 			path = workaday;
 			sourceTree = "<group>";
@@ -138,6 +147,24 @@
 				4B03D0C21CB5B4E1003ACFD2 /* Info.plist */,
 			);
 			path = workadayUITests;
+			sourceTree = "<group>";
+		};
+		4B1550DA1CBD95FA00878588 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4B1550DB1CBD963700878588 /* OnboardingViewController.swift */,
+			);
+			name = Onboarding;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4B1550E41CBDA8E400878588 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				4B1550E51CBDA91D00878588 /* ConsentDocument.swift */,
+			);
+			name = Consent;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C426C041531E76BA8FF12997 /* Pods */ = {
@@ -391,9 +418,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */,
 				4B03D0A01CB5B4E1003ACFD2 /* ViewController.swift in Sources */,
 				4B03D0A61CB5B4E1003ACFD2 /* workaday.xcdatamodeld in Sources */,
 				4B03D09E1CB5B4E1003ACFD2 /* AppDelegate.swift in Sources */,
+				4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */,
+				4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
