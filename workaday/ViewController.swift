@@ -8,6 +8,7 @@
 
 import UIKit
 import ResearchKit
+import ResearchNet
 
 class ViewController: UIViewController {
 

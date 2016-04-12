@@ -18,6 +18,8 @@
 		4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550DB1CBD963700878588 /* OnboardingViewController.swift */; };
 		4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E51CBDA91D00878588 /* ConsentDocument.swift */; };
 		4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */; };
+		4B1550F31CBDB6EE00878588 /* ResearchNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1550F01CBDB6DA00878588 /* ResearchNet.framework */; };
+		4B1550F41CBDB6EE00878588 /* ResearchNet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1550F01CBDB6DA00878588 /* ResearchNet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92D6A1AB4CAA6774CB643BD6 /* Pods_workadayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DE1A8E096047A139C5921 /* Pods_workadayTests.framework */; };
 		CC5ACDB158FFECEEF7F83358 /* Pods_workaday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */; };
 /* End PBXBuildFile section */
@@ -37,7 +39,42 @@
 			remoteGlobalIDString = 4B03D0991CB5B4E1003ACFD2;
 			remoteInfo = workaday;
 		};
+		4B1550EF1CBDB6DA00878588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B1550EA1CBDB6DA00878588 /* ResearchNet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B1550971CBD491400878588;
+			remoteInfo = ResearchNet;
+		};
+		4B1550F11CBDB6DA00878588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B1550EA1CBDB6DA00878588 /* ResearchNet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B1550A11CBD491400878588;
+			remoteInfo = ResearchNetTests;
+		};
+		4B1550F51CBDB6EE00878588 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B1550EA1CBDB6DA00878588 /* ResearchNet.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B1550961CBD491400878588;
+			remoteInfo = ResearchNet;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B1550F71CBDB6EE00878588 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B1550F41CBDB6EE00878588 /* ResearchNet.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3B273FA456A2446D8C6404B2 /* Pods-workadayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +95,7 @@
 		4B1550DB1CBD963700878588 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4B1550E51CBDA91D00878588 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerSegue.swift; sourceTree = "<group>"; };
+		4B1550EA1CBDB6DA00878588 /* ResearchNet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchNet.xcodeproj; path = "../ResearchnetSDK-IOS/ResearchNet/ResearchNet.xcodeproj"; sourceTree = "<group>"; };
 		717D0C0125A566E34932B8F8 /* Pods-workadayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workaday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9712226E4922783444984808 /* Pods-workaday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workaday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-workaday/Pods-workaday.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC5ACDB158FFECEEF7F83358 /* Pods_workaday.framework in Frameworks */,
+				4B1550F31CBDB6EE00878588 /* ResearchNet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +134,7 @@
 		4B03D0911CB5B4E1003ACFD2 = {
 			isa = PBXGroup;
 			children = (
+				4B1550EA1CBDB6DA00878588 /* ResearchNet.xcodeproj */,
 				4B03D09C1CB5B4E1003ACFD2 /* workaday */,
 				4B03D0B41CB5B4E1003ACFD2 /* workadayTests */,
 				4B03D0BF1CB5B4E1003ACFD2 /* workadayUITests */,
@@ -167,6 +207,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		4B1550EB1CBDB6DA00878588 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B1550F01CBDB6DA00878588 /* ResearchNet.framework */,
+				4B1550F21CBDB6DA00878588 /* ResearchNetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C426C041531E76BA8FF12997 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +249,12 @@
 				4B03D0981CB5B4E1003ACFD2 /* Resources */,
 				5BB07D444A9DFD8AC2BD83F5 /* Embed Pods Frameworks */,
 				AEA271CBDE2467D460EA5DB9 /* Copy Pods Resources */,
+				4B1550F71CBDB6EE00878588 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B1550F61CBDB6EE00878588 /* PBXTargetDependency */,
 			);
 			name = workaday;
 			productName = workaday;
@@ -284,6 +335,12 @@
 			mainGroup = 4B03D0911CB5B4E1003ACFD2;
 			productRefGroup = 4B03D09B1CB5B4E1003ACFD2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4B1550EB1CBDB6DA00878588 /* Products */;
+					ProjectRef = 4B1550EA1CBDB6DA00878588 /* ResearchNet.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4B03D0991CB5B4E1003ACFD2 /* workaday */,
@@ -292,6 +349,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4B1550F01CBDB6DA00878588 /* ResearchNet.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchNet.framework;
+			remoteRef = 4B1550EF1CBDB6DA00878588 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4B1550F21CBDB6DA00878588 /* ResearchNetTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchNetTests.xctest;
+			remoteRef = 4B1550F11CBDB6DA00878588 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4B03D0981CB5B4E1003ACFD2 /* Resources */ = {
@@ -456,6 +530,11 @@
 			target = 4B03D0991CB5B4E1003ACFD2 /* workaday */;
 			targetProxy = 4B03D0BD1CB5B4E1003ACFD2 /* PBXContainerItemProxy */;
 		};
+		4B1550F61CBDB6EE00878588 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResearchNet;
+			targetProxy = 4B1550F51CBDB6EE00878588 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -567,6 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = workaday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workaday;
@@ -580,6 +660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = workaday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workaday;
