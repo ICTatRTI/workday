@@ -15,7 +15,7 @@ enum Activity: Int {
     
     static var allValues: [Activity] {
         var idx = 0
-        return Array(anyGenerator{ return self.init(rawValue: idx++)})
+        return Array(AnyGenerator{ return self.init(rawValue: idx++)})
     }
     
     var title: String {

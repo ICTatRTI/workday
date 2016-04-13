@@ -107,6 +107,35 @@
             </objects>
             <point key="canvasLocation" x="989" y="2238"/>
         </scene>
+        <!--Activities-->
+        <scene sceneID="RyN-TZ-hWg">
+            <objects>
+                <tableViewController id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eki-cx-F7T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" id="X21-Mp-arS">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X21-Mp-arS" id="K9v-dk-G1u">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qzg-dG-cFf" id="vFh-t2-lE5"/>
+                            <outlet property="delegate" destination="qzg-dG-cFf" id="9TD-P6-lCm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Activities" id="tEk-Pe-KbB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XOn-sV-uB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="3173"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="J9a-VX-bTR">
             <objects>
@@ -137,25 +166,6 @@
             <point key="canvasLocation" x="1026" y="3166"/>
         </scene>
         <!--Activities-->
-        <scene sceneID="MCr-tQ-3eS">
-            <objects>
-                <viewController id="qSe-Q4-PPt" customClass="ActivityViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cdp-kL-6fN"/>
-                        <viewControllerLayoutGuide type="bottom" id="yUG-De-wN6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ioS-vS-D6y">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Activities" id="Wfv-tu-YGg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UXc-Sy-qke" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="280" y="3131"/>
-        </scene>
-        <!--Activities-->
         <scene sceneID="bb3-vB-88Z">
             <objects>
                 <navigationController id="ayN-c9-CHO" sceneMemberID="viewController">
@@ -165,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="qSe-Q4-PPt" kind="relationship" relationship="rootViewController" id="eRI-mM-JRO"/>
+                        <segue destination="qzg-dG-cFf" kind="relationship" relationship="rootViewController" id="yVw-A6-goR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCS-Wj-xe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
