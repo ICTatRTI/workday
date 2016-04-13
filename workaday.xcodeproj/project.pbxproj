@@ -17,6 +17,8 @@
 		4B03D0C11CB5B4E1003ACFD2 /* workadayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B03D0C01CB5B4E1003ACFD2 /* workadayUITests.swift */; };
 		4B0BD2681CBEA1E9009E2AB1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD2671CBEA1E9009E2AB1 /* ProfileViewController.swift */; };
 		4B0BD26A1CBEA7DA009E2AB1 /* StudyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD2691CBEA7DA009E2AB1 /* StudyTasks.swift */; };
+		4B0BD2701CBED633009E2AB1 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD26F1CBED633009E2AB1 /* ProfileHeaderView.swift */; };
+		4B0BD2731CBED695009E2AB1 /* ProfileStaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD2721CBED695009E2AB1 /* ProfileStaticTableViewCell.swift */; };
 		4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550DB1CBD963700878588 /* OnboardingViewController.swift */; };
 		4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E51CBDA91D00878588 /* ConsentDocument.swift */; };
 		4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */; };
@@ -97,6 +99,8 @@
 		4B03D0C21CB5B4E1003ACFD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B0BD2671CBEA1E9009E2AB1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B0BD2691CBEA7DA009E2AB1 /* StudyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTasks.swift; sourceTree = "<group>"; };
+		4B0BD26F1CBED633009E2AB1 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		4B0BD2721CBED695009E2AB1 /* ProfileStaticTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStaticTableViewCell.swift; sourceTree = "<group>"; };
 		4B1550DB1CBD963700878588 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4B1550E51CBDA91D00878588 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerSegue.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				4B0BD2671CBEA1E9009E2AB1 /* ProfileViewController.swift */,
+				4B0BD26F1CBED633009E2AB1 /* ProfileHeaderView.swift */,
+				4B0BD2721CBED695009E2AB1 /* ProfileStaticTableViewCell.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -523,7 +529,9 @@
 				4B03D0A61CB5B4E1003ACFD2 /* workaday.xcdatamodeld in Sources */,
 				4B03D09E1CB5B4E1003ACFD2 /* AppDelegate.swift in Sources */,
 				4B1550FC1CBE9EA600878588 /* ActivityViewController.swift in Sources */,
+				4B0BD2731CBED695009E2AB1 /* ProfileStaticTableViewCell.swift in Sources */,
 				4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */,
+				4B0BD2701CBED633009E2AB1 /* ProfileHeaderView.swift in Sources */,
 				4B0BD2681CBEA1E9009E2AB1 /* ProfileViewController.swift in Sources */,
 				4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */,
 			);

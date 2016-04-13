@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             print("on to the study")
             toStudy()

@@ -69,7 +69,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="AwX-Ys-YXy">
             <objects>
-                <tabBarController id="WTt-cg-tcK" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="studyViewController" id="WTt-cg-tcK" sceneMemberID="viewController">
+                    <keyCommands/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="z8m-yF-ALg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,19 +82,19 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="k38-Vh-doe" kind="relationship" relationship="viewControllers" id="tIt-xI-iZt"/>
                         <segue destination="ayN-c9-CHO" kind="relationship" relationship="viewControllers" id="beO-gh-UDd"/>
+                        <segue destination="k38-Vh-doe" kind="relationship" relationship="viewControllers" id="tIt-xI-iZt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byX-J0-JBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="678" y="1453"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="3aq-a5-ayA">
             <objects>
                 <navigationController id="k38-Vh-doe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="z1u-PL-Rv2"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile" id="z1u-PL-Rv2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I9R-XV-dZ4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -104,11 +105,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwW-1s-cVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="2300"/>
+            <point key="canvasLocation" x="989" y="2238"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="J9a-VX-bTR">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8og-aF-Suu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="zqR-XT-0Pe" customClass="ProfileViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n4o-4G-1OK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -129,13 +131,12 @@
                             <outlet property="delegate" destination="zqR-XT-0Pe" id="BJd-ay-Vod"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="K7m-Pj-WuE"/>
+                    <navigationItem key="navigationItem" title="Profile" id="K7m-Pj-WuE"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8og-aF-Suu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="3124"/>
+            <point key="canvasLocation" x="1026" y="3166"/>
         </scene>
-        <!--Activity View Controller-->
+        <!--Activities-->
         <scene sceneID="MCr-tQ-3eS">
             <objects>
                 <viewController id="qSe-Q4-PPt" customClass="ActivityViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,17 +149,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Wfv-tu-YGg"/>
+                    <navigationItem key="navigationItem" title="Activities" id="Wfv-tu-YGg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXc-Sy-qke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="3108"/>
+            <point key="canvasLocation" x="280" y="3131"/>
         </scene>
-        <!--Item-->
+        <!--Activities-->
         <scene sceneID="bb3-vB-88Z">
             <objects>
                 <navigationController id="ayN-c9-CHO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0kw-Q3-aE7"/>
+                    <tabBarItem key="tabBarItem" title="Activities" image="tab_activities" id="0kw-Q3-aE7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z4P-Er-bRK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -169,7 +170,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCS-Wj-xe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237" y="2329"/>
+            <point key="canvasLocation" x="318" y="2272"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_activities" width="23" height="23"/>
+        <image name="tab_profile" width="24" height="24"/>
+    </resources>
 </document>

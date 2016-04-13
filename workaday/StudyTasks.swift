@@ -13,7 +13,23 @@ struct StudyTasks {
     static let surveyTask: ORKOrderedTask = {
         var steps = [ORKStep]()
         
-        // Puts Steps here
+        
+        /*
+         ╔═╗┌┬┐┌─┐┌─┐┌─┐
+         ╚═╗ │ ├┤ ├─┘└─┐
+         ╚═╝ ┴ └─┘┴  └─┘
+         
+         */
+        
+        
+        // Instruction step
+        let instructionStep = ORKInstructionStep(identifier: "intro")
+        instructionStep.title = "Welcome to RTI's Work Study"
+        instructionStep.text = "This survey can help us understand you at work"
+        
+        steps += [instructionStep]
+        
+        
         
         return ORKOrderedTask(identifier: "SurveyTask", steps: steps)
     }()
