@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             print("on to the study")
-            // toStudy()
+            toStudy()
         }
         else {
             print("on to onboarding")
