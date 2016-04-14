@@ -16,6 +16,23 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSG-KL-UQC">
+                                <rect key="frame" x="260" y="433" width="81" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <state key="normal" title="Join"/>
+                                <connections>
+                                    <action selector="joinStudyButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="M9L-I0-VaU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nga-XM-BHl">
+                                <rect key="frame" x="229" y="498" width="142" height="30"/>
+                                <state key="normal" title="I am already enrolled"/>
+                                <connections>
+                                    <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="x2I-3X-rxD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
@@ -25,6 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="253"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="tON-EC-hKF">
@@ -38,22 +56,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eK3-8H-gIl">
-                                <rect key="frame" x="51" y="98" width="504" height="438"/>
-                            </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RTI Work Study" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izL-Ad-9VN">
-                                <rect key="frame" x="185" y="36" width="214" height="33"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh8-Cb-3Hd">
-                                <rect key="frame" x="254" y="550" width="73" height="30"/>
+                                <rect key="frame" x="164" y="448" width="225" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Join Study"/>
                                 <connections>
                                     <action selector="joinButtonTapped:" destination="hqN-JU-7J9" eventType="touchUpInside" id="oeS-V9-N7r"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RTI_logo_blue" translatesAutoresizingMaskIntoConstraints="NO" id="mzv-az-BBs">
+                                <rect key="frame" x="225" y="60" width="151" height="80"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -139,7 +152,6 @@
         <!--Profile-->
         <scene sceneID="J9a-VX-bTR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8og-aF-Suu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="zqR-XT-0Pe" customClass="ProfileViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n4o-4G-1OK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -152,6 +164,15 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CS8-av-Fic" id="cKo-mB-93d">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vs-Dw-DRJ">
+                                            <rect key="frame" x="487" y="8" width="84" height="30"/>
+                                            <state key="normal" title="Leave Study"/>
+                                            <connections>
+                                                <segue destination="tgE-Xt-q4f" kind="unwind" unwindAction="unwindToWithdrawl:" id="0j5-Wf-2RD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -162,6 +183,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="K7m-Pj-WuE"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8og-aF-Suu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tgE-Xt-q4f" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1026" y="3166"/>
         </scene>
@@ -184,6 +207,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RTI_logo_blue" width="160" height="85"/>
         <image name="tab_activities" width="23" height="23"/>
         <image name="tab_profile" width="24" height="24"/>
     </resources>

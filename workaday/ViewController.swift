@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             print("on to the study")
@@ -32,7 +33,9 @@ class ViewController: UIViewController {
         toStudy()
     }
     
-
+    @IBAction func unwindToWithdrawl(segue: UIStoryboardSegue) {
+        toWithdrawl()
+    }
     
     func toOnboarding() {
         performSegueWithIdentifier("toOnboarding", sender: self)
@@ -42,7 +45,32 @@ class ViewController: UIViewController {
         performSegueWithIdentifier("toStudy", sender: self)
     }
     
+    func toWithdrawl() {
+        let viewController = WithdrawViewController()
+        viewController.delegate = self
+        
+        presentViewController(viewController, animated: true, completion: nil)
+    }
     
+}
 
+
+extension ViewController: ORKTaskViewControllerDelegate {
+    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        // Check if the user has finished the `WithdrawViewController`.
+        if taskViewController is WithdrawViewController {
+            /*
+             If the user has completed the withdrawl steps, remove them from
+             the study and transition to the onboarding view.
+             */
+            if reason == .Completed {
+                ORKPasscodeViewController.removePasscodeFromKeychain()
+                toOnboarding()
+            }
+            
+            // Dismiss the `WithdrawViewController`.
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
 }
 
