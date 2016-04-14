@@ -30,12 +30,14 @@ class OnboardingViewController: UIViewController {
         reviewConsentStep.text = "Review the consent form."
         reviewConsentStep.reasonForConsent = "Consent to join the Developer Health Research Study."
         
+        let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
+        passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."
         
         let completionStep = ORKCompletionStep(identifier: "CompletionStep")
         completionStep.title = "Welcome aboard."
         completionStep.text = "Thank you for joining this study."
         
-        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, completionStep])
+        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, passcodeStep, completionStep])
         let taskViewController = ORKTaskViewController(task: orderedTask, taskRunUUID: nil)
         taskViewController.delegate = self
         
