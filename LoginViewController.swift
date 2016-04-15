@@ -12,6 +12,7 @@ import ResearchKit
 class LoginViewController: UIViewController {
 
 
+    
     /// This tasks presents the login step.
     private var loginTask: ORKTask {
         /*
@@ -66,5 +67,16 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
         }
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        print("appear.....")
+        
+        let taskViewController = ORKTaskViewController(task: loginTask, taskRunUUID: nil)
+        taskViewController.delegate = self
+        
+        presentViewController(taskViewController, animated: true, completion: nil)
+        
+        
+    }
     
 }

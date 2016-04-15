@@ -15,8 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        
+        // automatically log 'em in if they have a passcode
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             print("on to the study")
             toStudy()
@@ -37,6 +36,8 @@ class ViewController: UIViewController {
         toWithdrawl()
     }
     
+    // MARK: Transitions
+    
     func toOnboarding() {
         performSegueWithIdentifier("toOnboarding", sender: self)
     }
@@ -44,6 +45,8 @@ class ViewController: UIViewController {
     func toStudy() {
         performSegueWithIdentifier("toStudy", sender: self)
     }
+    
+
     
     func toWithdrawl() {
         let viewController = WithdrawViewController()

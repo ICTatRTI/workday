@@ -14,7 +14,11 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    @IBAction func loginButtonTapped(sender: UIButton) {
+        print("login button tapps")
+        performSegueWithIdentifier("toLogin", sender: self)
         
     }
     
@@ -54,6 +58,8 @@ class OnboardingViewController: UIViewController {
         
         presentViewController(taskViewController, animated: true, completion: nil)
     }
+    
+    
 }
 
 
@@ -72,6 +78,7 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
-    
+
+
     
 }
