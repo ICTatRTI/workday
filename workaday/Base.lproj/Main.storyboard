@@ -211,9 +211,6 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="163"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-lB-U4P">
-                                    <rect key="frame" x="29" y="7" width="84" height="82"/>
-                                </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NL4-p1-T02">
                                     <rect key="frame" x="25" y="87" width="190" height="42"/>
                                     <subviews>
@@ -231,6 +228,9 @@
                                         </label>
                                     </subviews>
                                 </stackView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-lB-U4P">
+                                    <rect key="frame" x="29" y="7" width="84" height="82"/>
+                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz5-In-NgK">
                                     <rect key="frame" x="470" y="99" width="84" height="30"/>
                                     <state key="normal" title="Leave Study"/>
@@ -248,7 +248,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="CS8-av-Fic">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileTableViewCell" rowHeight="35" id="CS8-av-Fic">
                                 <rect key="frame" x="0.0" y="255" width="600" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CS8-av-Fic" id="cKo-mB-93d">
