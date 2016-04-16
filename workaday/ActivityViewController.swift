@@ -67,7 +67,7 @@ class ActivityViewController: UITableViewController {
         case .WeekdaySurvey:
             taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
         case .WeekendSurvey:
-            taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
+            taskViewController = ORKTaskViewController(task: StudyTasks.surveyWeekendTask, taskRunUUID: NSUUID())
 
         }
         

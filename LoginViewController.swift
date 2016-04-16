@@ -78,7 +78,7 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
             toStudy()
             
         case .Discarded, .Failed, .Saved:
-            print("quit.")
+
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
