@@ -12,7 +12,6 @@ import ResearchKit
 class LoginViewController: UIViewController {
 
 
-    
     /// This tasks presents the login step.
     private var loginTask: ORKTask {
         /*
@@ -34,7 +33,7 @@ class LoginViewController: UIViewController {
          and a button for `Forgot password?`.
          */
         let loginTitle = NSLocalizedString("Login", comment: "")
-        let loginStep = ORKLoginStep(identifier: String("login step"), title: loginTitle, text: "Login", loginViewControllerClass: LoginViewController.self)
+        let loginStep = ORKLoginStep(identifier: String("login step"), title: loginTitle, text: "", loginViewControllerClass: LoginViewController.self)
         
         /*
          A wait step allows you to validate the data from the user login against your server before proceeding.
@@ -45,9 +44,26 @@ class LoginViewController: UIViewController {
         waitStep.title = waitTitle
         waitStep.text = waitText
         
+        
+        
         return ORKOrderedTask(identifier: String("login stask"), steps: [loginStep, waitStep])
     }
     
+    // Used to wait an arbitrary length of time
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    // MARK: Transitions
+    
+    func toStudy() {
+        performSegueWithIdentifier("unwindToStudy", sender: nil)
+    }
     
 }
 
@@ -57,9 +73,9 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
         switch reason {
         case .Completed:
             
-            // put calls to back end here
-            
-            performSegueWithIdentifier("toStudy", sender: nil)
+            // put calls to backend here
+            // performSegueWithIdentifier("toStudyAfterLogin", sender: self)
+            toStudy()
             
         case .Discarded, .Failed, .Saved:
             print("quit.")
@@ -69,14 +85,21 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
     
     
     override func viewDidAppear(animated: Bool) {
-        print("appear.....")
-        
+
         let taskViewController = ORKTaskViewController(task: loginTask, taskRunUUID: nil)
         taskViewController.delegate = self
         
         presentViewController(taskViewController, animated: true, completion: nil)
         
+    }
+    
+    func taskViewController(taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
         
+        delay(5.0, closure: { () -> () in
+            if let stepViewController = stepViewController as? ORKWaitStepViewController {
+                stepViewController.goForward()
+            }
+        })
     }
     
 }

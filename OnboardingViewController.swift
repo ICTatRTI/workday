@@ -37,7 +37,7 @@ class OnboardingViewController: UIViewController {
         let registrationTitle = NSLocalizedString("Registration", comment: "")
         let passcodeValidationRegex = "^(?=.*\\d).{4,8}$"
         let passcodeInvalidMessage = NSLocalizedString("A valid password must be 4 and 8 digits long and include at least one numeric character.", comment: "")
-        let registrationOptions: ORKRegistrationStepOption = [.IncludeGivenName, .IncludeFamilyName, .IncludeGender, .IncludeDOB]
+        let registrationOptions: ORKRegistrationStepOption = [ .IncludeGender, .IncludeDOB]
         let registrationStep = ORKRegistrationStep(identifier: String("registration_step"), title: registrationTitle, text: "Additional text can go here", passcodeValidationRegex: passcodeValidationRegex, passcodeInvalidMessage: passcodeInvalidMessage, options: registrationOptions)
         
         let waitTitle = NSLocalizedString("Creating account", comment: "")
@@ -59,7 +59,6 @@ class OnboardingViewController: UIViewController {
         presentViewController(taskViewController, animated: true, completion: nil)
     }
     
-    
 }
 
 
@@ -71,7 +70,6 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
         case .Completed:
             
             // put calls to back end here
-            
             performSegueWithIdentifier("unwindToStudy", sender: nil)
             
         case .Discarded, .Failed, .Saved:
@@ -79,6 +77,24 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
         }
     }
 
+    func taskViewController(taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
+        
+        delay(5.0, closure: { () -> () in
+            if let stepViewController = stepViewController as? ORKWaitStepViewController {
+                stepViewController.goForward()
+            }
+        })
+    }
 
+
+    // Used to wait an arbitrary length of time. won't need this with a real call to the server
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
     
 }
