@@ -80,6 +80,9 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
         case .Discarded, .Failed, .Saved:
 
             dismissViewControllerAnimated(true, completion: nil)
+             print("dismissed")
+            performSegueWithIdentifier("unwindToOnboarding", sender: nil)
+           
         }
     }
     

@@ -17,7 +17,6 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        print("login button tapps")
         performSegueWithIdentifier("toLogin", sender: self)
         
     }

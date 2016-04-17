@@ -36,6 +36,10 @@ class ViewController: UIViewController {
         toWithdrawl()
     }
     
+    @IBAction func unwindToOnboarding(segue: UIStoryboardSegue) {
+        toOnboarding()
+    }
+    
     // MARK: Transitions
     
     func toOnboarding() {

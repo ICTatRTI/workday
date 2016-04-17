@@ -81,14 +81,11 @@ struct StudyTasks {
             ORKTextChoice(text: textChoice2ElevenText, value: "0")
         ]
         
-        let answer2Format = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+        let answer2Format = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: text2Choices)
         
-        let question2Step = ORKQuestionStep(identifier: "how do you feel today", title: "How do you feel today?", answer: answerFormat)
-        
+        let question2Step = ORKQuestionStep(identifier: "how do you feel today", title: "How do you feel today?", answer: answer2Format)
         
         steps += [question2Step]
-        
-        
         
         // Return the task
         return ORKOrderedTask(identifier: "SurveyTask", steps: steps)
@@ -156,9 +153,9 @@ struct StudyTasks {
         ]
         
         
-        let answer2Format = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+        let answer2Format = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: text2Choices)
         
-        let question2Step = ORKQuestionStep(identifier: "how do you feel this week", title: "How do you feel today?", answer: answerFormat)
+        let question2Step = ORKQuestionStep(identifier: "how do you feel this week", title: "How do you feel today?", answer: answer2Format)
         
         
         steps += [question2Step]
