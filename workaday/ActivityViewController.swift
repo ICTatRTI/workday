@@ -14,8 +14,8 @@ enum Activity: Int {
     case WeekdaySurvey, WeekendSurvey
     
     static var allValues: [Activity] {
-        var idx = 0
-        return Array(AnyGenerator{ return self.init(rawValue: idx++)})
+        let idx = 0
+        return Array(AnyGenerator{ return self.init(rawValue: idx + 1)})
     }
     
     var title: String {
@@ -38,6 +38,8 @@ enum Activity: Int {
 }
 
 class ActivityViewController: UITableViewController {
+    
+    
     // MARK: UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
