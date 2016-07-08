@@ -8,17 +8,21 @@
 
 import UIKit
 import ResearchKit
+import ResearchNet
+
 
 class LoginViewController: UIViewController {
 
 
     /// This tasks presents the login step.
     private var loginTask: ORKTask {
+        
         /*
          A login step view controller subclass is required in order to use the login step.
          The subclass provides the behavior for the login step forgot password button.
          */
         class LoginViewController : ORKLoginStepViewController {
+            
             override func forgotPasswordButtonTapped() {
                 let alertTitle = NSLocalizedString("Forgot password?", comment: "")
                 let alertMessage = NSLocalizedString("Button tapped", comment: "")
@@ -26,6 +30,9 @@ class LoginViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+            
+            
+            
         }
         
         /*
@@ -44,6 +51,10 @@ class LoginViewController: UIViewController {
         waitStep.title = waitTitle
         waitStep.text = waitText
         
+        let researchNet : ResearchNet = ResearchNet(host: "researchnet.ictedge.org")
+        //r.authenticate("",password: "")
+        researchNet.printConfiguration();
+
         
         
         return ORKOrderedTask(identifier: String("login stask"), steps: [loginStep, waitStep])
