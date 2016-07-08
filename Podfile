@@ -2,15 +2,20 @@
 # platform :ios, '9.0'
 
 target 'workaday' do
-    pod 'ResearchKit', '~> 1.3.0'
-    pod 'Alamofire', '~> 3.1.5'
-    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'ResearchKit', '1.3.0'
+	pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
 end
 
 target 'workadayTests' do
-    pod 'ResearchKit', '~> 1.3.0'
-    pod 'Alamofire', '~> 3.1.5'
-    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'ResearchKit', '1.3.0'
+	pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
+	
+	# reference a local repo
+	# pod 'ResearchNet', :path => '~/Repository/ResearchnetSDK-IOS/'
+
+	# reference a git repo
+	# pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
+
 end
 
 use_frameworks!
