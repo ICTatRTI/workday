@@ -8,16 +8,11 @@ PODS:
 
 DEPENDENCIES:
   - ResearchKit (= 1.3.0)
-  - ResearchNet (from `https://bitbucket.org/rcdrti/researchnetsdk-ios.git`)
+  - ResearchNet (from `~/Repository/ResearchnetSDK-IOS/`)
 
 EXTERNAL SOURCES:
   ResearchNet:
-    :git: https://bitbucket.org/rcdrti/researchnetsdk-ios.git
-
-CHECKOUT OPTIONS:
-  ResearchNet:
-    :commit: f0b2345c4d122f85a0d7e9551ba6920ffd089c72
-    :git: https://bitbucket.org/rcdrti/researchnetsdk-ios.git
+    :path: "~/Repository/ResearchnetSDK-IOS/"
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
