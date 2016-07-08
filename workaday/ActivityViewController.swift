@@ -14,8 +14,8 @@ enum Activity: Int {
     case WeekdaySurvey, WeekendSurvey
     
     static var allValues: [Activity] {
-        let idx = 0
-        return Array(AnyGenerator{ return self.init(rawValue: idx + 1)})
+        var idx = 0
+        return Array(AnyGenerator{ return self.init(rawValue: idx++)})
     }
     
     var title: String {
@@ -52,8 +52,12 @@ class ActivityViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("activityCell", forIndexPath: indexPath)
         
         if let activity = Activity(rawValue: indexPath.row) {
+            
+            //put checkbox logic here
             cell.textLabel?.text = activity.title
             cell.detailTextLabel?.text = activity.subtitle
+            
+            
         }
         
         return cell
@@ -62,6 +66,19 @@ class ActivityViewController: UITableViewController {
     // MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let section = indexPath.section
+        let numberOfRows = tableView.numberOfRowsInSection(section)
+        
+        // Set the check mark on "completed" tasks
+        for row in 0..<numberOfRows {
+            if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: section)) {
+                
+                cell.accessoryType =  .Checkmark
+                //cell.selectionStyle = UITableViewCellSelectionStyle.None
+            }
+        }
+        
         guard let activity = Activity(rawValue: indexPath.row) else { return }
         
         let taskViewController: ORKTaskViewController
@@ -81,7 +98,12 @@ class ActivityViewController: UITableViewController {
 extension ActivityViewController : ORKTaskViewControllerDelegate {
     
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        
         // Handle results using taskViewController.result
+        
+        //write task name and complete date to local storage
+        
+        
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 }
