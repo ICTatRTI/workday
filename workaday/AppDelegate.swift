@@ -16,9 +16,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // register notification (this will allow the user to grant notifications for this app
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+        
+        // Configure daily notifications
+        let notiftypes:UIUserNotificationType = [.Alert, .Badge, .Sound]
+        
+        let notifSettings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notiftypes, categories: nil)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(notifSettings)
+
+        // Configure notifications for each day (sunday is 1)
+        scheduleLocalNotification(17,minute: 0, weekDay: 1)
+        scheduleLocalNotification(9,minute: 0, weekDay: 2)
+        scheduleLocalNotification(9,minute: 0, weekDay: 3)
+        scheduleLocalNotification(9,minute: 0, weekDay: 4)
+        scheduleLocalNotification(9,minute: 0, weekDay: 5)
+        scheduleLocalNotification(9,minute: 0, weekDay: 6)
+        scheduleLocalNotification(17,minute: 0, weekDay: 7)
+        
         return true
     }
+    
+    
+    func scheduleLocalNotification(hour:Int, minute:Int, weekDay:Int){
+        
+        let calendar =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+ 
+        calendar!.timeZone = NSTimeZone.defaultTimeZone()
+        
+        let dateComponents = NSDateComponents()
+        dateComponents.calendar = calendar
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        dateComponents.weekday = weekDay
+        
+        let localNotificaion = UILocalNotification()
+        localNotificaion.fireDate = calendar!.dateFromComponents(dateComponents)
+        localNotificaion.alertBody = "Please complete your WorkingDay study activities today.  Thanks again for participating."
+        localNotificaion.timeZone = NSTimeZone.defaultTimeZone()
+
+        localNotificaion.repeatInterval = .WeekOfYear
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotificaion)
+        
+    }
+
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //let currentDate = NSDate()
+        //scheduleLocalNotification(currentDate, weekDay: 1)
+        
         // automatically log 'em in if they have a passcode
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             print("on to the study")
@@ -26,7 +29,8 @@ class ViewController: UIViewController {
         }
     }
 
-    // MARK: Unwind segues
+
+        
     
     @IBAction func unwindToStudy(segue: UIStoryboardSegue) {
         toStudy()
