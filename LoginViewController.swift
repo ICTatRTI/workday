@@ -51,9 +51,7 @@ class LoginViewController: UIViewController {
         waitStep.title = waitTitle
         waitStep.text = waitText
         
-        let researchNet : ResearchNet = ResearchNet(host: "researchnet.ictedge.org")
-        //r.authenticate("",password: "")
-        researchNet.printConfiguration();
+
 
         
         
@@ -85,8 +83,11 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
         
         case .Completed:
             
+             let defaults = NSUserDefaults.standardUserDefaults()
+
+            
             // authenticate the user, get the form fields
-            let defaults = NSUserDefaults.standardUserDefaults()
+           
             defaults.setObject("xyz", forKey: "authKey")
             
             toStudy()

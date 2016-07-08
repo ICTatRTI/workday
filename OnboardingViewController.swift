@@ -8,6 +8,7 @@
 
 import UIKit
 import ResearchKit
+import ResearchNet
 
 class OnboardingViewController: UIViewController {
     // MARK: IB actions
@@ -70,6 +71,9 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
             
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setObject("xyz", forKey: "authKey")
+            
+            
+            
             
             // put calls to back end here
             performSegueWithIdentifier("unwindToStudy", sender: nil)

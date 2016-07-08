@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import ResearchNet
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -35,6 +37,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         scheduleLocalNotification(9,minute: 0, weekDay: 5)
         scheduleLocalNotification(9,minute: 0, weekDay: 6)
         scheduleLocalNotification(17,minute: 0, weekDay: 7)
+        
+        
+        /* 
+         
+         ____                               _     _   _      _
+         |  _ \ ___  ___  ___  __ _ _ __ ___| |__ | \ | | ___| |_
+         | |_) / _ \/ __|/ _ \/ _` | '__/ __| '_ \|  \| |/ _ \ __|
+         |  _ <  __/\__ \  __/ (_| | | | (__| | | | |\  |  __/ |_
+         |_| \_\___||___/\___|\__,_|_|  \___|_| |_|_| \_|\___|\__|
+          ___ ___  _ __   / _(_) __ _ _   _ _ __ __ _| |_(_) ___ _ __
+         / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` | __| |/ _ \| '_ \
+         | (_| (_)| | | |  _| | (_| | |_| | | | (_| | |_| | (_) | | | |
+         \___\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__|_|\___/|_| |_|
+                                |___/
+         
+        */
+        
+        //let researchNet : ResearchNet = ResearchNet(host: "researchnet.ictedge.org")
+        //let defaults = NSUserDefaults.standardUserDefaults()
+        //defaults.setObject(researchNet, forKey: "rnKey")
+        
         
         return true
     }
