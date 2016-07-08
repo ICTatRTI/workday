@@ -82,10 +82,13 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
     
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         switch reason {
+        
         case .Completed:
             
-            // put calls to backend here
-            // performSegueWithIdentifier("toStudyAfterLogin", sender: self)
+            // authenticate the user, get the form fields
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject("xyz", forKey: "authKey")
+            
             toStudy()
             
         case .Discarded, .Failed, .Saved:

@@ -68,8 +68,12 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
         switch reason {
         case .Completed:
             
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject("xyz", forKey: "authKey")
+            
             // put calls to back end here
             performSegueWithIdentifier("unwindToStudy", sender: nil)
+            
             
         case .Discarded, .Failed, .Saved:
             dismissViewControllerAnimated(true, completion: nil)

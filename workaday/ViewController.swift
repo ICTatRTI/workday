@@ -15,22 +15,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let currentDate = NSDate()
-        //scheduleLocalNotification(currentDate, weekDay: 1)
-        
-        // automatically log 'em in if they have a passcode
-        if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if (defaults.stringForKey("authKey") != nil) {
             print("on to the study")
             toStudy()
-        }
-        else {
+        } else {
             print("on to onboarding")
             toOnboarding()
         }
     }
-
-
-        
     
     @IBAction func unwindToStudy(segue: UIStoryboardSegue) {
         toStudy()
@@ -53,7 +46,6 @@ class ViewController: UIViewController {
     func toStudy() {
         performSegueWithIdentifier("toStudy", sender: self)
     }
-    
 
     
     func toWithdrawl() {
@@ -68,6 +60,7 @@ class ViewController: UIViewController {
 
 extension ViewController: ORKTaskViewControllerDelegate {
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        
         // Check if the user has finished the `WithdrawViewController`.
         if taskViewController is WithdrawViewController {
             /*
@@ -76,6 +69,12 @@ extension ViewController: ORKTaskViewControllerDelegate {
              */
             if reason == .Completed {
                 ORKPasscodeViewController.removePasscodeFromKeychain()
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.removeObjectForKey("authKey")
+                
+                // Call backend to disable user
+                
                 toOnboarding()
             }
             
