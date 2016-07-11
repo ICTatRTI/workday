@@ -13,6 +13,10 @@ import ResearchNet
 
 class LoginViewController: UIViewController {
 
+    var researchNet : ResearchNet!
+    let LOGIN_STEP_IDENTIFIER : String = "login step"
+    let WAIT_STEP_IDENTIFIER : String = "wait step"
+    
 
     /// This tasks presents the login step.
     private var loginTask: ORKTask {
@@ -29,9 +33,7 @@ class LoginViewController: UIViewController {
                 let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-            }
-            
-            
+            }  
             
         }
         
@@ -40,7 +42,7 @@ class LoginViewController: UIViewController {
          and a button for `Forgot password?`.
          */
         let loginTitle = NSLocalizedString("Login", comment: "")
-        let loginStep = ORKLoginStep(identifier: String("login step"), title: loginTitle, text: "", loginViewControllerClass: LoginViewController.self)
+        let loginStep = ORKLoginStep(identifier: String(LOGIN_STEP_IDENTIFIER), title: loginTitle, text: "", loginViewControllerClass: LoginViewController.self)
         
         /*
          A wait step allows you to validate the data from the user login against your server before proceeding.
@@ -55,7 +57,7 @@ class LoginViewController: UIViewController {
 
         
         
-        return ORKOrderedTask(identifier: String("login stask"), steps: [loginStep, waitStep])
+        return ORKOrderedTask(identifier: String("login task"), steps: [loginStep, waitStep])
     }
     
     // Used to wait an arbitrary length of time
@@ -83,14 +85,34 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
         
         case .Completed:
             
-             let defaults = NSUserDefaults.standardUserDefaults()
+            let taskViewController = taskViewController.result
+            let results = taskViewController.results as! [ORKStepResult]
+            for thisStepResult in results {
+                
+                if thisStepResult.identifier == LOGIN_STEP_IDENTIFIER {
+                    
+                    let stepResults = thisStepResult.results as! [ORKQuestionResult]
+                    let username = stepResults[0] as? ORKTextQuestionResult
+                    let password = stepResults[1] as? ORKTextQuestionResult
+                
+                    print("username: " + (username?.textAnswer)! + "password: ", (password?.textAnswer)!)
+                
+                    // Call using a closure parameter
+                    researchNet.authenticateUser{ (responseObject, error) in
+                    print("back from SDK: ",responseObject!)
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setObject("xyz", forKey: "authKey")
+                    self.toStudy()
+                    }
+                    
+                }
+                
+            }
+            
 
+            print("done logging in, waiting for call from api")            
             
-            // authenticate the user, get the form fields
-           
-            defaults.setObject("xyz", forKey: "authKey")
-            
-            toStudy()
+        
             
         case .Discarded, .Failed, .Saved:
 
