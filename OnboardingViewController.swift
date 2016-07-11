@@ -11,10 +11,20 @@ import ResearchKit
 import ResearchNet
 
 class OnboardingViewController: UIViewController {
-    // MARK: IB actions
+
+    var researchNet : ResearchNet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toLogin" {
+            if let destination = segue.destinationViewController as? LoginViewController {
+                destination.researchNet = self.researchNet
+            }
+        }
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {

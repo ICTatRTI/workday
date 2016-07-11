@@ -12,18 +12,27 @@ import ResearchNet
 
 class ViewController: UIViewController {
 
+    var researchNet : ResearchNet = ResearchNet(host: "researchnet.ictedge.org")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let defaults = NSUserDefaults.standardUserDefaults()
         if (defaults.stringForKey("authKey") != nil) {
-            print("on to the study")
             toStudy()
         } else {
-            print("on to onboarding")
             toOnboarding()
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toOnboarding" {
+            if let destination = segue.destinationViewController as? OnboardingViewController {
+                destination.researchNet = self.researchNet
+            }
+        }
+    }
+    
     
     @IBAction func unwindToStudy(segue: UIStoryboardSegue) {
         toStudy()

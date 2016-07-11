@@ -55,8 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         */
         
         //let researchNet : ResearchNet = ResearchNet(host: "researchnet.ictedge.org")
-        //let defaults = NSUserDefaults.standardUserDefaults()
-        //defaults.setObject(researchNet, forKey: "rnKey")
+
         
         
         return true
