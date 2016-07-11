@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     var researchNet : ResearchNet!
     let LOGIN_STEP_IDENTIFIER : String = "login step"
     let WAIT_STEP_IDENTIFIER : String = "wait step"
+    let LOGIN_TASK_NAME : String = "login task"
     
 
     /// This tasks presents the login step.
@@ -49,15 +50,12 @@ class LoginViewController: UIViewController {
          */
         let waitTitle = NSLocalizedString("Logging in", comment: "")
         let waitText = NSLocalizedString("Please wait while we validate your credentials", comment: "")
-        let waitStep = ORKWaitStep(identifier: String("wait_login"))
+        let waitStep = ORKWaitStep(identifier: String(WAIT_STEP_IDENTIFIER))
         waitStep.title = waitTitle
         waitStep.text = waitText
-        
-
 
         
-        
-        return ORKOrderedTask(identifier: String("login task"), steps: [loginStep, waitStep])
+        return ORKOrderedTask(identifier: String(LOGIN_TASK_NAME), steps: [loginStep, waitStep])
     }
     
     // Used to wait an arbitrary length of time
@@ -89,30 +87,29 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
             let results = taskViewController.results as! [ORKStepResult]
             for thisStepResult in results {
                 
+                // Its usually a good idea to do this
                 if thisStepResult.identifier == LOGIN_STEP_IDENTIFIER {
                     
                     let stepResults = thisStepResult.results as! [ORKQuestionResult]
-                    let username = stepResults[0] as? ORKTextQuestionResult
-                    let password = stepResults[1] as? ORKTextQuestionResult
-                
-                    print("username: " + (username?.textAnswer)! + "password: ", (password?.textAnswer)!)
+                    let usernameResult = stepResults[0] as? ORKTextQuestionResult
+                    let passwordResult = stepResults[1] as? ORKTextQuestionResult
                 
                     // Call using a closure parameter
-                    researchNet.authenticateUser{ (responseObject, error) in
-                    print("back from SDK: ",responseObject!)
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    defaults.setObject("xyz", forKey: "authKey")
-                    self.toStudy()
-                    }
+                    researchNet.authenticateUser({ (responseObject, error) in
+                        
+                        if error != nil{
+                            print("deal with error here")
+                        }
+                        
+                        let defaults = NSUserDefaults.standardUserDefaults()
+                        defaults.setObject("xyz", forKey: "authKey")
+                        self.toStudy()
+                    }, username: usernameResult?.textAnswer, password: passwordResult?.textAnswer)
                     
                 }
                 
             }
             
-
-            print("done logging in, waiting for call from api")            
-            
-        
             
         case .Discarded, .Failed, .Saved:
 
