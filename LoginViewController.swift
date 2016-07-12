@@ -83,38 +83,11 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
         
         case .Completed:
             
-            let taskViewController = taskViewController.result
-            let results = taskViewController.results as! [ORKStepResult]
-            for thisStepResult in results {
-                
-                // Its usually a good idea to do this
-                if thisStepResult.identifier == LOGIN_STEP_IDENTIFIER {
-                    
-                    let stepResults = thisStepResult.results as! [ORKQuestionResult]
-                    let usernameResult = stepResults[0] as? ORKTextQuestionResult
-                    let passwordResult = stepResults[1] as? ORKTextQuestionResult
-                
-                    // Call using a closure parameter
-                    researchNet.authenticateUser({ (responseObject, error) in
-                        
-                        if error != nil{
-                            print("deal with error here")
-                        }
-                        
-                        let defaults = NSUserDefaults.standardUserDefaults()
-                        defaults.setObject("xyz", forKey: "authKey")
-                        self.toStudy()
-                    }, username: usernameResult?.textAnswer, password: passwordResult?.textAnswer)
-                    
-                }
-                
-            }
-            
+            self.toStudy()
             
         case .Discarded, .Failed, .Saved:
 
             dismissViewControllerAnimated(true, completion: nil)
-             print("dismissed")
             performSegueWithIdentifier("unwindToOnboarding", sender: nil)
            
         }
@@ -132,11 +105,45 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
     
     func taskViewController(taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
         
-        delay(5.0, closure: { () -> () in
+
             if let stepViewController = stepViewController as? ORKWaitStepViewController {
-                stepViewController.goForward()
+                
+                
+                let taskViewControllerResult = taskViewController.result
+                //let results = taskViewControllerResult.results as! [ORKStepResult]
+         
+                // Login
+                let login_step = taskViewControllerResult.stepResultForStepIdentifier(LOGIN_STEP_IDENTIFIER)
+                    
+                let stepResults = login_step!.results as! [ORKQuestionResult]
+                let usernameResult = stepResults[0] as? ORKTextQuestionResult
+                let passwordResult = stepResults[1] as? ORKTextQuestionResult
+                        
+                // Call using a closure parameter
+                researchNet.authenticateUser({ (responseObject, error) in
+                            
+                    if error != nil{
+                        let errorMessage = "Your username and password didn't match. Try again."
+                        
+                        let alert = UIAlertController(title: "Login Error",
+                            message: errorMessage, preferredStyle: .Alert)
+                        let action = UIAlertAction(title: "Ok", style: .Default, handler: {
+                            (alert: UIAlertAction!) in stepViewController.goBackward()
+                        })
+                        alert.addAction(action)
+                        taskViewController.presentViewController(alert, animated: true, completion: nil)
+
+                    } else{
+
+                        let defaults = NSUserDefaults.standardUserDefaults()
+                        defaults.setObject(responseObject!, forKey: "authKey")
+                        
+                        stepViewController.goForward()
+                    }
+                    
+                    }, username: usernameResult?.textAnswer, password: passwordResult?.textAnswer)
             }
-        })
+
     }
     
 }
