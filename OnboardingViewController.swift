@@ -49,7 +49,7 @@ class OnboardingViewController: UIViewController {
         let reviewConsentStep = ORKConsentReviewStep(identifier: CONSENT_REVIEW_IDENTIFIER, signature: signature, inDocument: consentDocument)
         
         reviewConsentStep.text = "Review the consent form."
-        reviewConsentStep.reasonForConsent = "Consent to join the Developer Health Research Study."
+        reviewConsentStep.reasonForConsent = "Consent to join our esearch Study."
         
         let registrationTitle = NSLocalizedString("Registration", comment: "")
         let passcodeValidationRegex = "^(?=.*\\d).{4,8}$"
@@ -69,7 +69,7 @@ class OnboardingViewController: UIViewController {
         completionStep.title = "Welcome aboard."
         completionStep.text = "Thank you for joining this study."
         
-        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, registrationStep, waitStep,completionStep])
+        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [ consentStep,reviewConsentStep, registrationStep, waitStep,completionStep])
         
         let taskViewController = ORKTaskViewController(task: orderedTask, taskRunUUID: nil)
         taskViewController.delegate = self
@@ -86,45 +86,46 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         switch reason {
         case .Completed:
-            
-            
-            var username : String = ""
-            
-            let taskViewController = taskViewController.result
-            let results = taskViewController.results as! [ORKStepResult]
-            for thisStepResult in results {
-               
-                // Its usually a good idea to do this
-                if thisStepResult.identifier == REGISTRATION_STEP {
-                    
-                    let stepResults = thisStepResult.results as! [ORKQuestionResult]
-                    let usernameResult = stepResults[0] as? ORKTextQuestionResult
-                    username = (usernameResult?.textAnswer)!
-                    
-                    //let passwordResult = stepResults[1] as? ORKTextQuestionResult
-                    
-                    
-                    //let genderResult = stepResults[3] as? ORKChoiceQuestionResult
-                    //let dob = stepResults[4] as? ORKDateQuestionResult
-                    
-                    
-                }
-                
-                    researchNet.submitSurveyResponse({ (responseObject, error) in
-                    
-                    if error != nil{
-                    print("deal with error here")
-                    }
-                    
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    defaults.setObject("xyz", forKey: "authKey")
-                   
-                    }, username: username, password: "", first_name: "", last_name: "", gender: "", dob: "")
-    
-                
-                
-            }
 
+            let taskViewControllerResult = taskViewController.result
+            let results = taskViewControllerResult.results as! [ORKStepResult]
+            
+            
+            // Consent
+            let consent_step = taskViewControllerResult.stepResultForStepIdentifier(CONSENT_REVIEW_IDENTIFIER)
+            let consent_stepResults = consent_step!.results as! [ORKConsentSignatureResult]
+            let consent_signature = consent_stepResults.first!
+            let first_name = consent_signature.signature?.givenName
+            let last_name = consent_signature.signature?.familyName
+            //var consented = consent_signature.consented
+            
+            
+            // Registration
+            let registration_step = taskViewControllerResult.stepResultForStepIdentifier(REGISTRATION_STEP)
+            
+            let stepResults = registration_step!.results as! [ORKQuestionResult]
+            let username = (stepResults[0] as? ORKTextQuestionResult)?.textAnswer
+            let password = (stepResults[2] as? ORKTextQuestionResult)?.textAnswer
+            let genderAnswer = (stepResults[3] as? ORKChoiceQuestionResult)?.choiceAnswers
+            let gender = genderAnswer![0] as? String
+            
+            let dobAnswer = (stepResults[4] as? ORKDateQuestionResult)?.dateAnswer
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let dob = dateFormatter.stringFromDate( dobAnswer!)
+            
+
+            researchNet.enrollUser({ (responseObject, error) in
+                    
+                if error != nil{
+                    print("deal with error here")
+                }
+                        
+                   
+                }, username: username, password: password, first_name: first_name, last_name: last_name, gender: gender, dob: dob)
+
+            
+            
             
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setObject("xyz", forKey: "authKey")
