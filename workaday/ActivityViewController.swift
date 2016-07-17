@@ -9,13 +9,16 @@
 
 import UIKit
 import ResearchKit
+import ResearchNet
 
 enum Activity: Int {
     case WeekdaySurvey, WeekendSurvey
     
     static var allValues: [Activity] {
         var idx = 0
-        return Array(AnyGenerator{ return self.init(rawValue: idx++)})
+        return Array(
+            AnyGenerator{
+                return self.init(rawValue: idx++)})
     }
     
     var title: String {
@@ -37,11 +40,27 @@ enum Activity: Int {
     }
 }
 
-class ActivityViewController: UITableViewController {
+class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
     
     
-    // MARK: UITableViewDataSource
+    var researchNet : ResearchNet!
+    var locationManager: CLLocationManager!
+    var locationFixAchieved : Bool = false
+    var txtLatitude: Double = 0.0
+    var txtLongitude: Double = 0.0
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Try to get users location
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationFixAchieved = false
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
+    }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard section == 0 else { return 0 }
         
@@ -100,8 +119,27 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         
         // Handle results using taskViewController.result
+         let defaults = NSUserDefaults.standardUserDefaults()
         
         //write task name and complete date to local storage
+        if taskViewController.task?.identifier == "SurveyWeekdayTask" {
+            defaults.setObject(NSDate(), forKey: "weekday_timestamp")
+             print("yes SurveyWeekdayTask")
+            //destination.researchNet = self.researchNet
+        } else{
+            defaults.setObject(NSDate(), forKey: "weekend_timestamp")
+            print("yes SurveyWeekendTask")
+        }
+
+        
+        researchNet.submitSurveyResponse({ (responseObject, error) in
+            print("submit survey")
+            }, device_id: "", lat: "", long: "", response: "")
+        
+       
+        
+        
+        
         
         
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
