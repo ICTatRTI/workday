@@ -38,26 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         scheduleLocalNotification(9,minute: 0, weekDay: 6)
         scheduleLocalNotification(17,minute: 0, weekDay: 7)
         
-        
-        /* 
-         
-         ____                               _     _   _      _
-         |  _ \ ___  ___  ___  __ _ _ __ ___| |__ | \ | | ___| |_
-         | |_) / _ \/ __|/ _ \/ _` | '__/ __| '_ \|  \| |/ _ \ __|
-         |  _ <  __/\__ \  __/ (_| | | | (__| | | | |\  |  __/ |_
-         |_| \_\___||___/\___|\__,_|_|  \___|_| |_|_| \_|\___|\__|
-          ___ ___  _ __   / _(_) __ _ _   _ _ __ __ _| |_(_) ___ _ __
-         / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` | __| |/ _ \| '_ \
-         | (_| (_)| | | |  _| | (_| | |_| | | | (_| | |_| | (_) | | | |
-         \___\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__|_|\___/|_| |_|
-                                |___/
-         
-        */
-        
-        //let researchNet : ResearchNet = ResearchNet(host: "researchnet.ictedge.org")
-
-        
-        
         return true
     }
     
@@ -65,26 +45,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func scheduleLocalNotification(hour:Int, minute:Int, weekDay:Int){
         
         let calendar =  NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
- 
         calendar!.timeZone = NSTimeZone.defaultTimeZone()
+
+        let components = NSDateComponents()
+        components.weekday = weekDay
         
-        let dateComponents = NSDateComponents()
-        dateComponents.calendar = calendar
-        dateComponents.hour = hour
-        dateComponents.minute = minute
-        dateComponents.weekday = weekDay
+        let date = NSDate()
+        let notificationDate = calendar!.dateByAddingComponents(components, toDate: date, options: [])
+        let adjustedDate: NSDate = calendar!.dateBySettingHour(hour, minute: minute, second: 0, ofDate: notificationDate!, options: NSCalendarOptions())!
         
         let localNotificaion = UILocalNotification()
-        localNotificaion.fireDate = calendar!.dateFromComponents(dateComponents)
+        localNotificaion.fireDate = adjustedDate
         localNotificaion.alertBody = "Please complete your WorkingDay study activities today.  Thanks again for participating."
         localNotificaion.timeZone = NSTimeZone.defaultTimeZone()
-
+        
         localNotificaion.repeatInterval = .WeekOfYear
         UIApplication.sharedApplication().scheduleLocalNotification(localNotificaion)
         
     }
 
-    
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
