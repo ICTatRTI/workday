@@ -88,7 +88,7 @@ struct StudyTasks {
         steps += [question2Step]
         
         // Return the task
-        return ORKOrderedTask(identifier: "SurveyTask", steps: steps)
+        return ORKOrderedTask(identifier: "SurveyWeekdayTask", steps: steps)
     }()
     
     
