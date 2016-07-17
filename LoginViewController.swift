@@ -18,6 +18,15 @@ class LoginViewController: UIViewController {
     let WAIT_STEP_IDENTIFIER : String = "wait step"
     let LOGIN_TASK_NAME : String = "login task"
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "unwindToStudy" {
+            if let destination = segue.destinationViewController as? ActivityViewController {
+                destination.researchNet = self.researchNet
+            }
+        }
+    }
+
 
     /// This tasks presents the login step.
     private var loginTask: ORKTask {
@@ -58,15 +67,6 @@ class LoginViewController: UIViewController {
         return ORKOrderedTask(identifier: String(LOGIN_TASK_NAME), steps: [loginStep, waitStep])
     }
     
-    // Used to wait an arbitrary length of time
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
     
     // MARK: Transitions
     
