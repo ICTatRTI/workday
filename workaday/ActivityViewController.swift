@@ -180,13 +180,13 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
         }
         
 
+        let defaults2 = NSUserDefaults.standardUserDefaults()
+        let authKeyd = defaults2.objectForKey("authKey")
         
         researchNet.submitSurveyResponse({ (responseObject, error) in
             
              if error != nil {
-                
-                
-                print("there was an error ")
+                print("there was an error \(responseObject!.statusCode)" )
              } else {
                 print("there wasn't an error. good job!")
              }

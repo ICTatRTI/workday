@@ -122,7 +122,7 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
                 // Call using a closure parameter
                 researchNet.authenticateUser({ (responseObject, error) in
                             
-                    if error != nil{
+                    if error != nil {
                         let errorMessage = "Your username and password didn't match. Try again."
                         
                         let alert = UIAlertController(title: "Login Error",
