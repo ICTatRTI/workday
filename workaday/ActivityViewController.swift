@@ -40,6 +40,8 @@ enum Activity: Int {
     }
 }
 
+
+
 class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
     
     
@@ -61,6 +63,22 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         
         
     }
+    
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if (locationFixAchieved == false) {
+            locationFixAchieved = true
+            let locationArray = locations as NSArray
+            let locationObj = locationArray.lastObject as! CLLocation
+            let coord = locationObj.coordinate
+            
+            txtLatitude = coord.latitude
+            txtLongitude = coord.longitude
+        }
+        
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard section == 0 else { return 0 }
         
@@ -75,7 +93,6 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             //put checkbox logic here
             cell.textLabel?.text = activity.title
             cell.detailTextLabel?.text = activity.subtitle
-            
             
         }
         
@@ -131,16 +148,54 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
             print("yes SurveyWeekendTask")
         }
 
+        let device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+        let taskResult = taskViewController.result // this should be a ORKTaskResult
+        let results = taskResult.results as! [ORKStepResult]//[ORKStepResult]
+        var responses: [String:String] = [:]
+        
+        for thisStepResult in results { // [ORKStepResults]
+            
+            let stepResults = thisStepResult.results as! [ORKQuestionResult]
+            
+            /*
+             Go through the supported answer formats.  This is made easier with AppCore but we're not using this for now just because a) its in objective C and kind of hard to use and 2) its going away at some point to be replaced with enhancements to the ResearchKit framework
+             
+             */
+            if let scaleresult = stepResults.first as? ORKScaleQuestionResult
+            {
+                if scaleresult.scaleAnswer != nil
+                {
+                    responses[scaleresult.identifier] = (scaleresult.scaleAnswer?.stringValue)!
+                }
+            }
+            
+            if let choiceresult = stepResults.first as? ORKChoiceQuestionResult
+            {
+                if choiceresult.choiceAnswers != nil
+                {
+                    let selected = choiceresult.choiceAnswers!
+                    responses[choiceresult.identifier] = "\(selected.first!)"
+                }
+            }
+        }
+        
+
         
         researchNet.submitSurveyResponse({ (responseObject, error) in
-            print("submit survey")
-            }, device_id: "", lat: "", long: "", response: "")
+            
+             if error != nil {
+                
+                
+                print("there was an error ")
+             } else {
+                print("there wasn't an error. good job!")
+             }
+            
+            
+            
+            }, device_id: device_id, lat: String(txtLatitude), long: String(txtLongitude), response: responses)
         
-       
-        
-        
-        
-        
+
         
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }

@@ -12,12 +12,9 @@ import ResearchNet
 
 class ViewController: UIViewController {
 
-    
-    
     // Configure researchnet
     var researchNet : ResearchNet = ResearchNet(host: "researchnet.ictedge.org", appKey: "9a1194980e9e15da451d9ab68a5b8801e6704c18")
-    
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +27,20 @@ class ViewController: UIViewController {
         }
     }
     
+    // Be sure to pass around the ResearchNet object to any view controllers who may need it.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toOnboarding" {
             if let destination = segue.destinationViewController as? OnboardingViewController {
                 destination.researchNet = self.researchNet
+            }
+        }
+        
+        if segue.identifier == "toStudy" {
+          
+            if let destination = segue.destinationViewController as? UITabBarController {
+                let navigationViewController = destination.viewControllers!.first as! UINavigationController
+                let activityViewController = navigationViewController.viewControllers.first as! ActivityViewController
+                activityViewController.researchNet = self.researchNet
             }
         }
     }

@@ -44,7 +44,7 @@ struct StudyTasks {
             ORKTextChoice(text: textChoiceTwoText, value: "biked"),
             ORKTextChoice(text: textChoiceThreeText, value: "walked"),
             ORKTextChoice(text: textChoiceFourText, value: "carpooled"),
-            ORKTextChoice(text: textChoiceFiveText, value: "none"),
+            ORKTextChoice(text: textChoiceFiveText, value: "none")
             ]
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
@@ -52,6 +52,7 @@ struct StudyTasks {
         let questionStep = ORKQuestionStep(identifier: "How did you get to work", title: "How did you get to work today?", answer: answerFormat)
         
         steps += [questionStep]
+        
         
         
         let textChoice2OneText = NSLocalizedString("Complete elated, rapturous joy and soaring ecstasy", comment: "")
