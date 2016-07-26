@@ -24,18 +24,18 @@ enum Activity: Int {
     var title: String {
         switch self {
         case .WeekdaySurvey:
-            return "Weekday Survey"
+            return Constants.WEEKDAY_SURVEY_TITLE
         case .WeekendSurvey:
-            return "Weekend Survey"
+            return Constants.WEEKEND_SURVEY_TITLE
         }
     }
     
     var subtitle: String {
         switch self {
         case .WeekdaySurvey:
-            return "Answer 6 short questions"
+            return Constants.WEEKDAY_SURVEY_SUBTITLE
         case .WeekendSurvey:
-            return "Voice evaluation"
+            return Constants.WEEKEND_SURVEY_SUBTITLE
         }
     }
 }
@@ -60,7 +60,6 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         locationFixAchieved = false
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        
         
     }
     
@@ -88,11 +87,57 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("activityCell", forIndexPath: indexPath)
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let weekday_ts = defaults.objectForKey("weekday_timestamp") as! NSDate
+        let weekend_ts = defaults.objectForKey("weekend_timestamp") as! NSDate
+
+        
+        let currentDateTime = NSDate()
+        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let myComponents = myCalendar.components(.Weekday, fromDate: currentDateTime)
+        let weekDay = myComponents.weekday
+        
+        
         if let activity = Activity(rawValue: indexPath.row) {
             
             //put checkbox logic here
             cell.textLabel?.text = activity.title
             cell.detailTextLabel?.text = activity.subtitle
+            
+            // restrict user from taking the survey more than once a day for weekday 
+            // survey or once a week for weekend survey
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            /*
+             Enable weekday survey on M-F only if the survey hasnt' been completed within
+             the past 24 hours
+             */
+            if ( weekday_ts.numberOfHoursUntilDateTime(currentDateTime) < 24 && activity.title == Constants.WEEKDAY_SURVEY_TITLE
+                
+                ||  weekDay == 1 || weekDay == 7) {
+
+                    cell.accessoryType =  .Checkmark
+                    cell.selectionStyle = .None
+                    cell.userInteractionEnabled = false
+                
+            }
+            
+            /* 
+             Enable weekend survey on Sat/Sun only if the survey hasn't been completed within
+             the past 24 hours
+            */
+            if ( weekend_ts.numberOfHoursUntilDateTime(currentDateTime) < 24 && activity.title == Constants.WEEKEND_SURVEY_TITLE
+                
+                ||  weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6
+                
+                ) {
+                
+                cell.accessoryType =  .Checkmark
+                cell.selectionStyle = .None
+                cell.userInteractionEnabled = false
+            }
+            
             
         }
         
@@ -102,18 +147,6 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
     // MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let section = indexPath.section
-        let numberOfRows = tableView.numberOfRowsInSection(section)
-        
-        // Set the check mark on "completed" tasks
-        for row in 0..<numberOfRows {
-            if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: section)) {
-                
-                cell.accessoryType =  .Checkmark
-                //cell.selectionStyle = UITableViewCellSelectionStyle.None
-            }
-        }
         
         guard let activity = Activity(rawValue: indexPath.row) else { return }
         
@@ -141,11 +174,8 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
         //write task name and complete date to local storage
         if taskViewController.task?.identifier == "SurveyWeekdayTask" {
             defaults.setObject(NSDate(), forKey: "weekday_timestamp")
-             print("yes SurveyWeekdayTask")
-            //destination.researchNet = self.researchNet
         } else{
             defaults.setObject(NSDate(), forKey: "weekend_timestamp")
-            print("yes SurveyWeekendTask")
         }
 
         let device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
@@ -185,17 +215,25 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
             
 
              if error != nil {
-                print("there was an error \(responseObject!.statusCode)" )
+                
+                let errorMessage = "Unable to reach the server. Try again."
+                
+                let alert = UIAlertController(title: "Submission Error",
+                    message: errorMessage, preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Ok", style: .Default, handler: {
+                    (alert: UIAlertAction!) in taskViewController.goBackward()
+                })
+                alert.addAction(action)
+                taskViewController.presentViewController(alert, animated: true, completion: nil)
+                
              } else {
-                print("there wasn't an error. good job!")
+                taskViewController.dismissViewControllerAnimated(true, completion: nil)
              }
-            
-            
             
             }, device_id: device_id, lat: String(txtLatitude), long: String(txtLongitude), response: responses)
         
 
         
-        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+        
     }
 }

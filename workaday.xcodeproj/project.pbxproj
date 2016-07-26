@@ -23,6 +23,8 @@
 		4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E51CBDA91D00878588 /* ConsentDocument.swift */; };
 		4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */; };
 		4B1550FC1CBE9EA600878588 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550FB1CBE9EA600878588 /* ActivityViewController.swift */; };
+		4B303AD21D48009C00AA6B5A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B303AD11D48009C00AA6B5A /* Extensions.swift */; };
+		4B303AD41D4805BE00AA6B5A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B303AD31D4805BE00AA6B5A /* Constants.swift */; };
 		4B4325D31CBF1A1E001F054C /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */; };
 		4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA8AF71CC04E400085032D /* LoginViewController.swift */; };
 		92D6A1AB4CAA6774CB643BD6 /* Pods_workadayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DE1A8E096047A139C5921 /* Pods_workadayTests.framework */; };
@@ -83,6 +85,8 @@
 		4B1550E51CBDA91D00878588 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerSegue.swift; sourceTree = "<group>"; };
 		4B1550FB1CBE9EA600878588 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		4B303AD11D48009C00AA6B5A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4B303AD31D4805BE00AA6B5A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
 		4BBA8AF71CC04E400085032D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		717D0C0125A566E34932B8F8 /* Pods-workadayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				4B03D0AC1CB5B4E1003ACFD2 /* Info.plist */,
 				4B03D0A41CB5B4E1003ACFD2 /* workaday.xcdatamodeld */,
 				4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */,
+				4B303AD11D48009C00AA6B5A /* Extensions.swift */,
+				4B303AD31D4805BE00AA6B5A /* Constants.swift */,
 			);
 			path = workaday;
 			sourceTree = "<group>";
@@ -485,7 +491,9 @@
 				4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */,
 				4B0BD26A1CBEA7DA009E2AB1 /* StudyTasks.swift in Sources */,
 				4B03D0A01CB5B4E1003ACFD2 /* ViewController.swift in Sources */,
+				4B303AD21D48009C00AA6B5A /* Extensions.swift in Sources */,
 				4B03D0A61CB5B4E1003ACFD2 /* workaday.xcdatamodeld in Sources */,
+				4B303AD41D4805BE00AA6B5A /* Constants.swift in Sources */,
 				4B4325D31CBF1A1E001F054C /* WithdrawViewController.swift in Sources */,
 				4B03D09E1CB5B4E1003ACFD2 /* AppDelegate.swift in Sources */,
 				4B1550FC1CBE9EA600878588 /* ActivityViewController.swift in Sources */,
