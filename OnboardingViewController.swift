@@ -133,7 +133,7 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
             researchNet.enrollUser({ (responseObject, error) in
                     
                 if error != nil{
-                    var errorMessage = (responseObject?.statusCode)! == 403 ? "Username is already taken. Please try using a different username." : "Something unexpected happened. Please contact your study administrator."
+                    let errorMessage = (responseObject?.statusCode)! == 403 ? "Username is already taken. Please try using a different username." : "Something unexpected happened. Please contact your study administrator."
  
                     let alert = UIAlertController(title: "Registration Error",
                         message: errorMessage, preferredStyle: .Alert)
@@ -144,25 +144,40 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                     taskViewController.presentViewController(alert, animated: true, completion: nil)
                     
                 } else {
-                    stepViewController.goForward()
+                    
+                    // Get the token and take it and put it.
+                    self.researchNet.authenticateUser({ (responseObject, error) in
+                        
+                        if error != nil {
+                            let errorMessage = "Your account isn't set up yet."
+                            
+                            let alert = UIAlertController(title: "Login Error",
+                                message: errorMessage, preferredStyle: .Alert)
+                            let action = UIAlertAction(title: "Ok", style: .Default, handler: {
+                                (alert: UIAlertAction!) in stepViewController.goBackward()
+                            })
+                            alert.addAction(action)
+                            taskViewController.presentViewController(alert, animated: true, completion: nil)
+                            
+                        } else{
+                            
+                            let defaults = NSUserDefaults.standardUserDefaults()
+                            defaults.setObject(responseObject!, forKey: "authKey")
+                            stepViewController.goForward()
+                        }
+                        
+                        }, username: username, password: password)
                 }
                 
     
                 }, username: username, password: password, first_name: first_name, last_name: last_name, gender: gender, dob: dob)
                     
+
                 
             }
         
         
-        // Used to wait an arbitrary length of time. won't need this with a real call to the server
-        func delay(delay:Double, closure:()->()) {
-            dispatch_after(
-                dispatch_time(
-                    DISPATCH_TIME_NOW,
-                    Int64(delay * Double(NSEC_PER_SEC))
-                ),
-                dispatch_get_main_queue(), closure)
-        }
+   
         
     }
 
