@@ -10,6 +10,7 @@
 import UIKit
 import ResearchKit
 import ResearchNet
+import CoreLocation
 
 enum Activity: Int {
     case WeekdaySurvey, WeekendSurvey
@@ -88,7 +89,6 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("activityCell", forIndexPath: indexPath)
         
         let defaults = NSUserDefaults.standardUserDefaults()
-        
         let weekday_ts = defaults.objectForKey("weekday_timestamp") as! NSDate
         let weekend_ts = defaults.objectForKey("weekend_timestamp") as! NSDate
 
@@ -119,7 +119,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
 
                     cell.accessoryType =  .Checkmark
                     cell.selectionStyle = .None
-                    cell.userInteractionEnabled = false
+                    //cell.userInteractionEnabled = false
                 
             }
             
@@ -135,7 +135,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 
                 cell.accessoryType =  .Checkmark
                 cell.selectionStyle = .None
-                cell.userInteractionEnabled = false
+               // cell.userInteractionEnabled = false
             }
             
             

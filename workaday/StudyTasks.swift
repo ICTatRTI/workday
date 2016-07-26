@@ -55,39 +55,6 @@ struct StudyTasks {
         
         
         
-        let textChoice2OneText = NSLocalizedString("Complete elated, rapturous joy and soaring ecstasy", comment: "")
-        let textChoice2TwoText = NSLocalizedString("Very elated and in very high spirits. Tremendous delight and buoyancy", comment: "")
-        let textChoice2ThreeText = NSLocalizedString("Elated and in high spirits", comment: "")
-        let textChoice2FourText = NSLocalizedString("Feeling very good and cheerful", comment: "")
-        let textChoice2FiveText = NSLocalizedString("Feeling pretty good, 'OK'", comment: "")
-        let textChoice2SixText = NSLocalizedString("Feeling a little bit low. Just so-so", comment: "")
-        let textChoice2SevenText = NSLocalizedString("Spirits low and somewhat 'blue'", comment: "")
-        let textChoice2EightText = NSLocalizedString("Depressed and feeling very low. Definitely 'blue'", comment: "")
-        let textChoice2NineText = NSLocalizedString("Tremendously depressed. Feeling terrible, really miserable, 'just awful'", comment: "")
-        let textChoice2TenText = NSLocalizedString("Utter depression and gloom. Completely down.", comment: "")
-        let textChoice2ElevenText = NSLocalizedString("All is black and leaden. Wish it were all over", comment: "")
-        
-        // The text to display can be separate from the value coded for each choice:
-        let text2Choices = [
-            ORKTextChoice(text: textChoice2OneText, value: "10"),
-            ORKTextChoice(text: textChoice2TwoText, value: "9"),
-            ORKTextChoice(text: textChoice2ThreeText, value: "8"),
-            ORKTextChoice(text: textChoice2FourText, value: "7"),
-            ORKTextChoice(text: textChoice2FiveText, value: "6"),
-            ORKTextChoice(text: textChoice2SixText, value: "5"),
-            ORKTextChoice(text: textChoice2SevenText, value: "4"),
-            ORKTextChoice(text: textChoice2EightText, value: "3"),
-            ORKTextChoice(text: textChoice2NineText, value: "2"),
-            ORKTextChoice(text: textChoice2TenText, value: "1"),
-            ORKTextChoice(text: textChoice2ElevenText, value: "0")
-        ]
-        
-        let answer2Format = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: text2Choices)
-        
-        let question2Step = ORKQuestionStep(identifier: "how do you feel today", title: "How do you feel today?", answer: answer2Format)
-        
-        steps += [question2Step]
-        
         // Return the task
         return ORKOrderedTask(identifier: "SurveyWeekdayTask", steps: steps)
     }()
@@ -125,41 +92,6 @@ struct StudyTasks {
         steps += [questionStep]
         
         
-        let textChoice2OneText = NSLocalizedString("Complete elated, rapturous joy and soaring ecstasy", comment: "")
-        let textChoice2TwoText = NSLocalizedString("Very elated and in very high spirits. Tremendous delight and buoyancy", comment: "")
-        let textChoice2ThreeText = NSLocalizedString("Elated and in high spirits", comment: "")
-        let textChoice2FourText = NSLocalizedString("Feeling very good and cheerful", comment: "")
-        let textChoice2FiveText = NSLocalizedString("Feeling pretty good, 'OK'", comment: "")
-        let textChoice2SixText = NSLocalizedString("Feeling a little bit low. Just so-so", comment: "")
-        let textChoice2SevenText = NSLocalizedString("Spirits low and somewhat 'blue'", comment: "")
-        let textChoice2EightText = NSLocalizedString("Depressed and feeling very low. Definitely 'blue'", comment: "")
-        let textChoice2NineText = NSLocalizedString("Tremendously depressed. Feeling terrible, really miserable, 'just awful'", comment: "")
-        let textChoice2TenText = NSLocalizedString("Utter depression and gloom. Completely down.", comment: "")
-        let textChoice2ElevenText = NSLocalizedString("All is black and leaden. Wish it were all over", comment: "")
-        
-        
-        // The text to display can be separate from the value coded for each choice:
-        let text2Choices = [
-            ORKTextChoice(text: textChoice2OneText, value: "10"),
-            ORKTextChoice(text: textChoice2TwoText, value: "9"),
-            ORKTextChoice(text: textChoice2ThreeText, value: "8"),
-            ORKTextChoice(text: textChoice2FourText, value: "7"),
-            ORKTextChoice(text: textChoice2FiveText, value: "6"),
-            ORKTextChoice(text: textChoice2SixText, value: "5"),
-            ORKTextChoice(text: textChoice2SevenText, value: "4"),
-            ORKTextChoice(text: textChoice2EightText, value: "3"),
-            ORKTextChoice(text: textChoice2NineText, value: "2"),
-            ORKTextChoice(text: textChoice2TenText, value: "1"),
-            ORKTextChoice(text: textChoice2ElevenText, value: "0")
-        ]
-        
-        
-        let answer2Format = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: text2Choices)
-        
-        let question2Step = ORKQuestionStep(identifier: "how do you feel this week", title: "How do you feel today?", answer: answer2Format)
-        
-        
-        steps += [question2Step]
         
         
         

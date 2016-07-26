@@ -38,6 +38,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         scheduleLocalNotification(9,minute: 0, weekDay: 6)
         scheduleLocalNotification(17,minute: 0, weekDay: 7)
         
+        
+        // Default the dates that the surveys were completed
+        let default_date = NSDate(dateString:"2014-06-06")
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey("weekday_timestamp") == nil {
+            defaults.setObject(default_date, forKey: "weekday_timestamp")
+        }
+        
+        if defaults.objectForKey("weekend_timestamp") == nil {
+            defaults.setObject(default_date, forKey: "weekend_timestamp")
+        }
+        
         return true
     }
     
