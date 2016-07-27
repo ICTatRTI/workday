@@ -18,7 +18,6 @@
 		4B0BD26A1CBEA7DA009E2AB1 /* StudyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD2691CBEA7DA009E2AB1 /* StudyTasks.swift */; };
 		4B0BD2701CBED633009E2AB1 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD26F1CBED633009E2AB1 /* ProfileHeaderView.swift */; };
 		4B0BD2731CBED695009E2AB1 /* ProfileStaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD2721CBED695009E2AB1 /* ProfileStaticTableViewCell.swift */; };
-		4B12D7B01CC1983300BEFBA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B12D7AE1CC1983300BEFBA7 /* Main.storyboard */; };
 		4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550DB1CBD963700878588 /* OnboardingViewController.swift */; };
 		4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E51CBDA91D00878588 /* ConsentDocument.swift */; };
 		4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */; };
@@ -29,6 +28,7 @@
 		4B303ADA1D48168D00AA6B5A /* PamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B303AD91D48168D00AA6B5A /* PamHeaderView.swift */; };
 		4B303ADC1D4816BB00AA6B5A /* PamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B303ADB1D4816BB00AA6B5A /* PamCollectionViewCell.swift */; };
 		4B4325D31CBF1A1E001F054C /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */; };
+		4BB201D21D492C09003B981B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB201D01D492C09003B981B /* Main.storyboard */; };
 		4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA8AF71CC04E400085032D /* LoginViewController.swift */; };
 		92D6A1AB4CAA6774CB643BD6 /* Pods_workadayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DE1A8E096047A139C5921 /* Pods_workadayTests.framework */; };
 		CC5ACDB158FFECEEF7F83358 /* Pods_workaday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */; };
@@ -83,7 +83,6 @@
 		4B0BD2691CBEA7DA009E2AB1 /* StudyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTasks.swift; sourceTree = "<group>"; };
 		4B0BD26F1CBED633009E2AB1 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		4B0BD2721CBED695009E2AB1 /* ProfileStaticTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStaticTableViewCell.swift; sourceTree = "<group>"; };
-		4B12D7AF1CC1983300BEFBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B1550DB1CBD963700878588 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4B1550E51CBDA91D00878588 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerSegue.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		4B303AD91D48168D00AA6B5A /* PamHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PamHeaderView.swift; sourceTree = "<group>"; };
 		4B303ADB1D4816BB00AA6B5A /* PamCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PamCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		4BB201D11D492C09003B981B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BBA8AF71CC04E400085032D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		717D0C0125A566E34932B8F8 /* Pods-workadayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workaday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,8 +162,8 @@
 				4B03D09D1CB5B4E1003ACFD2 /* AppDelegate.swift */,
 				4B03D09F1CB5B4E1003ACFD2 /* ViewController.swift */,
 				4B03D0A71CB5B4E1003ACFD2 /* Assets.xcassets */,
-				4B12D7AE1CC1983300BEFBA7 /* Main.storyboard */,
 				4B03D0A91CB5B4E1003ACFD2 /* LaunchScreen.storyboard */,
+				4BB201D01D492C09003B981B /* Main.storyboard */,
 				4B03D0AC1CB5B4E1003ACFD2 /* Info.plist */,
 				4B03D0A41CB5B4E1003ACFD2 /* workaday.xcdatamodeld */,
 				4B1550E81CBDAB2000878588 /* ResearchContainerSegue.swift */,
@@ -377,7 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B12D7B01CC1983300BEFBA7 /* Main.storyboard in Resources */,
+				4BB201D21D492C09003B981B /* Main.storyboard in Resources */,
 				4B03D0AB1CB5B4E1003ACFD2 /* LaunchScreen.storyboard in Resources */,
 				4B03D0A81CB5B4E1003ACFD2 /* Assets.xcassets in Resources */,
 			);
@@ -558,10 +558,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		4B12D7AE1CC1983300BEFBA7 /* Main.storyboard */ = {
+		4BB201D01D492C09003B981B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4B12D7AF1CC1983300BEFBA7 /* Base */,
+				4BB201D11D492C09003B981B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

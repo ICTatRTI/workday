@@ -171,6 +171,57 @@
             </objects>
             <point key="canvasLocation" x="547" y="2304"/>
         </scene>
+        <!--Pam View Controller-->
+        <scene sceneID="UJP-xl-cAW">
+            <objects>
+                <viewController storyboardIdentifier="pamStoryboardID" id="U3n-oV-UDv" customClass="PamViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gXW-HZ-igU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BBP-Cd-3Y4">
+                            <size key="itemSize" width="140" height="132"/>
+                            <size key="headerReferenceSize" width="50" height="186"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellIdentifier" id="sAc-ly-uu0">
+                                <rect key="frame" x="0.0" y="186" width="140" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="132"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4PJ-Zj-Qfz">
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="132"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VcF-ne-NXC" customClass="PamHeaderView" customModule="workaday" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="186"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmc-EN-8ya">
+                                    <rect key="frame" x="279" y="82" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Tmc-EN-8ya" firstAttribute="centerY" secondItem="VcF-ne-NXC" secondAttribute="centerY" id="dP4-yv-IcI"/>
+                                <constraint firstItem="Tmc-EN-8ya" firstAttribute="centerX" secondItem="VcF-ne-NXC" secondAttribute="centerX" id="o1e-5J-nHK"/>
+                            </constraints>
+                        </collectionReusableView>
+                    </collectionView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ktb-ZX-266" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1308" y="2238"/>
+        </scene>
         <!--Activities-->
         <scene sceneID="RyN-TZ-hWg">
             <objects>

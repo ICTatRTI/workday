@@ -59,7 +59,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationFixAchieved = false
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
     }
@@ -98,6 +98,11 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         let myComponents = myCalendar.components(.Weekday, fromDate: currentDateTime)
         let weekDay = myComponents.weekday
         
+        print("weekend diff", weekend_ts.numberOfDaysUntilDateTime(currentDateTime))
+        
+        print("weekday diff", weekday_ts.numberOfDaysUntilDateTime(currentDateTime))
+        
+        
         
         if let activity = Activity(rawValue: indexPath.row) {
             
@@ -113,9 +118,11 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
              Enable weekday survey on M-F only if the survey hasnt' been completed within
              the past 24 hours
              */
-            if ( weekday_ts.numberOfHoursUntilDateTime(currentDateTime) < 24 && activity.title == Constants.WEEKDAY_SURVEY_TITLE
+            if ( weekday_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 && activity.title == Constants.WEEKDAY_SURVEY_TITLE
                 
-                ||  weekDay == 1 || weekDay == 7) {
+                &&  (weekDay == 1 || weekDay == 7)
+                
+                ) {
 
                     cell.accessoryType =  .Checkmark
                     cell.selectionStyle = .None
@@ -127,9 +134,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
              Enable weekend survey on Sat/Sun only if the survey hasn't been completed within
              the past 24 hours
             */
-            if ( weekend_ts.numberOfHoursUntilDateTime(currentDateTime) < 24 && activity.title == Constants.WEEKEND_SURVEY_TITLE
+            if ( weekend_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 && activity.title == Constants.WEEKEND_SURVEY_TITLE
                 
-                ||  weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6
+                &&  (weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6)
                 
                 ) {
                 
@@ -154,6 +161,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         switch activity {
         case .WeekdaySurvey:
             taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
+        
+            
+        
         case .WeekendSurvey:
             taskViewController = ORKTaskViewController(task: StudyTasks.surveyWeekendTask, taskRunUUID: NSUUID())
 
@@ -170,6 +180,8 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
         
         // Handle results using taskViewController.result
          let defaults = NSUserDefaults.standardUserDefaults()
+        
+        
         
         //write task name and complete date to local storage
         if taskViewController.task?.identifier == "SurveyWeekdayTask" {
@@ -209,8 +221,18 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
             }
         }
         
+        
+        // Call the PAM view controller
+        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pamStoryboardID") as! PamViewController
 
-        // Submit
+        
+        //let navigationController = UINavigationController(rootViewController: secondViewController)
+        
+        self.presentViewController(secondViewController, animated: true, completion: nil)
+        
+
+        
+        // Submit results
         researchNet.submitSurveyResponse({ (responseObject, error) in
             
 
