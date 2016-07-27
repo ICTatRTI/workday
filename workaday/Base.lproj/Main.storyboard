@@ -167,7 +167,6 @@
         <!--Navigation Controller-->
         <scene sceneID="wld-o1-nff">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DLa-gf-K0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="fRh-eG-oys" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OWe-4O-ggT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -177,13 +176,14 @@
                         <segue destination="SBs-JS-tLO" kind="relationship" relationship="rootViewController" id="BNv-Va-Y1c"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DLa-gf-K0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="669.86666666666667" y="2499.1999999999998"/>
         </scene>
-        <!--View Controller-->
+        <!--Weekday Intro View Controller-->
         <scene sceneID="qjM-NT-nhC">
             <objects>
-                <viewController storyboardIdentifier="pamStoryboardID" id="SBs-JS-tLO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pamStoryboardID" id="SBs-JS-tLO" customClass="WeekdayIntroViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gqA-Zq-vC9"/>
                         <viewControllerLayoutGuide type="bottom" id="fAA-C4-VQv"/>
@@ -192,8 +192,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Sj-rh9">
-                                <rect key="frame" x="10" y="375" width="300" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Sj-rh9">
+                                <rect key="frame" x="10" y="375" width="300" height="57"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -202,7 +202,7 @@
                                 <rect key="frame" x="120" y="495" width="80" height="30"/>
                                 <state key="normal" title="Get Started"/>
                                 <connections>
-                                    <segue destination="U3n-oV-UDv" kind="push" id="1pt-Bs-u4T"/>
+                                    <segue destination="8i7-B7-anX" kind="push" id="OuB-GP-WPj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekday Questionaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmW-AP-beR" customClass="ORKHeadlineLabel">
@@ -228,10 +228,125 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dth-we-9Mu"/>
+                    <connections>
+                        <outlet property="gettingStartedButton" destination="UNC-MH-z94" id="C1d-Jg-mLJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tS0-LO-a9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1115" y="2848"/>
+        </scene>
+        <!--Weekday Question View Controller-->
+        <scene sceneID="MLd-0M-ocm">
+            <objects>
+                <viewController id="8i7-B7-anX" customClass="WeekdayQuestionViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EZ7-8U-2A2"/>
+                        <viewControllerLayoutGuide type="bottom" id="84x-u6-e3m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IDp-aU-8Qe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Y-h7-j8M">
+                                <rect key="frame" x="40" y="85" width="241" height="21"/>
+                                <string key="text">How did you get to work today?
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFJ-JR-SdN" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                                <rect key="frame" x="63" y="229" width="74" height="30"/>
+                                <state key="normal" title="Biked"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-V1-9VR" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                                <rect key="frame" x="63" y="248" width="115" height="48"/>
+                                <state key="normal">
+                                    <string key="title">Walked/ran
+</string>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWi-ES-poD" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                                <rect key="frame" x="65" y="274" width="144" height="48"/>
+                                <state key="normal">
+                                    <string key="title">Carpool/vanpool
+</string>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WM6-Za-40y" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                                <rect key="frame" x="65" y="304" width="149" height="48"/>
+                                <state key="normal">
+                                    <string key="title">Did not commute
+</string>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6u-hd-rAl" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                                <rect key="frame" x="65" y="342" width="72" height="30"/>
+                                <state key="normal" title="Other"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.16997212195093669" green="0.74325679026000868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-9l-YsB" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                                <rect key="frame" x="63" y="201" width="132" height="30"/>
+                                <state key="normal" title="Drove own car"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-AE-iM1">
+                                <rect key="frame" x="142" y="492" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="U3n-oV-UDv" kind="push" id="db1-AM-hjj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="84x-u6-e3m" firstAttribute="top" secondItem="Tsg-AE-iM1" secondAttribute="bottom" constant="46" id="mm8-ud-icS"/>
+                            <constraint firstItem="Tsg-AE-iM1" firstAttribute="centerX" secondItem="IDp-aU-8Qe" secondAttribute="centerX" id="un1-ZJ-Nd0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dX1-Wk-aJA"/>
+                    <connections>
+                        <outlet property="button1" destination="hwe-9l-YsB" id="waC-PO-OWj"/>
+                        <outlet property="button2" destination="OFJ-JR-SdN" id="53R-GX-Ta3"/>
+                        <outlet property="button3" destination="4Ba-V1-9VR" id="DoU-Js-pd2"/>
+                        <outlet property="button4" destination="DWi-ES-poD" id="JLd-Ck-Lhu"/>
+                        <outlet property="button5" destination="WM6-Za-40y" id="WBk-sS-Vnw"/>
+                        <outlet property="button6" destination="c6u-hd-rAl" id="jku-F1-xy3"/>
+                        <outlet property="doneButton" destination="Tsg-AE-iM1" id="94j-jV-6cU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ChK-jd-jlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442" y="3533"/>
         </scene>
         <!--Pam View Controller-->
         <scene sceneID="UJP-xl-cAW">
@@ -299,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktb-ZX-266" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1621" y="2848"/>
+            <point key="canvasLocation" x="1968" y="3540"/>
         </scene>
         <!--Activities-->
         <scene sceneID="RyN-TZ-hWg">

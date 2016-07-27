@@ -29,6 +29,11 @@
 		4B303ADC1D4816BB00AA6B5A /* PamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B303ADB1D4816BB00AA6B5A /* PamCollectionViewCell.swift */; };
 		4B4325D31CBF1A1E001F054C /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */; };
 		4BB201D21D492C09003B981B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB201D01D492C09003B981B /* Main.storyboard */; };
+		4BB201D41D4952F2003B981B /* WeekdayQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201D31D4952F2003B981B /* WeekdayQuestionViewController.swift */; };
+		4BB201D61D495527003B981B /* WeekendQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201D51D495527003B981B /* WeekendQuestionViewController.swift */; };
+		4BB201DF1D496293003B981B /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201DD1D496293003B981B /* SSRadioButton.swift */; };
+		4BB201E01D496293003B981B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201DE1D496293003B981B /* SSRadioButtonsController.swift */; };
+		4BB201E21D4970D9003B981B /* WeekdayIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */; };
 		4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA8AF71CC04E400085032D /* LoginViewController.swift */; };
 		92D6A1AB4CAA6774CB643BD6 /* Pods_workadayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DE1A8E096047A139C5921 /* Pods_workadayTests.framework */; };
 		CC5ACDB158FFECEEF7F83358 /* Pods_workaday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */; };
@@ -94,6 +99,11 @@
 		4B303ADB1D4816BB00AA6B5A /* PamCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PamCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
 		4BB201D11D492C09003B981B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4BB201D31D4952F2003B981B /* WeekdayQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayQuestionViewController.swift; sourceTree = "<group>"; };
+		4BB201D51D495527003B981B /* WeekendQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekendQuestionViewController.swift; sourceTree = "<group>"; };
+		4BB201DD1D496293003B981B /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButton.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButton.swift; sourceTree = "<group>"; };
+		4BB201DE1D496293003B981B /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButtonsController.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButtonsController.swift; sourceTree = "<group>"; };
+		4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayIntroViewController.swift; sourceTree = "<group>"; };
 		4BBA8AF71CC04E400085032D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		717D0C0125A566E34932B8F8 /* Pods-workadayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workaday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +142,7 @@
 		4B03D0911CB5B4E1003ACFD2 = {
 			isa = PBXGroup;
 			children = (
+				4BB201DC1D496266003B981B /* vendor */,
 				4B03D09C1CB5B4E1003ACFD2 /* workaday */,
 				4B03D0B41CB5B4E1003ACFD2 /* workadayTests */,
 				4B03D0BF1CB5B4E1003ACFD2 /* workadayUITests */,
@@ -228,6 +239,9 @@
 				4B303AD71D48167000AA6B5A /* PamViewController.swift */,
 				4B303AD91D48168D00AA6B5A /* PamHeaderView.swift */,
 				4B303ADB1D4816BB00AA6B5A /* PamCollectionViewCell.swift */,
+				4BB201D31D4952F2003B981B /* WeekdayQuestionViewController.swift */,
+				4BB201D51D495527003B981B /* WeekendQuestionViewController.swift */,
+				4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -238,6 +252,15 @@
 				4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */,
 			);
 			name = Withdrawl;
+			sourceTree = "<group>";
+		};
+		4BB201DC1D496266003B981B /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				4BB201DD1D496293003B981B /* SSRadioButton.swift */,
+				4BB201DE1D496293003B981B /* SSRadioButtonsController.swift */,
+			);
+			name = vendor;
 			sourceTree = "<group>";
 		};
 		C426C041531E76BA8FF12997 /* Pods */ = {
@@ -499,18 +522,23 @@
 			files = (
 				4B1550E91CBDAB2000878588 /* ResearchContainerSegue.swift in Sources */,
 				4B0BD26A1CBEA7DA009E2AB1 /* StudyTasks.swift in Sources */,
+				4BB201DF1D496293003B981B /* SSRadioButton.swift in Sources */,
 				4B03D0A01CB5B4E1003ACFD2 /* ViewController.swift in Sources */,
 				4B303AD21D48009C00AA6B5A /* Extensions.swift in Sources */,
 				4B03D0A61CB5B4E1003ACFD2 /* workaday.xcdatamodeld in Sources */,
 				4B303ADC1D4816BB00AA6B5A /* PamCollectionViewCell.swift in Sources */,
 				4B303AD41D4805BE00AA6B5A /* Constants.swift in Sources */,
 				4B4325D31CBF1A1E001F054C /* WithdrawViewController.swift in Sources */,
+				4BB201D61D495527003B981B /* WeekendQuestionViewController.swift in Sources */,
 				4B303ADA1D48168D00AA6B5A /* PamHeaderView.swift in Sources */,
+				4BB201D41D4952F2003B981B /* WeekdayQuestionViewController.swift in Sources */,
+				4BB201E21D4970D9003B981B /* WeekdayIntroViewController.swift in Sources */,
 				4B03D09E1CB5B4E1003ACFD2 /* AppDelegate.swift in Sources */,
 				4B1550FC1CBE9EA600878588 /* ActivityViewController.swift in Sources */,
 				4B0BD2731CBED695009E2AB1 /* ProfileStaticTableViewCell.swift in Sources */,
 				4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */,
 				4B0BD2701CBED633009E2AB1 /* ProfileHeaderView.swift in Sources */,
+				4BB201E01D496293003B981B /* SSRadioButtonsController.swift in Sources */,
 				4B0BD2681CBEA1E9009E2AB1 /* ProfileViewController.swift in Sources */,
 				4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */,
 				4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */,
