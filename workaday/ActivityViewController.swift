@@ -61,7 +61,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         locationFixAchieved = false
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
+   
     }
     
     
@@ -160,17 +160,27 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         let taskViewController: ORKTaskViewController
         switch activity {
         case .WeekdaySurvey:
-            taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
+           
+            
+            //taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
+            
+            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pamStoryboardID") as! PamViewController
+            
+            
+            let navigationController = UINavigationController(rootViewController: secondViewController)
+            
+            self.presentViewController(navigationController, animated: true, completion: nil)
         
             
         
         case .WeekendSurvey:
             taskViewController = ORKTaskViewController(task: StudyTasks.surveyWeekendTask, taskRunUUID: NSUUID())
+            print("do nothing")
 
         }
         
-        taskViewController.delegate = self
-        navigationController?.presentViewController(taskViewController, animated: true, completion: nil)
+        //taskViewController.delegate = self
+        //navigationController?.presentViewController(taskViewController, animated: true, completion: nil)
     }
 }
 
@@ -223,12 +233,7 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
         
         
         // Call the PAM view controller
-        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pamStoryboardID") as! PamViewController
-
         
-        //let navigationController = UINavigationController(rootViewController: secondViewController)
-        
-        self.presentViewController(secondViewController, animated: true, completion: nil)
         
 
         
