@@ -98,12 +98,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         let myComponents = myCalendar.components(.Weekday, fromDate: currentDateTime)
         let weekDay = myComponents.weekday
         
-        print("weekend diff", weekend_ts.numberOfDaysUntilDateTime(currentDateTime))
-        
-        print("weekday diff", weekday_ts.numberOfDaysUntilDateTime(currentDateTime))
-        
-        
-        
+                
         if let activity = Activity(rawValue: indexPath.row) {
             
             //put checkbox logic here
@@ -157,24 +152,23 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         
         guard let activity = Activity(rawValue: indexPath.row) else { return }
         
-        let taskViewController: ORKTaskViewController
+
         switch activity {
         case .WeekdaySurvey:
            
             
             //taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
             
-            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pamStoryboardID") as! PamViewController
+            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pamStoryboardID")
             
-            
-            let navigationController = UINavigationController(rootViewController: secondViewController)
+            let navigationController = UINavigationController(rootViewController: secondViewController!)
             
             self.presentViewController(navigationController, animated: true, completion: nil)
         
             
         
         case .WeekendSurvey:
-            taskViewController = ORKTaskViewController(task: StudyTasks.surveyWeekendTask, taskRunUUID: NSUUID())
+            
             print("do nothing")
 
         }

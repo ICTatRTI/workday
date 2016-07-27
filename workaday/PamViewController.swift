@@ -99,9 +99,12 @@ extension PamViewController : UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         highlightCell(indexPath, flag: true)
+        
+        print("highlight cell 1")
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         highlightCell(indexPath, flag: false)
+        print("highlight cell 2")
     }
 }
