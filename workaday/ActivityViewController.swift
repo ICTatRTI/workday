@@ -121,7 +121,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
 
                     cell.accessoryType =  .Checkmark
                     cell.selectionStyle = .None
-                    //cell.userInteractionEnabled = false
+                    cell.userInteractionEnabled = false
                 
             }
             
@@ -137,7 +137,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 
                 cell.accessoryType =  .Checkmark
                 cell.selectionStyle = .None
-               // cell.userInteractionEnabled = false
+               cell.userInteractionEnabled = false
             }
             
             
