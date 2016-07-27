@@ -32,7 +32,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use Apple&apos;s location services to provide your geographic location information when you are participating in our study. This data is immensely valuable to our researchers.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
