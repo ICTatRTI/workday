@@ -38,12 +38,27 @@ class LoginViewController: UIViewController {
         class LoginViewController : ORKLoginStepViewController {
             
             override func forgotPasswordButtonTapped() {
+                
                 let alertTitle = NSLocalizedString("Forgot password?", comment: "")
-                let alertMessage = NSLocalizedString("Button tapped", comment: "")
-                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }  
+                let alertMessage = NSLocalizedString("Please enter the email address your used to create your account", comment: "")
+                
+                let passwordPrompt = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
+                
+                passwordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+                    textField.placeholder = "Email"
+                })
+                
+                passwordPrompt.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    let email = passwordPrompt.textFields![0] as UITextField
+                    
+                    print("resetting password for : ", email)
+       
+                    
+                    
+                }))
+                
+                self.presentViewController(passwordPrompt, animated: true, completion: nil)
+            }
             
         }
         
