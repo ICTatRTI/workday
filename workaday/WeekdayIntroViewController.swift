@@ -24,6 +24,19 @@ class WeekdayIntroViewController: UIViewController  {
         
         let swiftColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         gettingStartedButton.layer.borderColor = swiftColor.CGColor
+    
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(cancelSurveyButtonTapped))
         
     }
+    
+    func cancelSurveyButtonTapped(sender: UIBarButtonItem) {
+        
+        let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
+        
+        let navigationController = UINavigationController(rootViewController: workdayViewController!)
+        
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    
 }
