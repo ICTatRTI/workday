@@ -34,6 +34,7 @@
 		4BB201DF1D496293003B981B /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201DD1D496293003B981B /* SSRadioButton.swift */; };
 		4BB201E01D496293003B981B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201DE1D496293003B981B /* SSRadioButtonsController.swift */; };
 		4BB201E21D4970D9003B981B /* WeekdayIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */; };
+		4BB201E41D4A529F003B981B /* WeekendIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201E31D4A529F003B981B /* WeekendIntroViewController.swift */; };
 		4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA8AF71CC04E400085032D /* LoginViewController.swift */; };
 		92D6A1AB4CAA6774CB643BD6 /* Pods_workadayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DE1A8E096047A139C5921 /* Pods_workadayTests.framework */; };
 		CC5ACDB158FFECEEF7F83358 /* Pods_workaday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */; };
@@ -71,7 +72,7 @@
 
 /* Begin PBXFileReference section */
 		3B273FA456A2446D8C6404B2 /* Pods-workadayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B03D09A1CB5B4E1003ACFD2 /* workaday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workaday.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B03D09A1CB5B4E1003ACFD2 /* workday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B03D09D1CB5B4E1003ACFD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B03D09F1CB5B4E1003ACFD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B03D0A51CB5B4E1003ACFD2 /* workaday.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = workaday.xcdatamodel; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		4BB201DD1D496293003B981B /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButton.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButton.swift; sourceTree = "<group>"; };
 		4BB201DE1D496293003B981B /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButtonsController.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayIntroViewController.swift; sourceTree = "<group>"; };
+		4BB201E31D4A529F003B981B /* WeekendIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekendIntroViewController.swift; sourceTree = "<group>"; };
 		4BBA8AF71CC04E400085032D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		717D0C0125A566E34932B8F8 /* Pods-workadayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workaday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +157,7 @@
 		4B03D09B1CB5B4E1003ACFD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B03D09A1CB5B4E1003ACFD2 /* workaday.app */,
+				4B03D09A1CB5B4E1003ACFD2 /* workday.app */,
 				4B03D0B11CB5B4E1003ACFD2 /* workadayTests.xctest */,
 				4B03D0BC1CB5B4E1003ACFD2 /* workadayUITests.xctest */,
 			);
@@ -242,6 +244,7 @@
 				4BB201D31D4952F2003B981B /* WeekdayQuestionViewController.swift */,
 				4BB201D51D495527003B981B /* WeekendQuestionViewController.swift */,
 				4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */,
+				4BB201E31D4A529F003B981B /* WeekendIntroViewController.swift */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -304,7 +307,7 @@
 			);
 			name = workaday;
 			productName = workaday;
-			productReference = 4B03D09A1CB5B4E1003ACFD2 /* workaday.app */;
+			productReference = 4B03D09A1CB5B4E1003ACFD2 /* workday.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4B03D0B01CB5B4E1003ACFD2 /* workadayTests */ = {
@@ -538,6 +541,7 @@
 				4B0BD2731CBED695009E2AB1 /* ProfileStaticTableViewCell.swift in Sources */,
 				4B1550DC1CBD963700878588 /* OnboardingViewController.swift in Sources */,
 				4B0BD2701CBED633009E2AB1 /* ProfileHeaderView.swift in Sources */,
+				4BB201E41D4A529F003B981B /* WeekendIntroViewController.swift in Sources */,
 				4BB201E01D496293003B981B /* SSRadioButtonsController.swift in Sources */,
 				4B0BD2681CBEA1E9009E2AB1 /* ProfileViewController.swift in Sources */,
 				4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */,
@@ -691,7 +695,7 @@
 				INFOPLIST_FILE = workaday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workaday;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = workday;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -707,7 +711,7 @@
 				INFOPLIST_FILE = workaday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workaday;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = workday;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

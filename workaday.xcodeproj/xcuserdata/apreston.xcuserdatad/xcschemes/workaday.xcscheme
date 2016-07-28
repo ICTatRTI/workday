@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B03D0991CB5B4E1003ACFD2"
-               BuildableName = "workaday.app"
+               BuildableName = "workday.app"
                BlueprintName = "workaday"
                ReferencedContainer = "container:workaday.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B03D0991CB5B4E1003ACFD2"
-            BuildableName = "workaday.app"
+            BuildableName = "workday.app"
             BlueprintName = "workaday"
             ReferencedContainer = "container:workaday.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B03D0991CB5B4E1003ACFD2"
-            BuildableName = "workaday.app"
+            BuildableName = "workday.app"
             BlueprintName = "workaday"
             ReferencedContainer = "container:workaday.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B03D0991CB5B4E1003ACFD2"
-            BuildableName = "workaday.app"
+            BuildableName = "workday.app"
             BlueprintName = "workaday"
             ReferencedContainer = "container:workaday.xcodeproj">
          </BuildableReference>
