@@ -59,8 +59,11 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationFixAchieved = false
-        locationManager.requestWhenInUseAuthorization()
+        //locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
+        self.tableView.reloadData()
    
     }
     
@@ -90,7 +93,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let weekday_ts = defaults.objectForKey("weekday_timestamp") as! NSDate
+        //print("last time weekday survey was: " , weekday_ts)
         let weekend_ts = defaults.objectForKey("weekend_timestamp") as! NSDate
+         //print("last time weekend survey was: " , weekend_ts)
 
         
         let currentDateTime = NSDate()
@@ -172,12 +177,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         switch activity {
         case .WeekdaySurvey:
            
+            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekdayStoryboardID")
             
-            //taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
-            
-            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekdayStoryboardID")
-            
-            let navigationController = UINavigationController(rootViewController: secondViewController!)
+            let navigationController = UINavigationController(rootViewController: workdayViewController!)
             
             self.presentViewController(navigationController, animated: true, completion: nil)
         
@@ -185,30 +187,24 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         
         case .WeekendSurvey:
             
+            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekendStoryboardID")
             
-            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekendStoryboardID")
-            
-            let navigationController = UINavigationController(rootViewController: secondViewController!)
+            let navigationController = UINavigationController(rootViewController: workdayViewController!)
             
             self.presentViewController(navigationController, animated: true, completion: nil)
 
         }
         
-        //taskViewController.delegate = self
-        //navigationController?.presentViewController(taskViewController, animated: true, completion: nil)
+
     }
 }
 
 extension ActivityViewController : ORKTaskViewControllerDelegate {
     
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
-        
-        // Handle results using taskViewController.result
-         let defaults = NSUserDefaults.standardUserDefaults()
-        
-        
-        
+
         //write task name and complete date to local storage
+        let defaults = NSUserDefaults.standardUserDefaults()
         if taskViewController.task?.identifier == "SurveyWeekdayTask" {
             defaults.setObject(NSDate(), forKey: "weekday_timestamp")
         } else{
