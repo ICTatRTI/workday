@@ -113,32 +113,48 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
              Enable weekday survey on M-F only if the survey hasnt' been completed within
              the past 24 hours
              */
-            if ( weekday_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 && activity.title == Constants.WEEKDAY_SURVEY_TITLE
+            if (activity.title == Constants.WEEKDAY_SURVEY_TITLE ){
                 
-                &&  (weekDay == 1 || weekDay == 7)
+                if ( weekDay == 1 || weekDay == 7) {
+                    cell.accessoryType =  .Checkmark
+                    cell.selectionStyle = .None
+                    cell.userInteractionEnabled = false
+                } else {
+                    
+                    if (weekday_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
+                        cell.accessoryType =  .Checkmark
+                        cell.selectionStyle = .None
+                        cell.userInteractionEnabled = false
+                    }
+                }
+        
                 
-                ) {
-
+            }
+            /*
+              Enable weekend survey on Sat/Sun only if the survey hasn't been completed within
+             the past 24 hours
+            */
+            else if ( activity.title == Constants.WEEKEND_SURVEY_TITLE ){
+                
+                if (weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6) {
+                    
                     cell.accessoryType =  .Checkmark
                     cell.selectionStyle = .None
                     cell.userInteractionEnabled = false
                 
+                } else  {
+                    
+                    if (weekend_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
+                        cell.accessoryType =  .Checkmark
+                        cell.selectionStyle = .None
+                        cell.userInteractionEnabled = false
+
+                    }
+                    
+                }
+                
             }
             
-            /* 
-             Enable weekend survey on Sat/Sun only if the survey hasn't been completed within
-             the past 24 hours
-            */
-            if ( weekend_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 && activity.title == Constants.WEEKEND_SURVEY_TITLE
-                
-                &&  (weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6)
-                
-                ) {
-                
-                cell.accessoryType =  .Checkmark
-                cell.selectionStyle = .None
-               cell.userInteractionEnabled = false
-            }
             
             
         }
@@ -159,7 +175,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             
             //taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRunUUID: NSUUID())
             
-            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pamStoryboardID")
+            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekdayStoryboardID")
             
             let navigationController = UINavigationController(rootViewController: secondViewController!)
             
@@ -169,7 +185,12 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         
         case .WeekendSurvey:
             
-            print("do nothing")
+            
+            let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekendStoryboardID")
+            
+            let navigationController = UINavigationController(rootViewController: secondViewController!)
+            
+            self.presentViewController(navigationController, animated: true, completion: nil)
 
         }
         

@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,8 +20,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="hqN-JU-7J9" kind="custom" identifier="toOnboarding" customClass="ResearchContainerSegue" customModule="workaday" customModuleProvider="target" id="i87-RG-gC9"/>
-                        <segue destination="WTt-cg-tcK" kind="custom" identifier="toStudy" customClass="ResearchContainerSegue" customModule="workaday" customModuleProvider="target" id="FdZ-kp-obX"/>
+                        <segue destination="hqN-JU-7J9" kind="custom" identifier="toOnboarding" customClass="ResearchContainerSegue" customModule="workday" customModuleProvider="target" id="i87-RG-gC9"/>
+                        <segue destination="WTt-cg-tcK" kind="custom" identifier="toStudy" customClass="ResearchContainerSegue" customModule="workday" customModuleProvider="target" id="FdZ-kp-obX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -31,7 +31,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="tON-EC-hKF">
             <objects>
-                <viewController id="hqN-JU-7J9" customClass="OnboardingViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hqN-JU-7J9" customClass="OnboardingViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cvt-xf-jZ1"/>
                         <viewControllerLayoutGuide type="bottom" id="2FA-8m-ROz"/>
@@ -92,7 +92,7 @@
                     </view>
                     <connections>
                         <segue destination="dpS-Fh-MKn" kind="unwind" identifier="unwindToStudy" unwindAction="unwindToStudy:" id="0aZ-q0-8iG"/>
-                        <segue destination="4tv-ZF-lvA" kind="custom" identifier="toLogin" customClass="ResearchContainerSegue" customModule="workaday" customModuleProvider="target" id="fYW-IV-eV8"/>
+                        <segue destination="4tv-ZF-lvA" kind="custom" identifier="toLogin" customClass="ResearchContainerSegue" customModule="workday" customModuleProvider="target" id="fYW-IV-eV8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmc-HS-8ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +103,7 @@
         <!--Login View Controller-->
         <scene sceneID="WsB-YJ-46b">
             <objects>
-                <viewController id="4tv-ZF-lvA" customClass="LoginViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4tv-ZF-lvA" customClass="LoginViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vYM-Sz-W4R"/>
                         <viewControllerLayoutGuide type="bottom" id="vmy-cj-Igh"/>
@@ -178,12 +178,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLa-gf-K0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669.86666666666667" y="2499.1999999999998"/>
+            <point key="canvasLocation" x="1037" y="2789"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FOQ-tf-hlb">
+            <objects>
+                <navigationController id="38T-Oy-XkC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dcg-KL-uBr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0k3-AV-jWf" kind="relationship" relationship="rootViewController" id="yex-Zt-7X3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Moj-Ma-Dd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="3663"/>
         </scene>
         <!--Weekday Intro View Controller-->
         <scene sceneID="qjM-NT-nhC">
             <objects>
-                <viewController storyboardIdentifier="pamStoryboardID" id="SBs-JS-tLO" customClass="WeekdayIntroViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weekdayStoryboardID" id="SBs-JS-tLO" customClass="WeekdayIntroViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gqA-Zq-vC9"/>
                         <viewControllerLayoutGuide type="bottom" id="fAA-C4-VQv"/>
@@ -192,8 +208,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Sj-rh9">
-                                <rect key="frame" x="10" y="375" width="300" height="57"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Sj-rh9">
+                                <rect key="frame" x="10" y="375" width="300" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -234,12 +250,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tS0-LO-a9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115" y="2848"/>
+            <point key="canvasLocation" x="1547" y="2784"/>
         </scene>
         <!--Weekday Question View Controller-->
         <scene sceneID="MLd-0M-ocm">
             <objects>
-                <viewController id="8i7-B7-anX" customClass="WeekdayQuestionViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8i7-B7-anX" customClass="WeekdayQuestionViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EZ7-8U-2A2"/>
                         <viewControllerLayoutGuide type="bottom" id="84x-u6-e3m"/>
@@ -256,16 +272,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFJ-JR-SdN" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFJ-JR-SdN" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="229" width="74" height="30"/>
                                 <state key="normal" title="Biked"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
                                         <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-V1-9VR" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-V1-9VR" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="248" width="115" height="48"/>
                                 <state key="normal">
                                     <string key="title">Walked/ran
@@ -275,9 +294,12 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
                                         <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWi-ES-poD" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWi-ES-poD" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="65" y="274" width="144" height="48"/>
                                 <state key="normal">
                                     <string key="title">Carpool/vanpool
@@ -287,9 +309,43 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
                                         <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WM6-Za-40y" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6u-hd-rAl" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="65" y="342" width="72" height="30"/>
+                                <state key="normal" title="Other"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.16997212195093669" green="0.74325679026000868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-AE-iM1">
+                                <rect key="frame" x="144" y="492" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="U3n-oV-UDv" kind="push" id="db1-AM-hjj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-9l-YsB" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="63" y="201" width="132" height="30"/>
+                                <state key="normal" title="Drove own car"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WM6-Za-40y" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="65" y="304" width="149" height="48"/>
                                 <state key="normal">
                                     <string key="title">Did not commute
@@ -299,32 +355,10 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
                                         <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6u-hd-rAl" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
-                                <rect key="frame" x="65" y="342" width="72" height="30"/>
-                                <state key="normal" title="Other"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.16997212195093669" green="0.74325679026000868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-9l-YsB" customClass="SSRadioButton" customModule="workaday" customModuleProvider="target">
-                                <rect key="frame" x="63" y="201" width="132" height="30"/>
-                                <state key="normal" title="Drove own car"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-AE-iM1">
-                                <rect key="frame" x="142" y="492" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <segue destination="U3n-oV-UDv" kind="push" id="db1-AM-hjj"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -346,80 +380,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChK-jd-jlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="3533"/>
+            <point key="canvasLocation" x="2057" y="2789"/>
         </scene>
         <!--Pam View Controller-->
         <scene sceneID="UJP-xl-cAW">
             <objects>
-                <viewController id="U3n-oV-UDv" customClass="PamViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gXW-HZ-igU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BBP-Cd-3Y4">
-                            <size key="itemSize" width="86" height="78"/>
-                            <size key="headerReferenceSize" width="50" height="186"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellIdentifier" id="sAc-ly-uu0" customClass="PamCollectionViewCell" customModule="workaday" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="250" width="86" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="86" height="78"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4PJ-Zj-Qfz">
-                                            <rect key="frame" x="0.0" y="0.0" width="86" height="78"/>
-                                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <connections>
-                                    <outlet property="imageView" destination="4PJ-Zj-Qfz" id="jsw-9K-C1A"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PamHeaderView" id="VcF-ne-NXC" customClass="PamHeaderView" customModule="workaday" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="320" height="186"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-1J-Cmp">
-                                    <rect key="frame" x="25" y="83" width="261" height="48"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="nu7-1J-Cmp" firstAttribute="centerX" secondItem="VcF-ne-NXC" secondAttribute="centerX" constant="-4.5" id="9FS-vH-BXh"/>
-                                <constraint firstAttribute="bottomMargin" secondItem="nu7-1J-Cmp" secondAttribute="bottom" constant="47" id="F2g-7b-GFn"/>
-                                <constraint firstItem="nu7-1J-Cmp" firstAttribute="top" secondItem="VcF-ne-NXC" secondAttribute="topMargin" constant="75" id="VYa-7w-mhm"/>
-                                <constraint firstItem="nu7-1J-Cmp" firstAttribute="leading" secondItem="VcF-ne-NXC" secondAttribute="leadingMargin" constant="17" id="w6e-fH-U22"/>
-                                <constraint firstItem="nu7-1J-Cmp" firstAttribute="centerX" secondItem="VcF-ne-NXC" secondAttribute="centerX" constant="-4.5" id="xkx-o8-Ho1"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="label" destination="nu7-1J-Cmp" id="Seu-d8-jBH"/>
-                            </connections>
-                        </collectionReusableView>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="NTF-1z-Rp2"/>
+                <viewController id="U3n-oV-UDv" customClass="PamViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="NTF-1z-Rp2">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="ebW-7t-gFQ"/>
+                        <connections>
+                            <outlet property="rightBarButtonItem" destination="ebW-7t-gFQ" id="IXG-H1-NUh"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="gXW-HZ-igU" id="Nkn-Ar-VjM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktb-ZX-266" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="yZF-WG-xGp">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gXW-HZ-igU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BBP-Cd-3Y4">
+                                <size key="itemSize" width="86" height="78"/>
+                                <size key="headerReferenceSize" width="50" height="139"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells>
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellIdentifier" id="sAc-ly-uu0" customClass="PamCollectionViewCell" customModule="workday" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="139" width="86" height="78"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4PJ-Zj-Qfz">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="78"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    <connections>
+                                        <outlet property="imageView" destination="4PJ-Zj-Qfz" id="jsw-9K-C1A"/>
+                                    </connections>
+                                </collectionViewCell>
+                            </cells>
+                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PamHeaderView" id="VcF-ne-NXC" customClass="PamHeaderView" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-1J-Cmp">
+                                        <rect key="frame" x="30" y="56" width="261" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="centerX" secondItem="VcF-ne-NXC" secondAttribute="centerX" constant="0.5" id="9FS-vH-BXh"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="nu7-1J-Cmp" secondAttribute="bottom" constant="27" id="F2g-7b-GFn"/>
+                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="top" secondItem="VcF-ne-NXC" secondAttribute="topMargin" constant="48" id="VYa-7w-mhm"/>
+                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="leading" secondItem="VcF-ne-NXC" secondAttribute="leadingMargin" constant="22" id="w6e-fH-U22"/>
+                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="centerX" secondItem="VcF-ne-NXC" secondAttribute="centerX" constant="0.5" id="xkx-o8-Ho1"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="label" destination="nu7-1J-Cmp" id="Seu-d8-jBH"/>
+                                </connections>
+                            </collectionReusableView>
+                        </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72E-fp-fO4">
+                            <rect key="frame" x="99" y="462" width="101" height="30"/>
+                            <state key="normal" title="Reload Images"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="1968" y="3540"/>
+            <point key="canvasLocation" x="2568" y="2764"/>
         </scene>
         <!--Activities-->
         <scene sceneID="RyN-TZ-hWg">
             <objects>
-                <tableViewController id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eki-cx-F7T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,12 +497,12 @@
         <!--Profile-->
         <scene sceneID="J9a-VX-bTR">
             <objects>
-                <tableViewController id="zqR-XT-0Pe" customClass="ProfileViewController" customModule="workaday" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zqR-XT-0Pe" customClass="ProfileViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="28" id="n4o-4G-1OK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="4wQ-kl-BCz" customClass="ProfileHeaderView" customModule="workaday" customModuleProvider="target">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="4wQ-kl-BCz" customClass="ProfileHeaderView" customModule="workday" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="64" width="320" height="163"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -531,6 +580,149 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCS-Wj-xe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-130.13333333333333" y="2167.8666666666668"/>
+        </scene>
+        <!--Weekend Intro View Controller-->
+        <scene sceneID="0T0-rh-6Tx">
+            <objects>
+                <viewController storyboardIdentifier="weekendStoryboardID" id="0k3-AV-jWf" customClass="WeekendIntroViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zYw-ro-G5b"/>
+                        <viewControllerLayoutGuide type="bottom" id="f5c-ci-Wj3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oQl-RM-cc5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eG-Ta-I9Q">
+                                <rect key="frame" x="10" y="375" width="300" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMv-qF-EEt">
+                                <rect key="frame" x="120" y="495" width="80" height="30"/>
+                                <state key="normal" title="Get Started"/>
+                                <connections>
+                                    <segue destination="bQk-Ee-dEb" kind="push" id="1ge-Gv-Bk2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekend Questionaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJX-mT-fgv" customClass="ORKHeadlineLabel">
+                                <rect key="frame" x="10" y="185" width="300" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="fNP-pk-bpL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f5c-ci-Wj3" firstAttribute="top" secondItem="IMv-qF-EEt" secondAttribute="bottom" constant="43" id="0L0-dh-1Mx"/>
+                            <constraint firstItem="ZJX-mT-fgv" firstAttribute="top" secondItem="zYw-ro-G5b" secondAttribute="bottom" constant="121" id="42T-iV-4hd"/>
+                            <constraint firstItem="ZJX-mT-fgv" firstAttribute="leading" secondItem="oQl-RM-cc5" secondAttribute="leadingMargin" constant="-6" id="6hQ-NC-xhB"/>
+                            <constraint firstItem="ZJX-mT-fgv" firstAttribute="trailing" secondItem="7eG-Ta-I9Q" secondAttribute="trailing" id="WoB-Dl-cyP"/>
+                            <constraint firstItem="ZJX-mT-fgv" firstAttribute="centerX" secondItem="IMv-qF-EEt" secondAttribute="centerX" id="aWL-lJ-gRj"/>
+                            <constraint firstItem="ZJX-mT-fgv" firstAttribute="centerX" secondItem="oQl-RM-cc5" secondAttribute="centerX" id="cMW-dW-FmE"/>
+                            <constraint firstItem="7eG-Ta-I9Q" firstAttribute="top" secondItem="ZJX-mT-fgv" secondAttribute="bottom" constant="24" id="h1M-zF-QSW"/>
+                            <constraint firstItem="ZJX-mT-fgv" firstAttribute="leading" secondItem="7eG-Ta-I9Q" secondAttribute="leading" id="ogK-Y3-V6e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="e8E-Am-arq"/>
+                    <connections>
+                        <outlet property="gettingStartedButton" destination="IMv-qF-EEt" id="4X3-5R-0aK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yan-Pf-cn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1581" y="3675"/>
+        </scene>
+        <!--Weekend Question View Controller-->
+        <scene sceneID="Ydm-F1-DNq">
+            <objects>
+                <viewController id="bQk-Ee-dEb" customClass="WeekendQuestionViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0ZH-0L-ijb"/>
+                        <viewControllerLayoutGuide type="bottom" id="tec-tf-lgu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Mv-P5-Iaf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-UU-Blb">
+                                <rect key="frame" x="12" y="85" width="301" height="69"/>
+                                <string key="text">What best describes your activity level today?
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQO-qt-n51" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="28" y="245" width="177" height="48"/>
+                                <state key="normal">
+                                    <string key="title">Moderately active 
+</string>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZW-cy-k0u">
+                                <rect key="frame" x="144" y="492" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VXm-WE-MAf" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="28" y="313" width="252" height="50"/>
+                                <state key="normal">
+                                    <string key="title">Not very active, sedentary activities preferred
+</string>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-MR-reH" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="28" y="189" width="222" height="48"/>
+                                <state key="normal">
+                                    <string key="title">Vigorously active for at least 30 min
+</string>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tec-tf-lgu" firstAttribute="top" secondItem="aZW-cy-k0u" secondAttribute="bottom" constant="46" id="QI9-jE-iE6"/>
+                            <constraint firstItem="aZW-cy-k0u" firstAttribute="centerX" secondItem="2Mv-P5-Iaf" secondAttribute="centerX" id="aTU-MP-jbX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Izy-hE-GEc"/>
+                    <connections>
+                        <outlet property="button1" destination="dfv-MR-reH" id="uaq-XD-XkX"/>
+                        <outlet property="button2" destination="CQO-qt-n51" id="Qgs-Uf-cPr"/>
+                        <outlet property="button3" destination="VXm-WE-MAf" id="YhE-9s-TvM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drt-JL-G22" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2091" y="3688"/>
         </scene>
     </scenes>
     <resources>
