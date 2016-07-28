@@ -243,14 +243,19 @@
                             <constraint firstItem="exD-Sj-rh9" firstAttribute="top" secondItem="vmW-AP-beR" secondAttribute="bottom" constant="24" id="m90-zR-B5A"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Dth-we-9Mu"/>
+                    <navigationItem key="navigationItem" id="Dth-we-9Mu">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="agY-8R-2la"/>
+                        <connections>
+                            <outlet property="leftBarButtonItem" destination="agY-8R-2la" id="Rdz-ls-Mcb"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
                         <outlet property="gettingStartedButton" destination="UNC-MH-z94" id="C1d-Jg-mLJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tS0-LO-a9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1547" y="2784"/>
+            <point key="canvasLocation" x="1581" y="2796"/>
         </scene>
         <!--Weekday Question View Controller-->
         <scene sceneID="MLd-0M-ocm">
@@ -300,7 +305,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWi-ES-poD" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
-                                <rect key="frame" x="65" y="274" width="144" height="48"/>
+                                <rect key="frame" x="63" y="275" width="144" height="48"/>
                                 <state key="normal">
                                     <string key="title">Carpool/vanpool
 </string>
@@ -314,23 +319,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6u-hd-rAl" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
-                                <rect key="frame" x="65" y="342" width="72" height="30"/>
-                                <state key="normal" title="Other"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.16997212195093669" green="0.74325679026000868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-AE-iM1">
                                 <rect key="frame" x="144" y="492" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="U3n-oV-UDv" kind="push" id="db1-AM-hjj"/>
+                                    <segue destination="bEw-o2-Ax6" kind="push" id="puQ-fY-6VO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-9l-YsB" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
@@ -346,7 +339,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WM6-Za-40y" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
-                                <rect key="frame" x="65" y="304" width="149" height="48"/>
+                                <rect key="frame" x="63" y="304" width="149" height="48"/>
                                 <state key="normal">
                                     <string key="title">Did not commute
 </string>
@@ -354,6 +347,18 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
                                         <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6u-hd-rAl" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="63" y="344" width="72" height="30"/>
+                                <state key="normal" title="Other"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                        <color key="value" red="0.16997212195093669" green="0.74325679026000868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -383,92 +388,80 @@
             <point key="canvasLocation" x="2057" y="2789"/>
         </scene>
         <!--Pam View Controller-->
-        <scene sceneID="UJP-xl-cAW">
+        <scene sceneID="59m-7A-Igf">
             <objects>
-                <viewController id="U3n-oV-UDv" customClass="PamViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="NTF-1z-Rp2">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="ebW-7t-gFQ"/>
-                        <connections>
-                            <outlet property="rightBarButtonItem" destination="ebW-7t-gFQ" id="IXG-H1-NUh"/>
-                        </connections>
+                <viewController id="bEw-o2-Ax6" customClass="PamViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Cwf-hc-YdG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6zW-Ur-Xa3">
+                            <size key="itemSize" width="84" height="81"/>
+                            <size key="headerReferenceSize" width="50" height="73"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellIdentifier" id="MbM-v9-6Lt" customClass="PamCollectionViewCell" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="137" width="84" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="81"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6u-6B-Kbm">
+                                            <rect key="frame" x="4" y="3" width="77" height="75"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="imageView" destination="M6u-6B-Kbm" id="xTp-HO-xyD"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PamHeaderView" id="WGP-ub-j1t" customClass="PamHeaderView" customModule="workday" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="320" height="73"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISj-uj-i5n">
+                                    <rect key="frame" x="34" y="15" width="252" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ISj-uj-i5n" firstAttribute="centerY" secondItem="WGP-ub-j1t" secondAttribute="centerY" constant="-11" id="FsB-Gi-3q1"/>
+                                <constraint firstItem="ISj-uj-i5n" firstAttribute="leading" secondItem="WGP-ub-j1t" secondAttribute="leadingMargin" constant="26" id="Sxw-Iz-vAj"/>
+                                <constraint firstItem="ISj-uj-i5n" firstAttribute="centerX" secondItem="WGP-ub-j1t" secondAttribute="centerX" id="tpS-Sr-MkT"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="ISj-uj-i5n" id="amj-rr-vdH"/>
+                            </connections>
+                        </collectionReusableView>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="fs6-WP-Grm">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Done" id="QE7-bw-uO5">
+                            <connections>
+                                <action selector="finishSurveyButtonTapped" destination="bEw-o2-Ax6" id="LPO-Gc-T2J"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="gXW-HZ-igU" id="Nkn-Ar-VjM"/>
+                        <outlet property="collectionView" destination="Cwf-hc-YdG" id="wxd-qb-ZrZ"/>
+                        <outlet property="finishNavigationButton" destination="QE7-bw-uO5" id="3Th-2R-wPf"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ktb-ZX-266" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="yZF-WG-xGp">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gXW-HZ-igU">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BBP-Cd-3Y4">
-                                <size key="itemSize" width="86" height="78"/>
-                                <size key="headerReferenceSize" width="50" height="139"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <cells>
-                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellIdentifier" id="sAc-ly-uu0" customClass="PamCollectionViewCell" customModule="workday" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="139" width="86" height="78"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="78"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4PJ-Zj-Qfz">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="78"/>
-                                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                    <connections>
-                                        <outlet property="imageView" destination="4PJ-Zj-Qfz" id="jsw-9K-C1A"/>
-                                    </connections>
-                                </collectionViewCell>
-                            </cells>
-                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PamHeaderView" id="VcF-ne-NXC" customClass="PamHeaderView" customModule="workday" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-1J-Cmp">
-                                        <rect key="frame" x="30" y="56" width="261" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="centerX" secondItem="VcF-ne-NXC" secondAttribute="centerX" constant="0.5" id="9FS-vH-BXh"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="nu7-1J-Cmp" secondAttribute="bottom" constant="27" id="F2g-7b-GFn"/>
-                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="top" secondItem="VcF-ne-NXC" secondAttribute="topMargin" constant="48" id="VYa-7w-mhm"/>
-                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="leading" secondItem="VcF-ne-NXC" secondAttribute="leadingMargin" constant="22" id="w6e-fH-U22"/>
-                                    <constraint firstItem="nu7-1J-Cmp" firstAttribute="centerX" secondItem="VcF-ne-NXC" secondAttribute="centerX" constant="0.5" id="xkx-o8-Ho1"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="label" destination="nu7-1J-Cmp" id="Seu-d8-jBH"/>
-                                </connections>
-                            </collectionReusableView>
-                        </collectionView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72E-fp-fO4">
-                            <rect key="frame" x="99" y="462" width="101" height="30"/>
-                            <state key="normal" title="Reload Images"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XIL-TB-7dB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2568" y="2764"/>
+            <point key="canvasLocation" x="2663" y="2789"/>
         </scene>
         <!--Activities-->
         <scene sceneID="RyN-TZ-hWg">
             <objects>
-                <tableViewController id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="activityStoryBoardID" id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eki-cx-F7T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -628,7 +621,12 @@
                             <constraint firstItem="ZJX-mT-fgv" firstAttribute="leading" secondItem="7eG-Ta-I9Q" secondAttribute="leading" id="ogK-Y3-V6e"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="e8E-Am-arq"/>
+                    <navigationItem key="navigationItem" id="e8E-Am-arq">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="icb-21-d6Z"/>
+                        <connections>
+                            <outlet property="leftBarButtonItem" destination="icb-21-d6Z" id="qI8-Y4-0Ti"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
                         <outlet property="gettingStartedButton" destination="IMv-qF-EEt" id="4X3-5R-0aK"/>
                     </connections>
@@ -649,8 +647,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-UU-Blb">
-                                <rect key="frame" x="12" y="85" width="301" height="69"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-UU-Blb">
+                                <rect key="frame" x="12" y="85" width="301" height="85"/>
                                 <string key="text">What best describes your activity level today?
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -675,6 +673,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZW-cy-k0u">
                                 <rect key="frame" x="144" y="492" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="2Ya-AJ-bjY" kind="push" id="i4M-up-Wro"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VXm-WE-MAf" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="28" y="313" width="252" height="50"/>
@@ -718,11 +719,83 @@
                         <outlet property="button1" destination="dfv-MR-reH" id="uaq-XD-XkX"/>
                         <outlet property="button2" destination="CQO-qt-n51" id="Qgs-Uf-cPr"/>
                         <outlet property="button3" destination="VXm-WE-MAf" id="YhE-9s-TvM"/>
+                        <outlet property="doneButton" destination="aZW-cy-k0u" id="3go-vZ-vtm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drt-JL-G22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2091" y="3688"/>
+            <point key="canvasLocation" x="2083" y="3675"/>
+        </scene>
+        <!--Pam View Controller-->
+        <scene sceneID="MIj-jH-wfs">
+            <objects>
+                <viewController id="2Ya-AJ-bjY" customClass="PamViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sRy-vq-Rtm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aat-q6-fqV">
+                            <size key="itemSize" width="84" height="81"/>
+                            <size key="headerReferenceSize" width="50" height="73"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellIdentifier" id="zgL-Ik-vas" customClass="PamCollectionViewCell" customModule="workday" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="137" width="84" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="81"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aB-pH-RBf">
+                                            <rect key="frame" x="4" y="3" width="77" height="75"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="imageView" destination="0aB-pH-RBf" id="a0I-ip-J7D"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PamHeaderView" id="qXx-IR-oiu" customClass="PamHeaderView" customModule="workday" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="320" height="73"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSU-08-Aow">
+                                    <rect key="frame" x="34" y="15" width="252" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="GSU-08-Aow" firstAttribute="leading" secondItem="qXx-IR-oiu" secondAttribute="leadingMargin" constant="26" id="3xF-TQ-fKv"/>
+                                <constraint firstItem="GSU-08-Aow" firstAttribute="centerY" secondItem="qXx-IR-oiu" secondAttribute="centerY" constant="-11" id="CU9-Rf-82b"/>
+                                <constraint firstItem="GSU-08-Aow" firstAttribute="centerX" secondItem="qXx-IR-oiu" secondAttribute="centerX" id="nJf-PT-5W1"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="GSU-08-Aow" id="6rJ-2c-b1q"/>
+                            </connections>
+                        </collectionReusableView>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="JX6-Df-l6A">
+                        <barButtonItem key="rightBarButtonItem" tag="2" title="Done" id="fsB-fz-3ji">
+                            <connections>
+                                <action selector="finishSurveyButtonTapped" destination="2Ya-AJ-bjY" id="KEy-Sg-uh2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="sRy-vq-Rtm" id="P2T-cw-6Mh"/>
+                        <outlet property="finishNavigationButton" destination="fsB-fz-3ji" id="EoD-8b-k5Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEH-zy-xSQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2607" y="3675"/>
         </scene>
     </scenes>
     <resources>

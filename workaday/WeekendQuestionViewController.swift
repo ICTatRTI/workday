@@ -43,9 +43,6 @@ class WeekendQuestionViewController: UIViewController, SSRadioButtonControllerDe
         print(aButton)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        navigationItem.title = "One"
-    }
     
     
 }

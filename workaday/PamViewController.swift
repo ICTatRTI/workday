@@ -13,19 +13,44 @@ class PamViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBAction func completeButtonTapped(sender: UIButton) {
-        //performSegueWithIdentifier("toLogin", sender: self)
-        print("go back to the activities screen")
+    @IBOutlet weak var finishNavigationButton: UIBarButtonItem!
+
+    
+    @IBAction func finishSurveyButtonTapped() {
+        
+        print("button pressed: ", finishNavigationButton.tag )
+        
+        
+        // using tags to keep track of which sur
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if finishNavigationButton.tag == 1{
+            defaults.setObject(NSDate(), forKey: "weekday_timestamp")
+        } else{
+            defaults.setObject(NSDate(), forKey: "weekend_timestamp")
+        }
+        
+        let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
+        
+        let navigationController = UINavigationController(rootViewController: workdayViewController!)
+        
+        self.presentViewController(navigationController, animated: true, completion: nil)
+        
         
     }
     
+
     let identifier = "CellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+ 
         collectionView.dataSource = self
     }
+    
+
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
