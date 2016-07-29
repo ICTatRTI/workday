@@ -77,6 +77,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             
             txtLatitude = coord.latitude
             txtLongitude = coord.longitude
+
         }
         
     }
@@ -158,9 +159,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 }
                 
             }
-            
-            
-            
+  
         }
         
         return cell
@@ -176,19 +175,28 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         switch activity {
         case .WeekdaySurvey:
            
-            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekdayStoryboardID")
+            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekdayStoryboardID") as! WeekdayIntroViewController
             
-            let navigationController = UINavigationController(rootViewController: workdayViewController!)
+            //Set some required survye variables
+            workdayViewController.device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+            workdayViewController.lat = String(txtLatitude)
+            workdayViewController.long = String(txtLatitude)
+            let navigationController = UINavigationController(rootViewController: workdayViewController)
             
             self.presentViewController(navigationController, animated: true, completion: nil)
-        
             
         
         case .WeekendSurvey:
             
-            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekendStoryboardID")
+            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekendStoryboardID") as! WeekendIntroViewController
             
-            let navigationController = UINavigationController(rootViewController: workdayViewController!)
+            //Set some required survye variables
+            workdayViewController.device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+            workdayViewController.lat = String(txtLatitude)
+            workdayViewController.long = String(txtLatitude)
+
+            
+            let navigationController = UINavigationController(rootViewController: workdayViewController)
             
             self.presentViewController(navigationController, animated: true, completion: nil)
 
@@ -242,14 +250,8 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
         }
         
         
-        // Call the PAM view controller
-        
-        
-
-        
         // Submit results
         researchNet.submitSurveyResponse({ (responseObject, error) in
-            
 
              if error != nil {
                 

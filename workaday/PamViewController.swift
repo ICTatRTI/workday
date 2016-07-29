@@ -18,8 +18,13 @@ class PamViewController: SurveyViewController {
     
     @IBAction func finishSurveyButtonTapped() {
         
-        //self.collectionView!.indexPathForCell(cell)
-        print("here is the selected cell: " )
+        let indexPaths : NSArray = self.collectionView!.indexPathsForSelectedItems()!
+        let indexPath : NSIndexPath = indexPaths[0] as! NSIndexPath
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PamCollectionViewCell
+        
+        print("here is the selected cell: " , cell.pamPhotoName)
+        
         // using tags to keep track of which sur
         //let defaults = NSUserDefaults.standardUserDefaults()
         if finishNavigationButton.tag == 1{
@@ -31,6 +36,10 @@ class PamViewController: SurveyViewController {
         let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
         
         let navigationController = UINavigationController(rootViewController: workdayViewController!)
+        
+        
+        
+        
         
         self.presentViewController(navigationController, animated: true, completion: nil)
         
@@ -49,9 +58,6 @@ class PamViewController: SurveyViewController {
         collectionView.dataSource = self
     }
     
-
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,7 +66,6 @@ class PamViewController: SurveyViewController {
     
     func highlightCell(indexPath : NSIndexPath, flag: Bool) {
         
-
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PamCollectionViewCell
 
         if flag {
@@ -96,6 +101,7 @@ extension PamViewController: UICollectionViewDataSource {
         
         let name = NSString(format: "%d_%d.jpg",indexPath.row + 1,random)
         
+        cell.pamPhotoName = name as String
         cell.imageView.image = UIImage(named: name.lowercaseString)
         cell.checkIcon.hidden = true;
         cell.checkIcon.image = UIImage(named:"check" )

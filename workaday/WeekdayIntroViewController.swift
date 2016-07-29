@@ -8,10 +8,9 @@
 
 import UIKit
 
-class WeekdayIntroViewController: UIViewController  {
+class WeekdayIntroViewController: SurveyViewController  {
     
     @IBOutlet weak var gettingStartedButton: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +28,10 @@ class WeekdayIntroViewController: UIViewController  {
         
     }
     
+    @IBAction func finishSurveyButtonTapped() {
+        print("my button")
+    }
+    
     func cancelSurveyButtonTapped(sender: UIBarButtonItem) {
         
         let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
@@ -38,6 +41,17 @@ class WeekdayIntroViewController: UIViewController  {
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
+    // Be sure to pass around the ResearchNet object to any view controllers who may need it.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if segue.identifier == "toWeekdayQuestion" {
+            if let destination = segue.destinationViewController as? WeekdayQuestionViewController {
+                destination.surveyParamters = self.surveyParamters
+            }
+        }
+    }
+    
+
 
 
     

@@ -50,19 +50,14 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
             
             switch selectedButton.tag {
             case Constants.DROVE_OWN_CAR_TAG:
-                print(Constants.DROVE_OWN_CAR_LABEL)
                 saveSurvey(Constants.DROVE_OWN_CAR_LABEL)
             case Constants.BIKED_TAG:
-                print(Constants.BIKED_LABEL)
                 saveSurvey(Constants.BIKED_LABEL)
             case Constants.WALKED_RAN_TAG:
-                print(Constants.WALKED_RAN_LABEL)
                 saveSurvey(Constants.WALKED_RAN_LABEL)
             case Constants.CARPOOL_TAG:
-                print(Constants.CARPOOL_LABEL)
                 saveSurvey(Constants.CARPOOL_LABEL)
             case Constants.OTHER_COMMUTE_TAG:
-                print(Constants.OTHER_COMMUTE_LABEL)
                 saveSurvey(Constants.OTHER_COMMUTE_LABEL)
             default:
                 saveSurvey(Constants.NO_COMMUTE_LABEL)

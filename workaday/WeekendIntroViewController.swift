@@ -8,10 +8,13 @@
 
 import UIKit
 
-class WeekendIntroViewController: UIViewController  {
+class WeekendIntroViewController: SurveyViewController  {
     
     @IBOutlet weak var gettingStartedButton: UIButton!
     
+    @IBAction func toSurveyQuestions(segue: UIStoryboardSegue){
+        performSegueWithIdentifier("toWeekendQuestion", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +42,14 @@ class WeekendIntroViewController: UIViewController  {
     }
     
 
+    // Be sure to pass around the ResearchNet object to any view controllers who may need it.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "toWeekendQuestion" {
+            if let destination = segue.destinationViewController as? WeekendQuestionViewController {
+                destination.surveyParamters = self.surveyParamters
+            }
+        }
+    }
 
 }

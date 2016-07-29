@@ -41,10 +41,4 @@ struct Constants {
     static let NOT_ACTIVE_LABEL : String = "not very active"
 
     
-
-    
-    
-    
-    
-    
 }

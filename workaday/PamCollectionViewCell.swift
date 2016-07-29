@@ -14,4 +14,6 @@ class PamCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var checkIcon: UIImageView!
     @IBOutlet weak var backgroundCircle: UIView!
     
+    var pamPhotoName:String = ""
+    
 }

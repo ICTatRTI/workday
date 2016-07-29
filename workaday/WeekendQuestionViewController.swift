@@ -39,16 +39,12 @@ class WeekendQuestionViewController: SurveyViewController, SSRadioButtonControll
     // Be sure to pass around the ResearchNet object to any view controllers who may need it.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        
-
         if let selectedButton = radioButtonController?.selectedButton() {
             
             switch selectedButton.tag {
             case Constants.VIGOROUSLY_ACTIVE_TAG:
-                print(Constants.VIGOROUSLY_ACTIVE_LABEL)
                 saveSurvey(Constants.VIGOROUSLY_ACTIVE_LABEL)
             case Constants.MODERATELY_ACTIVE_TAG:
-                print(Constants.MODERATELY_ACTIVE_LABEL)
                 saveSurvey(Constants.MODERATELY_ACTIVE_LABEL)
             default:
                 saveSurvey(Constants.NOT_ACTIVE_LABEL)

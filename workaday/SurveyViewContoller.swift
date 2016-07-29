@@ -11,6 +11,9 @@ import UIKit
 class SurveyViewController: UIViewController {
     
     var surveyParamters : [String: String] = [:]
+    var device_id : String = ""
+    var lat : String = ""
+    var long : String = ""
     
 }
 
