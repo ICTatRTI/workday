@@ -15,10 +15,9 @@ class PamViewController: UIViewController {
     
     @IBOutlet weak var finishNavigationButton: UIBarButtonItem!
 
+    let identifier = "CellIdentifier"
     
     @IBAction func finishSurveyButtonTapped() {
-        
-        print("button pressed: ", finishNavigationButton.tag )
         
         
         // using tags to keep track of which sur
@@ -35,16 +34,17 @@ class PamViewController: UIViewController {
         
         self.presentViewController(navigationController, animated: true, completion: nil)
         
+    }
+    
+    @IBAction func reloadImages() {
+        
+        self.collectionView.reloadData()
         
     }
     
-
-    let identifier = "CellIdentifier"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
- 
+    
         collectionView.dataSource = self
     }
     
