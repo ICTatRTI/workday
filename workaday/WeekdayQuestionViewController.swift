@@ -38,11 +38,42 @@ class WeekdayQuestionViewController: UIViewController, SSRadioButtonControllerDe
         
         let swiftColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         doneButton.layer.borderColor = swiftColor.CGColor
-            
-        
-        print("loading Quesionaire")
+
     }
 
+    
+    // Be sure to pass around the ResearchNet object to any view controllers who may need it.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+       
+        
+        if let selectedButton = radioButtonController?.selectedButton() {
+            
+            switch selectedButton.tag {
+            case Constants.DROVE_OWN_CAR_TAG:
+                print(Constants.DROVE_OWN_CAR_LABEL)
+            case Constants.BIKED_TAG:
+                print(Constants.BIKED_LABEL)
+            case Constants.WALKED_RAN_TAG:
+                print(Constants.WALKED_RAN_LABEL)
+            case Constants.CARPOOL_TAG:
+                print(Constants.CARPOOL_LABEL)
+            case Constants.OTHER_COMMUTE_TAG:
+                print(Constants.OTHER_COMMUTE_LABEL)
+            default:
+                print("nothing")
+            }
+
+        }
+        
+        
+        
+        if segue.identifier == "toWeekdayPamQuestion" {
+             print("on to pam scene")
+        }
+    }
+    
+    
     func didSelectButton(aButton: UIButton?) {
         print(aButton)
     }

@@ -19,13 +19,14 @@ class PamViewController: UIViewController {
     
     @IBAction func finishSurveyButtonTapped() {
         
-        
+        //self.collectionView!.indexPathForCell(cell)
+        print("here is the selected cell: " )
         // using tags to keep track of which sur
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         if finishNavigationButton.tag == 1{
-            defaults.setObject(NSDate(), forKey: "weekday_timestamp")
+            //defaults.setObject(NSDate(), forKey: "weekday_timestamp")
         } else{
-            defaults.setObject(NSDate(), forKey: "weekend_timestamp")
+            //defaults.setObject(NSDate(), forKey: "weekend_timestamp")
         }
         
         let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
@@ -45,6 +46,7 @@ class PamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        collectionView.delegate = self;
         collectionView.dataSource = self
     }
     
@@ -59,19 +61,23 @@ class PamViewController: UIViewController {
     
     func highlightCell(indexPath : NSIndexPath, flag: Bool) {
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        
+
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PamCollectionViewCell
+
         if flag {
-            cell?.contentView.backgroundColor = UIColor.magentaColor()
+            cell.imageView.alpha = 0.6;
+            cell.checkIcon.hidden = false;
+            cell.backgroundCircle.hidden = false;
         } else {
-            cell?.contentView.backgroundColor = nil
+            cell.imageView.alpha = 1.0;
+            cell.checkIcon.hidden = true;
+            cell.backgroundCircle.hidden = true;
         }
+        
+ 
     }
     
 }
-
-
-
 
 
 
@@ -92,7 +98,11 @@ extension PamViewController: UICollectionViewDataSource {
         let name = NSString(format: "%d_%d.jpg",indexPath.row + 1,random)
         
         cell.imageView.image = UIImage(named: name.lowercaseString)
-        
+        cell.checkIcon.hidden = true;
+        cell.checkIcon.image = UIImage(named:"check" )
+        cell.backgroundCircle.hidden = true;
+        cell.backgroundCircle.layer.cornerRadius = 12.0;
+        cell.backgroundCircle.layer.borderWidth = 0.25;
         
         return cell
     }
@@ -125,11 +135,10 @@ extension PamViewController : UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         highlightCell(indexPath, flag: true)
         
-        print("highlight cell 1")
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         highlightCell(indexPath, flag: false)
-        print("highlight cell 2")
+
     }
 }
