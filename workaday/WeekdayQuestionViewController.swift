@@ -9,7 +9,7 @@
 import UIKit
 
 
-class WeekdayQuestionViewController: UIViewController, SSRadioButtonControllerDelegate {
+class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControllerDelegate {
     
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -45,37 +45,40 @@ class WeekdayQuestionViewController: UIViewController, SSRadioButtonControllerDe
     // Be sure to pass around the ResearchNet object to any view controllers who may need it.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-       
-        
+
         if let selectedButton = radioButtonController?.selectedButton() {
             
             switch selectedButton.tag {
             case Constants.DROVE_OWN_CAR_TAG:
                 print(Constants.DROVE_OWN_CAR_LABEL)
+                saveSurvey(Constants.DROVE_OWN_CAR_LABEL)
             case Constants.BIKED_TAG:
                 print(Constants.BIKED_LABEL)
+                saveSurvey(Constants.BIKED_LABEL)
             case Constants.WALKED_RAN_TAG:
                 print(Constants.WALKED_RAN_LABEL)
+                saveSurvey(Constants.WALKED_RAN_LABEL)
             case Constants.CARPOOL_TAG:
                 print(Constants.CARPOOL_LABEL)
+                saveSurvey(Constants.CARPOOL_LABEL)
             case Constants.OTHER_COMMUTE_TAG:
                 print(Constants.OTHER_COMMUTE_LABEL)
+                saveSurvey(Constants.OTHER_COMMUTE_LABEL)
             default:
-                print("nothing")
+                saveSurvey(Constants.NO_COMMUTE_LABEL)
             }
 
         }
-        
-        
-        
+  
         if segue.identifier == "toWeekdayPamQuestion" {
-             print("on to pam scene")
+            if let destination = segue.destinationViewController as? PamViewController {
+                destination.surveyParamters = self.surveyParamters
+            }
         }
     }
     
-    
-    func didSelectButton(aButton: UIButton?) {
-        print(aButton)
+    func saveSurvey(response: String){
+        self.surveyParamters[Constants.WORK_TRANSPORTATION_QUESTION_LABEL] = response
     }
     
     

@@ -171,14 +171,9 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                 
     
                 }, username: username, password: password, first_name: first_name, last_name: last_name, gender: gender, dob: dob)
-                    
-
-                
+       
             }
-        
-        
-   
-        
+     
     }
 
 

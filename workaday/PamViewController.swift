@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PamViewController: UIViewController {
-    
+class PamViewController: SurveyViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     

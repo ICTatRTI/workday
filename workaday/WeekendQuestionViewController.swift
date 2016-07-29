@@ -8,14 +8,13 @@
 
 import UIKit
 
-class WeekendQuestionViewController: UIViewController, SSRadioButtonControllerDelegate {
+class WeekendQuestionViewController: SurveyViewController, SSRadioButtonControllerDelegate {
     
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     
     @IBOutlet weak var doneButton: UIButton!
-    
     
     var radioButtonController: SSRadioButtonsController?
     
@@ -35,14 +34,37 @@ class WeekendQuestionViewController: UIViewController, SSRadioButtonControllerDe
         let swiftColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         doneButton.layer.borderColor = swiftColor.CGColor
         
+    }
+    
+    // Be sure to pass around the ResearchNet object to any view controllers who may need it.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
         
-        print("loading Quesionaire")
+
+        if let selectedButton = radioButtonController?.selectedButton() {
+            
+            switch selectedButton.tag {
+            case Constants.VIGOROUSLY_ACTIVE_TAG:
+                print(Constants.VIGOROUSLY_ACTIVE_LABEL)
+                saveSurvey(Constants.VIGOROUSLY_ACTIVE_LABEL)
+            case Constants.MODERATELY_ACTIVE_TAG:
+                print(Constants.MODERATELY_ACTIVE_LABEL)
+                saveSurvey(Constants.MODERATELY_ACTIVE_LABEL)
+            default:
+                saveSurvey(Constants.NOT_ACTIVE_LABEL)
+            }
+        }
+        
+        if segue.identifier == "toWeekendPamQuestion" {
+            if let destination = segue.destinationViewController as? PamViewController {
+                destination.surveyParamters = self.surveyParamters
+            }
+        }
     }
+
     
-    func didSelectButton(aButton: UIButton?) {
-        print(aButton)
+    func saveSurvey(response: String){
+        self.surveyParamters[Constants.WORK_TRANSPORTATION_QUESTION_LABEL] = response
     }
-    
-    
     
 }

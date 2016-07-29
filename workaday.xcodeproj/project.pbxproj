@@ -36,6 +36,7 @@
 		4BB201E21D4970D9003B981B /* WeekdayIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */; };
 		4BB201E41D4A529F003B981B /* WeekendIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201E31D4A529F003B981B /* WeekendIntroViewController.swift */; };
 		4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA8AF71CC04E400085032D /* LoginViewController.swift */; };
+		4BC26D8C1D4BF2C400C2D7F6 /* SurveyViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26D8B1D4BF2C400C2D7F6 /* SurveyViewContoller.swift */; };
 		92D6A1AB4CAA6774CB643BD6 /* Pods_workadayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DE1A8E096047A139C5921 /* Pods_workadayTests.framework */; };
 		CC5ACDB158FFECEEF7F83358 /* Pods_workaday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		4BB201E11D4970D9003B981B /* WeekdayIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayIntroViewController.swift; sourceTree = "<group>"; };
 		4BB201E31D4A529F003B981B /* WeekendIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekendIntroViewController.swift; sourceTree = "<group>"; };
 		4BBA8AF71CC04E400085032D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4BC26D8B1D4BF2C400C2D7F6 /* SurveyViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewContoller.swift; sourceTree = "<group>"; };
 		717D0C0125A566E34932B8F8 /* Pods-workadayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workadayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-workadayTests/Pods-workadayTests.release.xcconfig"; sourceTree = "<group>"; };
 		7EF8156DA4F26E6BC33E4A1F /* Pods_workaday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workaday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9712226E4922783444984808 /* Pods-workaday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workaday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-workaday/Pods-workaday.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		4B03D09C1CB5B4E1003ACFD2 /* workaday */ = {
 			isa = PBXGroup;
 			children = (
+				4BC26D8A1D4BF2AD00C2D7F6 /* Survey */,
 				4B4325D11CBF1A08001F054C /* Withdrawl */,
 				4B0BD2651CBEA1D3009E2AB1 /* Profile */,
 				4B1550F91CBE9E6800878588 /* Activities */,
@@ -264,6 +267,14 @@
 				4BB201DE1D496293003B981B /* SSRadioButtonsController.swift */,
 			);
 			name = vendor;
+			sourceTree = "<group>";
+		};
+		4BC26D8A1D4BF2AD00C2D7F6 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				4BC26D8B1D4BF2C400C2D7F6 /* SurveyViewContoller.swift */,
+			);
+			name = Survey;
 			sourceTree = "<group>";
 		};
 		C426C041531E76BA8FF12997 /* Pods */ = {
@@ -543,6 +554,7 @@
 				4B0BD2701CBED633009E2AB1 /* ProfileHeaderView.swift in Sources */,
 				4BB201E41D4A529F003B981B /* WeekendIntroViewController.swift in Sources */,
 				4BB201E01D496293003B981B /* SSRadioButtonsController.swift in Sources */,
+				4BC26D8C1D4BF2C400C2D7F6 /* SurveyViewContoller.swift in Sources */,
 				4B0BD2681CBEA1E9009E2AB1 /* ProfileViewController.swift in Sources */,
 				4BBA8AF81CC04E400085032D /* LoginViewController.swift in Sources */,
 				4B1550E61CBDA91D00878588 /* ConsentDocument.swift in Sources */,
