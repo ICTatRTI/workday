@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import ResearchNet
 
 class PamViewController: SurveyViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var finishNavigationButton: UIBarButtonItem!
-
+    @IBOutlet weak var finishNavigationButton: UIButton!
+    var researchNet : ResearchNet!
+    
     let identifier = "CellIdentifier"
     
     @IBAction func finishSurveyButtonTapped() {
@@ -23,26 +25,46 @@ class PamViewController: SurveyViewController {
         
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PamCollectionViewCell
         
-        print("here is the selected cell: " , cell.pamPhotoName)
+        saveSurvey(cell.pamPhotoName)
         
-        // using tags to keep track of which sur
-        //let defaults = NSUserDefaults.standardUserDefaults()
-        if finishNavigationButton.tag == 1{
-            //defaults.setObject(NSDate(), forKey: "weekday_timestamp")
-        } else{
-            //defaults.setObject(NSDate(), forKey: "weekend_timestamp")
-        }
+        //Submit Survey
+        researchNet.submitSurveyResponse({ (responseObject, error) in
+            
+            if error != nil {
+                
+                let errorMessage = "Unable to reach the server. Try again."
+                let alert = UIAlertController(title: "Submission Error",
+                    message: errorMessage, preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            } else {
+                
+                // using tags to keep track of which survey we just done
+                let defaults = NSUserDefaults.standardUserDefaults()
+                if self.finishNavigationButton.tag == 1{
+                    defaults.setObject(NSDate(), forKey: "weekday_timestamp")
+                } else{
+                    defaults.setObject(NSDate(), forKey: "weekend_timestamp")
+                }
+                
+                
+                let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
+                
+                let navigationController = UINavigationController(rootViewController: workdayViewController!)
+ 
+                self.presentViewController(navigationController, animated: true, completion: nil)
+
+            }
+            
+            }, device_id: device_id, lat: lat, long: long, response: surveyParamters)
         
-        let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
-        
-        let navigationController = UINavigationController(rootViewController: workdayViewController!)
-        
-        
-        
-        
-        
-        self.presentViewController(navigationController, animated: true, completion: nil)
-        
+          
+    }
+    
+    func saveSurvey(response: String){
+        self.surveyParamters[Constants.PAM_QUESTION_LABEL] = response
     }
     
     @IBAction func reloadImages() {
@@ -56,6 +78,16 @@ class PamViewController: SurveyViewController {
     
         collectionView.delegate = self;
         collectionView.dataSource = self
+        
+        
+        // Style the done button (simliar to RK)
+        finishNavigationButton.backgroundColor = UIColor.clearColor()
+        finishNavigationButton.layer.cornerRadius = 5
+        finishNavigationButton.layer.borderWidth = 1
+        finishNavigationButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
+        
+        let swiftColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        finishNavigationButton.layer.borderColor = swiftColor.CGColor
     }
     
     
@@ -99,10 +131,11 @@ extension PamViewController: UICollectionViewDataSource {
         
         let random = arc4random() % 3 + 1;
         
-        let name = NSString(format: "%d_%d.jpg",indexPath.row + 1,random)
+        let file_name = NSString(format: "%d_%d.jpg",indexPath.row + 1,random)
+        let name = NSString(format: "%d_%d",indexPath.row + 1,random)
         
         cell.pamPhotoName = name as String
-        cell.imageView.image = UIImage(named: name.lowercaseString)
+        cell.imageView.image = UIImage(named: file_name.lowercaseString)
         cell.checkIcon.hidden = true;
         cell.checkIcon.image = UIImage(named:"check" )
         cell.backgroundCircle.hidden = true;

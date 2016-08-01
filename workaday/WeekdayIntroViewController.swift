@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import ResearchNet
 
 class WeekdayIntroViewController: SurveyViewController  {
     
     @IBOutlet weak var gettingStartedButton: UIButton!
+    var researchNet : ResearchNet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +30,7 @@ class WeekdayIntroViewController: SurveyViewController  {
         
     }
     
-    @IBAction func finishSurveyButtonTapped() {
-        print("my button")
-    }
+
     
     func cancelSurveyButtonTapped(sender: UIBarButtonItem) {
         
@@ -46,7 +46,11 @@ class WeekdayIntroViewController: SurveyViewController  {
 
         if segue.identifier == "toWeekdayQuestion" {
             if let destination = segue.destinationViewController as? WeekdayQuestionViewController {
-                destination.surveyParamters = self.surveyParamters
+                destination.device_id = self.device_id
+                destination.lat = self.lat
+                destination.long = self.long
+                destination.researchNet = self.researchNet
+            
             }
         }
     }

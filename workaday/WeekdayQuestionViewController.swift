@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ResearchNet
 
 
 class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControllerDelegate {
@@ -21,7 +22,7 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
     @IBOutlet weak var doneButton: UIButton!
     
     var radioButtonController: SSRadioButtonsController?
-    
+    var researchNet : ResearchNet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,6 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
     // Be sure to pass around the ResearchNet object to any view controllers who may need it.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-
         if let selectedButton = radioButtonController?.selectedButton() {
             
             switch selectedButton.tag {
@@ -68,6 +68,10 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
         if segue.identifier == "toWeekdayPamQuestion" {
             if let destination = segue.destinationViewController as? PamViewController {
                 destination.surveyParamters = self.surveyParamters
+                destination.device_id = self.device_id
+                destination.lat = self.lat
+                destination.long = self.long
+                destination.researchNet = self.researchNet
             }
         }
     }

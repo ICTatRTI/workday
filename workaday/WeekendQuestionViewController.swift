@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ResearchNet
 
 class WeekendQuestionViewController: SurveyViewController, SSRadioButtonControllerDelegate {
     
@@ -15,6 +16,7 @@ class WeekendQuestionViewController: SurveyViewController, SSRadioButtonControll
     @IBOutlet weak var button3: UIButton!
     
     @IBOutlet weak var doneButton: UIButton!
+    var researchNet : ResearchNet!
     
     var radioButtonController: SSRadioButtonsController?
     
@@ -54,6 +56,10 @@ class WeekendQuestionViewController: SurveyViewController, SSRadioButtonControll
         if segue.identifier == "toWeekendPamQuestion" {
             if let destination = segue.destinationViewController as? PamViewController {
                 destination.surveyParamters = self.surveyParamters
+                destination.device_id = self.device_id
+                destination.lat = self.lat
+                destination.long = self.long
+                destination.researchNet = self.researchNet
             }
         }
     }

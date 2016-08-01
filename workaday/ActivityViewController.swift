@@ -93,9 +93,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let weekday_ts = defaults.objectForKey("weekday_timestamp") as! NSDate
-        //print("last time weekday survey was: " , weekday_ts)
         let weekend_ts = defaults.objectForKey("weekend_timestamp") as! NSDate
-         //print("last time weekend survey was: " , weekend_ts)
 
         
         let currentDateTime = NSDate()
@@ -127,9 +125,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 } else {
                     
                     if (weekday_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
-                        cell.accessoryType =  .Checkmark
-                        cell.selectionStyle = .None
-                        cell.userInteractionEnabled = false
+                        //cell.accessoryType =  .Checkmark
+                        //cell.selectionStyle = .None
+                        //cell.userInteractionEnabled = false
                     }
                 }
         
@@ -143,9 +141,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 
                 if (weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6) {
                     
-                    cell.accessoryType =  .Checkmark
-                    cell.selectionStyle = .None
-                    cell.userInteractionEnabled = false
+                    //cell.accessoryType =  .Checkmark
+                    //cell.selectionStyle = .None
+                    //cell.userInteractionEnabled = false
                 
                 } else  {
                     
@@ -165,8 +163,11 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         return cell
     }
     
-    // MARK: UITableViewDelegate
     
+
+    
+    
+    // MARK: UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         guard let activity = Activity(rawValue: indexPath.row) else { return }
@@ -180,7 +181,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             //Set some required survye variables
             workdayViewController.device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
             workdayViewController.lat = String(txtLatitude)
-            workdayViewController.long = String(txtLatitude)
+            workdayViewController.long = String(txtLongitude)
+            workdayViewController.researchNet = self.researchNet
+            
             let navigationController = UINavigationController(rootViewController: workdayViewController)
             
             self.presentViewController(navigationController, animated: true, completion: nil)
@@ -194,6 +197,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             workdayViewController.device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
             workdayViewController.lat = String(txtLatitude)
             workdayViewController.long = String(txtLatitude)
+            workdayViewController.researchNet = self.researchNet
 
             
             let navigationController = UINavigationController(rootViewController: workdayViewController)
@@ -206,6 +210,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
     }
 }
 
+// Used for survey implementions with ResearchKit
 extension ActivityViewController : ORKTaskViewControllerDelegate {
     
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {

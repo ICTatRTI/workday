@@ -39,6 +39,9 @@ struct Constants {
     static let MODERATELY_ACTIVE_LABEL : String = "moderately active"
     static let NOT_ACTIVE_TAG : Int = 9
     static let NOT_ACTIVE_LABEL : String = "not very active"
+    
+    // PAM question
+    static let PAM_QUESTION_LABEL = "how do you feel today"
 
     
 }
