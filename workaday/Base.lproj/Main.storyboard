@@ -323,7 +323,7 @@
                                 <rect key="frame" x="144" y="444" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="ViS-CE-wda" kind="push" identifier="toWeekendPamQuestion" id="IKh-D8-nra"/>
+                                    <segue destination="ViS-CE-wda" kind="push" identifier="toWeekdayPamQuestion" id="IKh-D8-nra"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-9l-YsB" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">

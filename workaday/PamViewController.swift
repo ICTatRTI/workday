@@ -69,6 +69,7 @@ class PamViewController: SurveyViewController {
     
     @IBAction func reloadImages() {
         
+        finishNavigationButton.enabled = false
         self.collectionView.reloadData()
         
     }
@@ -80,14 +81,7 @@ class PamViewController: SurveyViewController {
         collectionView.dataSource = self
         
         
-        // Style the done button (simliar to RK)
-        finishNavigationButton.backgroundColor = UIColor.clearColor()
-        finishNavigationButton.layer.cornerRadius = 5
-        finishNavigationButton.layer.borderWidth = 1
-        finishNavigationButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
-        
-        let swiftColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
-        finishNavigationButton.layer.borderColor = swiftColor.CGColor
+        finishNavigationButton.enabled = false
     }
     
     
@@ -172,6 +166,7 @@ extension PamViewController : UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         highlightCell(indexPath, flag: true)
+        finishNavigationButton.enabled = true
         
     }
     

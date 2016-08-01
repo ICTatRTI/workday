@@ -31,17 +31,18 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
         radioButtonController!.delegate = self
         radioButtonController!.shouldLetDeSelect = true
         
-        // Style the done button (simliar to RK)
-        doneButton.backgroundColor = UIColor.clearColor()
-        doneButton.layer.cornerRadius = 5
-        doneButton.layer.borderWidth = 1
-        doneButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
-        
-        let swiftColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
-        doneButton.layer.borderColor = swiftColor.CGColor
 
+        doneButton.enabled = false
     }
 
+    func didSelectButton(aButton: UIButton?) {
+        
+        if aButton != nil {
+            doneButton!.enabled = true
+        } else {
+            doneButton!.enabled = false
+        }
+    }
     
     // Be sure to pass around the ResearchNet object to any view controllers who may need it.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
