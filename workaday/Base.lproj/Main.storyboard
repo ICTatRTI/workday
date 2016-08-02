@@ -668,14 +668,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnh-VF-PWi">
-                                <rect key="frame" x="112" y="500" width="96" height="30"/>
+                                <rect key="frame" x="112" y="503" width="96" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Reload Images"/>
                                 <connections>
                                     <action selector="reloadImages" destination="ViS-CE-wda" eventType="touchUpInside" id="j0c-Vx-sbk"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Ag-ab-N3d">
-                                <rect key="frame" x="10" y="80" width="300" height="389"/>
+                                <rect key="frame" x="10" y="80" width="300" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eFI-fD-Idi">
                                     <size key="itemSize" width="73" height="73"/>
@@ -753,7 +754,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olZ-8F-vUz">
-                                <rect key="frame" x="135" y="468" width="50" height="29"/>
+                                <rect key="frame" x="135" y="471" width="50" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="o0a-Uq-Vfn"/>
                                 </constraints>
@@ -801,14 +802,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKa-rZ-RGh">
-                                <rect key="frame" x="112" y="500" width="96" height="30"/>
+                                <rect key="frame" x="108" y="503" width="104" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Reload Images"/>
                                 <connections>
                                     <action selector="reloadImages" destination="qhn-qe-Nt2" eventType="touchUpInside" id="8BQ-FY-1yC"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="53T-jX-aag">
-                                <rect key="frame" x="10" y="80" width="300" height="389"/>
+                                <rect key="frame" x="10" y="80" width="300" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Hf-JA-RGN">
                                     <size key="itemSize" width="73" height="73"/>
@@ -886,7 +888,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-dk-fUa">
-                                <rect key="frame" x="135" y="468" width="50" height="29"/>
+                                <rect key="frame" x="131" y="471" width="58" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="q3q-kl-4Fz"/>
                                 </constraints>
@@ -899,7 +901,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sKa-rZ-RGh" firstAttribute="leading" secondItem="WH1-cH-t6G" secondAttribute="leadingMargin" constant="96" id="DXZ-Wu-VAz"/>
+                            <constraint firstItem="sKa-rZ-RGh" firstAttribute="leading" secondItem="WH1-cH-t6G" secondAttribute="leadingMargin" constant="92" id="DXZ-Wu-VAz"/>
                             <constraint firstItem="53T-jX-aag" firstAttribute="top" secondItem="sq2-s8-UyT" secondAttribute="bottom" constant="16" id="H1l-ke-rbj"/>
                             <constraint firstItem="sKa-rZ-RGh" firstAttribute="centerX" secondItem="WH1-cH-t6G" secondAttribute="centerX" id="H6b-Ge-5Lh"/>
                             <constraint firstItem="Ktj-dk-fUa" firstAttribute="leading" secondItem="sKa-rZ-RGh" secondAttribute="leading" constant="23" id="JvU-z3-ztA"/>
