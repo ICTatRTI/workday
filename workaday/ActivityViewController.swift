@@ -125,9 +125,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 } else {
                     
                     if (weekday_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
-                        //cell.accessoryType =  .Checkmark
-                        //cell.selectionStyle = .None
-                        //cell.userInteractionEnabled = false
+                        cell.accessoryType =  .Checkmark
+                        cell.selectionStyle = .None
+                        cell.userInteractionEnabled = false
                     }
                 }
         
@@ -141,9 +141,9 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 
                 if (weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6) {
                     
-                    //cell.accessoryType =  .Checkmark
-                    //cell.selectionStyle = .None
-                    //cell.userInteractionEnabled = false
+                    cell.accessoryType =  .Checkmark
+                    cell.selectionStyle = .None
+                    cell.userInteractionEnabled = false
                 
                 } else  {
                     
