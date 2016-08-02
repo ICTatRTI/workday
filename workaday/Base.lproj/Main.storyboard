@@ -390,7 +390,7 @@
         <!--Activities-->
         <scene sceneID="RyN-TZ-hWg">
             <objects>
-                <tableViewController storyboardIdentifier="activityStoryBoardID" id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eki-cx-F7T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

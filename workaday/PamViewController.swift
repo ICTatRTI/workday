@@ -50,14 +50,17 @@ class PamViewController: SurveyViewController {
                 }
             
                 
-                let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID") as! ActivityViewController
-                workdayViewController.researchNet = self.researchNet
+                let destinationViewController = self.storyboard?.instantiateViewControllerWithIdentifier("studyViewController") as! UITabBarController
+         
+                let navigationViewController = destinationViewController.viewControllers!.first as! UINavigationController
                 
-                let navigationController = UINavigationController(rootViewController: workdayViewController)
- 
-                self.presentViewController(navigationController, animated: true, completion: nil)
+                let activityViewController = navigationViewController.viewControllers.first as! ActivityViewController
+                    activityViewController.researchNet = self.researchNet
+                
+                self.presentViewController(destinationViewController, animated: true, completion: nil)
+                
+                }
 
-            }
             
             }, device_id: device_id, lat: lat, long: long, response: surveyParamters)
         
