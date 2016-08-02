@@ -48,11 +48,12 @@ class PamViewController: SurveyViewController {
                 } else{
                     defaults.setObject(NSDate(), forKey: "weekend_timestamp")
                 }
+            
                 
+                let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID") as! ActivityViewController
+                workdayViewController.researchNet = self.researchNet
                 
-                let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("activityStoryBoardID")
-                
-                let navigationController = UINavigationController(rootViewController: workdayViewController!)
+                let navigationController = UINavigationController(rootViewController: workdayViewController)
  
                 self.presentViewController(navigationController, animated: true, completion: nil)
 
