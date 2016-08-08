@@ -196,7 +196,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             //Set some required survye variables
             workdayViewController.device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
             workdayViewController.lat = String(txtLatitude)
-            workdayViewController.long = String(txtLatitude)
+            workdayViewController.long = String(txtLongitude)
             workdayViewController.researchNet = self.researchNet
 
             

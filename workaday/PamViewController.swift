@@ -30,6 +30,7 @@ class PamViewController: SurveyViewController {
         //Submit Survey
         researchNet.submitSurveyResponse({ (responseObject, error) in
             
+
             if error != nil {
                 
                 let errorMessage = "Unable to reach the server. Try again."
