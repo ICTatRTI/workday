@@ -23,6 +23,7 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
     
     var radioButtonController: SSRadioButtonsController?
     var researchNet : ResearchNet!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,11 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
         radioButtonController!.delegate = self
         radioButtonController!.shouldLetDeSelect = true
         
-
+        doneButton.backgroundColor = UIColor.clearColor()
+        doneButton.layer.cornerRadius = 5
+        doneButton.layer.borderWidth = 1
+        doneButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
+        doneButton.layer.borderColor = Constants.disabledColor.CGColor
         doneButton.enabled = false
     }
 
@@ -39,8 +44,12 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
         
         if aButton != nil {
             doneButton!.enabled = true
+            doneButton.layer.borderColor = Constants.enabledColor.CGColor
+            
         } else {
             doneButton!.enabled = false
+            doneButton.layer.borderColor = Constants.disabledColor.CGColor
+            
         }
     }
     

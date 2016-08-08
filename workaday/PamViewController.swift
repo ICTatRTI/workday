@@ -12,9 +12,9 @@ import ResearchNet
 class PamViewController: SurveyViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var finishNavigationButton: UIButton!
     var researchNet : ResearchNet!
+    
     
     let identifier = "CellIdentifier"
     
@@ -74,6 +74,7 @@ class PamViewController: SurveyViewController {
     @IBAction func reloadImages() {
         
         finishNavigationButton.enabled = false
+        finishNavigationButton.layer.borderColor = Constants.disabledColor.CGColor
         self.collectionView.reloadData()
         
     }
@@ -84,8 +85,13 @@ class PamViewController: SurveyViewController {
         collectionView.delegate = self;
         collectionView.dataSource = self
         
-        
+        finishNavigationButton.backgroundColor = UIColor.clearColor()
+        finishNavigationButton.layer.cornerRadius = 5
+        finishNavigationButton.layer.borderWidth = 1
+        finishNavigationButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
+        finishNavigationButton.layer.borderColor = Constants.disabledColor.CGColor
         finishNavigationButton.enabled = false
+
     }
     
     
@@ -171,6 +177,7 @@ extension PamViewController : UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         highlightCell(indexPath, flag: true)
         finishNavigationButton.enabled = true
+        finishNavigationButton.layer.borderColor = Constants.enabledColor.CGColor
         
     }
     

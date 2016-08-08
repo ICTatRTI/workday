@@ -17,7 +17,7 @@ class WeekdayIntroViewController: SurveyViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Style the done button (simliar to RK)
+        // Style the done button (we're trying to make this look like RK)
         gettingStartedButton.backgroundColor = UIColor.clearColor()
         gettingStartedButton.layer.cornerRadius = 5
         gettingStartedButton.layer.borderWidth = 1
