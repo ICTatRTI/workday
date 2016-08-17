@@ -3,12 +3,12 @@
 
 target 'workaday' do
     pod 'ResearchKit', '1.3.0'
-	pod 'ResearchNet', :path => '~/Repository/ResearchnetSDK-IOS/'
+	pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
 end
 
 target 'workadayTests' do
     pod 'ResearchKit', '1.3.0'
-	pod 'ResearchNet', :path => '~/Repository/ResearchnetSDK-IOS/'
+	pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
 	
 	# reference a local repo
 	# pod 'ResearchNet', :path => '~/Repository/ResearchnetSDK-IOS/'
