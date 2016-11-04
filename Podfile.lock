@@ -1,13 +1,13 @@
 PODS:
-  - Alamofire (3.1.5)
-  - ResearchKit (1.3.0)
-  - ResearchNet (0.1.0):
-    - Alamofire (~> 3.1.5)
-    - SwiftyJSON (~> 2.3.1)
-  - SwiftyJSON (2.3.2)
+  - Alamofire (3.5.1)
+  - ResearchKit (1.3.1)
+  - ResearchNet (0.1.1):
+    - Alamofire (~> 3.5)
+    - SwiftyJSON (~> 2.4)
+  - SwiftyJSON (2.4.0)
 
 DEPENDENCIES:
-  - ResearchKit (= 1.3.0)
+  - ResearchKit (= 1.3.1)
   - ResearchNet (from `~/Repository/ResearchnetSDK-IOS/`)
 
 EXTERNAL SOURCES:
@@ -15,9 +15,11 @@ EXTERNAL SOURCES:
     :path: "~/Repository/ResearchnetSDK-IOS/"
 
 SPEC CHECKSUMS:
-  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
-  ResearchKit: 934a1efefed1a3a9150002a1e4b123d0c86c3f2e
-  ResearchNet: bea3e9bdff6bd2da9310ce55158086eeca53bf5b
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
+  ResearchNet: 3c79538f217c836855298ccb13d533c089709ab4
+  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 86307a6f089772c88eabb7e6bdf8d981c7fd0163
+
+COCOAPODS: 1.1.1

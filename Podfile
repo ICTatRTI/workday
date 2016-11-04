@@ -2,19 +2,19 @@
 # platform :ios, '9.0'
 
 target 'workaday' do
-    pod 'ResearchKit', '1.3.0'
-	pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
+    pod 'ResearchKit', '1.3.1'
+	pod 'ResearchNet', :git => 'https://github.com/ICTatRTI/ResearchnetSDK-IOS.git'
 end
 
 target 'workadayTests' do
-    pod 'ResearchKit', '1.3.0'
-	pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
+    pod 'ResearchKit', '1.3.1'
+	pod 'ResearchNet', :git => 'https://github.com/ICTatRTI/ResearchnetSDK-IOS.git'
 	
 	# reference a local repo
 	# pod 'ResearchNet', :path => '~/Repository/ResearchnetSDK-IOS/'
 
 	# reference a git repo
-	# pod 'ResearchNet', :git => 'https://bitbucket.org/rcdrti/researchnetsdk-ios.git'
+	# pod 'ResearchNet', :git => 'https://github.com/ICTatRTI/ResearchnetSDK-IOS.git'
 
 end
 
