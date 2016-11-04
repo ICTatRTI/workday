@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().registerUserNotificationSettings(notifSettings)
 
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
         
         // Configure notifications for each day (sunday is 1)
         scheduleLocalNotification(17,minute: 0, weekDay: 1)

@@ -12,9 +12,9 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7F7ACF85-E9A7-47DA-B5A7-75D4AEAB306B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "6823CDA85E7DF951100A70A87405A29CAB9B5641" : "workaday\/SSRadioButtonsController\/",
+    "6823CDA85E7DF951100A70A87405A29CAB9B5641" : "workday\/SSRadioButtonsController\/",
     "4B5C383243967502B8C9AC3EDB76285C6D65226A" : "nida-addiction-challenge\/",
-    "774CE880C251FDAAB1D601EB6ED1C3508E030ED1" : "workaday\/",
+    "774CE880C251FDAAB1D601EB6ED1C3508E030ED1" : "workday\/",
     "9CF6181E3789E3853840089C16D4B9FDDB9B31E2" : "ResearchKit\/",
     "7E006FBB58D0B7100641E325E5A147EAE624D3B8" : "ResearchnetSDK-IOS\/"
   },
