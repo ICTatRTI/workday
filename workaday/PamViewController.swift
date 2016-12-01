@@ -159,7 +159,7 @@ extension PamViewController: UICollectionViewDataSource {
             //3
             let headerView =
                 collectionView.dequeueReusableSupplementaryViewOfKind(kind,withReuseIdentifier: "PamHeaderView", forIndexPath: indexPath) as! PamHeaderView
-            headerView.label.text = "Select the photo the best captures how you feel right now."
+            headerView.label.text = "Select the photo that best captures how you feel right now."
             
             return headerView
         default:

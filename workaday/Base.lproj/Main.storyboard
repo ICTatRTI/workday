@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,9 +19,9 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <segue destination="hqN-JU-7J9" kind="custom" identifier="toOnboarding" customClass="ResearchContainerSegue" customModule="workday" customModuleProvider="target" id="i87-RG-gC9"/>
@@ -37,11 +41,11 @@
                         <viewControllerLayoutGuide type="bottom" id="2FA-8m-ROz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bEt-0u-Hkv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-KI-fgu">
-                                <rect key="frame" x="65" y="477" width="190" height="30"/>
+                                <rect key="frame" x="92.5" y="576" width="190" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PhF-bK-puV"/>
                                     <constraint firstAttribute="width" constant="190" id="Qns-xU-fds"/>
@@ -52,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh8-Cb-3Hd">
-                                <rect key="frame" x="85" y="443" width="151" height="26"/>
+                                <rect key="frame" x="112" y="492.5" width="151" height="75.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="151" id="lTz-E1-z9d"/>
                                 </constraints>
@@ -63,20 +67,20 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man-at-the-table" translatesAutoresizingMaskIntoConstraints="NO" id="XGM-Vg-UDz">
-                                <rect key="frame" x="87" y="97" width="147" height="128"/>
+                                <rect key="frame" x="114" y="146.5" width="147" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="147" id="bzl-3P-qzE"/>
                                     <constraint firstAttribute="height" constant="128" id="jTy-Ip-AuN"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Our Study" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8l-Lo-KsB">
-                                <rect key="frame" x="11" y="266" width="299" height="36"/>
+                                <rect key="frame" x="38" y="315.5" width="299" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Uh8-Cb-3Hd" firstAttribute="centerX" secondItem="bEt-0u-Hkv" secondAttribute="centerX" id="6Mg-qR-a7b"/>
                             <constraint firstItem="XGM-Vg-UDz" firstAttribute="centerX" secondItem="bEt-0u-Hkv" secondAttribute="centerX" id="7Ki-Af-Ptm"/>
@@ -109,9 +113,9 @@
                         <viewControllerLayoutGuide type="bottom" id="vmy-cj-Igh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hfg-jF-DWm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <segue destination="hzH-i7-C5E" kind="unwind" identifier="unwindToStudy" unwindAction="unwindToStudy:" id="YGU-oh-SQx"/>
@@ -127,11 +131,10 @@
         <scene sceneID="AwX-Ys-YXy">
             <objects>
                 <tabBarController storyboardIdentifier="studyViewController" id="WTt-cg-tcK" sceneMemberID="viewController">
-                    <keyCommands/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="z8m-yF-ALg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
@@ -205,33 +208,33 @@
                         <viewControllerLayoutGuide type="bottom" id="fAA-C4-VQv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="arN-k8-N0f">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Sj-rh9">
-                                <rect key="frame" x="10" y="323" width="300" height="41"/>
+                                <rect key="frame" x="10" y="323" width="355" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekday Questionaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmW-AP-beR" customClass="ORKHeadlineLabel">
-                                <rect key="frame" x="10" y="185" width="300" height="166"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekday Questionnaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmW-AP-beR" customClass="ORKHeadlineLabel">
+                                <rect key="frame" x="10" y="185" width="355" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="Fgt-iM-Izj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNC-MH-z94">
-                                <rect key="frame" x="120" y="444" width="80" height="30"/>
+                                <rect key="frame" x="147.5" y="543" width="80" height="30"/>
                                 <state key="normal" title="Get Started"/>
                                 <connections>
                                     <segue destination="8i7-B7-anX" kind="push" identifier="toWeekdayQuestion" id="QMI-Bd-Sx9"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vmW-AP-beR" firstAttribute="leading" secondItem="exD-Sj-rh9" secondAttribute="leading" id="03a-fj-yBp"/>
                             <constraint firstItem="vmW-AP-beR" firstAttribute="leading" secondItem="arN-k8-N0f" secondAttribute="leadingMargin" constant="-6" id="4J8-k1-mUC"/>
@@ -266,23 +269,25 @@
                         <viewControllerLayoutGuide type="bottom" id="84x-u6-e3m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IDp-aU-8Qe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Y-h7-j8M">
                                 <rect key="frame" x="40" y="85" width="241" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">How did you get to work today?
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFJ-JR-SdN" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="229" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Biked"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -291,13 +296,14 @@
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ba-V1-9VR" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="248" width="115" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <string key="title">Walked/ran
 </string>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -306,13 +312,14 @@
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWi-ES-poD" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="275" width="144" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <string key="title">Carpool/vanpool
 </string>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -320,7 +327,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-AE-iM1">
-                                <rect key="frame" x="144" y="444" width="32" height="30"/>
+                                <rect key="frame" x="171.5" y="543" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="ViS-CE-wda" kind="push" identifier="toWeekdayPamQuestion" id="IKh-D8-nra"/>
@@ -328,10 +335,11 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-9l-YsB" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="201" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Drove own car"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -340,13 +348,14 @@
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WM6-Za-40y" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="304" width="149" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <string key="title">Did not commute
 </string>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -355,10 +364,11 @@
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6u-hd-rAl" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="63" y="344" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Other"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.16997212195093669" green="0.74325679026000868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.16997212195093669" green="0.74325679026000868" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -366,7 +376,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="84x-u6-e3m" firstAttribute="top" secondItem="Tsg-AE-iM1" secondAttribute="bottom" constant="94" id="mm8-ud-icS"/>
                             <constraint firstItem="Tsg-AE-iM1" firstAttribute="centerX" secondItem="IDp-aU-8Qe" secondAttribute="centerX" id="un1-ZJ-Nd0"/>
@@ -392,15 +402,15 @@
             <objects>
                 <tableViewController id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eki-cx-F7T">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" id="X21-Mp-arS">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X21-Mp-arS" id="K9v-dk-G1u">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -421,42 +431,43 @@
             <objects>
                 <tableViewController id="zqR-XT-0Pe" customClass="ProfileViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="28" id="n4o-4G-1OK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="4wQ-kl-BCz" customClass="ProfileHeaderView" customModule="workday" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="320" height="163"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="163"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NL4-p1-T02">
-                                    <rect key="frame" x="-255" y="87" width="190" height="42"/>
+                                    <rect key="frame" x="-199.5" y="88" width="189.5" height="41"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently Participating In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cK-rj-kOD">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="189.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Study" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDu-vE-mmF">
-                                            <rect key="frame" x="0.0" y="21" width="190" height="21"/>
+                                            <rect key="frame" x="0.0" y="20.5" width="189.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-lB-U4P">
                                     <rect key="frame" x="29" y="7" width="84" height="82"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz5-In-NgK">
-                                    <rect key="frame" x="190" y="99" width="84" height="30"/>
+                                    <rect key="frame" x="245" y="99" width="84" height="30"/>
                                     <state key="normal" title="Leave Study"/>
                                     <connections>
                                         <segue destination="tgE-Xt-q4f" kind="unwind" unwindAction="unwindToWithdrawl:" id="goa-G8-Etn"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="rz5-In-NgK" firstAttribute="bottom" secondItem="NL4-p1-T02" secondAttribute="bottom" id="I11-Oh-6vS"/>
                                 <constraint firstItem="rz5-In-NgK" firstAttribute="leading" secondItem="vDu-vE-mmF" secondAttribute="trailing" constant="255" id="fq8-Db-P5V"/>
@@ -466,10 +477,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileTableViewCell" rowHeight="35" id="CS8-av-Fic">
-                                <rect key="frame" x="0.0" y="255" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="191" width="375" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CS8-av-Fic" id="cKo-mB-93d">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -512,26 +523,28 @@
                         <viewControllerLayoutGuide type="bottom" id="tec-tf-lgu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2Mv-P5-Iaf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-UU-Blb">
                                 <rect key="frame" x="12" y="85" width="301" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">What best describes your activity level today?
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQO-qt-n51" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="28" y="245" width="177" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <string key="title">Moderately active 
 </string>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -539,7 +552,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZW-cy-k0u">
-                                <rect key="frame" x="144" y="444" width="32" height="30"/>
+                                <rect key="frame" x="171.5" y="543" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="qhn-qe-Nt2" kind="push" identifier="toWeekendPamQuestion" id="6F4-IH-zFP"/>
@@ -547,13 +560,14 @@
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VXm-WE-MAf" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="28" y="313" width="252" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <string key="title">Not very active, sedentary activities preferred
 </string>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -562,13 +576,14 @@
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-MR-reH" customClass="SSRadioButton" customModule="workday" customModuleProvider="target">
                                 <rect key="frame" x="28" y="189" width="222" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <string key="title">Vigorously active for at least 30 min
 </string>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                         <real key="value" value="10"/>
@@ -576,7 +591,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tec-tf-lgu" firstAttribute="top" secondItem="aZW-cy-k0u" secondAttribute="bottom" constant="94" id="QI9-jE-iE6"/>
                             <constraint firstItem="aZW-cy-k0u" firstAttribute="centerX" secondItem="2Mv-P5-Iaf" secondAttribute="centerX" id="aTU-MP-jbX"/>
@@ -603,33 +618,33 @@
                         <viewControllerLayoutGuide type="bottom" id="u7R-N8-dAE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tt9-Fg-5yD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBq-hB-ba4">
-                                <rect key="frame" x="10" y="323" width="300" height="41"/>
+                                <rect key="frame" x="10" y="323" width="355" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekend Questionaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQP-Fy-r9S" customClass="ORKHeadlineLabel">
-                                <rect key="frame" x="10" y="185" width="300" height="166"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekend Questionnaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQP-Fy-r9S" customClass="ORKHeadlineLabel">
+                                <rect key="frame" x="10" y="185" width="355" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="l62-uz-ybY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvp-QD-2zt">
-                                <rect key="frame" x="120" y="444" width="80" height="30"/>
+                                <rect key="frame" x="147.5" y="543" width="80" height="30"/>
                                 <state key="normal" title="Get Started"/>
                                 <connections>
                                     <segue destination="bQk-Ee-dEb" kind="push" identifier="toWeekendQuestion" id="ara-CC-ODd"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="trailing" secondItem="XBq-hB-ba4" secondAttribute="trailing" id="0IR-YS-VPr"/>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="leading" secondItem="XBq-hB-ba4" secondAttribute="leading" id="3zr-gX-JMv"/>
@@ -664,11 +679,11 @@
                         <viewControllerLayoutGuide type="bottom" id="nAq-je-y9y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LYS-WW-Y41">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnh-VF-PWi">
-                                <rect key="frame" x="112" y="503" width="96" height="27"/>
+                                <rect key="frame" x="112" y="602" width="151" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Reload Images"/>
                                 <connections>
@@ -676,8 +691,8 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Ag-ab-N3d">
-                                <rect key="frame" x="10" y="80" width="300" height="392"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="10" y="80" width="355" height="491"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eFI-fD-Idi">
                                     <size key="itemSize" width="73" height="73"/>
                                     <size key="headerReferenceSize" width="50" height="69"/>
@@ -702,7 +717,7 @@
                                                             <rect key="frame" x="-6" y="-8" width="33" height="34"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="3DS-3L-4Db" secondAttribute="trailing" id="2WL-TD-DWN"/>
                                                         <constraint firstItem="3DS-3L-4Db" firstAttribute="top" secondItem="t9t-Fh-Qf2" secondAttribute="top" constant="-8" id="LI1-Pe-vnI"/>
@@ -711,7 +726,6 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="zkg-fE-GrF" secondAttribute="bottom" id="7dW-jc-jtb"/>
@@ -731,17 +745,17 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PamHeaderView" id="eXB-xD-Jk2" customClass="PamHeaderView" customModule="workday" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="69"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFN-v7-c9M">
-                                            <rect key="frame" x="13" y="0.0" width="284" height="61"/>
+                                            <rect key="frame" x="13" y="0.0" width="339" height="61"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="GFN-v7-c9M" firstAttribute="leading" secondItem="eXB-xD-Jk2" secondAttribute="leadingMargin" constant="5" id="Ef0-Y6-tKz"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="GFN-v7-c9M" secondAttribute="trailing" constant="-5" id="Vr2-e9-FIZ"/>
@@ -754,7 +768,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olZ-8F-vUz">
-                                <rect key="frame" x="135" y="471" width="50" height="29"/>
+                                <rect key="frame" x="135" y="570" width="105" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="o0a-Uq-Vfn"/>
                                 </constraints>
@@ -765,7 +779,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7Ag-ab-N3d" firstAttribute="top" secondItem="Dro-4q-feA" secondAttribute="bottom" constant="16" id="39X-gA-jOT"/>
                             <constraint firstItem="olZ-8F-vUz" firstAttribute="leading" secondItem="tnh-VF-PWi" secondAttribute="leading" constant="23" id="3d2-W6-P3T"/>
@@ -798,11 +812,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Wwz-uA-qCP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WH1-cH-t6G">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKa-rZ-RGh">
-                                <rect key="frame" x="108" y="503" width="104" height="27"/>
+                                <rect key="frame" x="108" y="602" width="159" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Reload Images"/>
                                 <connections>
@@ -810,8 +824,8 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="53T-jX-aag">
-                                <rect key="frame" x="10" y="80" width="300" height="392"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="10" y="80" width="355" height="491"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Hf-JA-RGN">
                                     <size key="itemSize" width="73" height="73"/>
                                     <size key="headerReferenceSize" width="50" height="69"/>
@@ -836,7 +850,7 @@
                                                             <rect key="frame" x="-6" y="-8" width="33" height="34"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="DOe-n1-CL7" secondAttribute="trailing" id="8VG-xZ-n0W"/>
                                                         <constraint firstItem="DOe-n1-CL7" firstAttribute="top" secondItem="rqn-Hg-SlQ" secondAttribute="top" constant="-8" id="MTS-eW-UyA"/>
@@ -845,7 +859,6 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="rqn-Hg-SlQ" firstAttribute="bottom" secondItem="ZMH-6o-YD0" secondAttribute="bottom" id="11o-JN-8fq"/>
@@ -865,17 +878,17 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PamHeaderView" id="ds2-dD-txj" customClass="PamHeaderView" customModule="workday" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="69"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLE-aj-KqO">
-                                            <rect key="frame" x="13" y="0.0" width="284" height="61"/>
+                                            <rect key="frame" x="13" y="0.0" width="339" height="61"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="aLE-aj-KqO" firstAttribute="leading" secondItem="ds2-dD-txj" secondAttribute="leadingMargin" constant="5" id="QCu-5W-xvN"/>
                                         <constraint firstItem="aLE-aj-KqO" firstAttribute="top" secondItem="ds2-dD-txj" secondAttribute="topMargin" constant="-8" id="Z6I-dd-3uk"/>
@@ -888,7 +901,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-dk-fUa">
-                                <rect key="frame" x="131" y="471" width="58" height="29"/>
+                                <rect key="frame" x="131" y="570" width="113" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="q3q-kl-4Fz"/>
                                 </constraints>
@@ -899,7 +912,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sKa-rZ-RGh" firstAttribute="leading" secondItem="WH1-cH-t6G" secondAttribute="leadingMargin" constant="92" id="DXZ-Wu-VAz"/>
                             <constraint firstItem="53T-jX-aag" firstAttribute="top" secondItem="sq2-s8-UyT" secondAttribute="bottom" constant="16" id="H1l-ke-rbj"/>
@@ -930,4 +943,9 @@
         <image name="tab_activities" width="23" height="23"/>
         <image name="tab_profile" width="24" height="24"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>
