@@ -400,7 +400,7 @@
         <!--Activities-->
         <scene sceneID="RyN-TZ-hWg">
             <objects>
-                <tableViewController id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="activityStoryBoardID" id="qzg-dG-cFf" customClass="ActivityViewController" customModule="workday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eki-cx-F7T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -621,12 +621,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBq-hB-ba4">
-                                <rect key="frame" x="10" y="323" width="355" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekend Questionnaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQP-Fy-r9S" customClass="ORKHeadlineLabel">
                                 <rect key="frame" x="10" y="185" width="355" height="166"/>
                                 <constraints>
@@ -637,19 +631,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvp-QD-2zt">
-                                <rect key="frame" x="147.5" y="543" width="80" height="30"/>
+                                <rect key="frame" x="148" y="543" width="80" height="30"/>
                                 <state key="normal" title="Get Started"/>
                                 <connections>
                                     <segue destination="bQk-Ee-dEb" kind="push" identifier="toWeekendQuestion" id="ara-CC-ODd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBq-hB-ba4">
+                                <rect key="frame" x="10" y="357" width="355" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="trailing" secondItem="XBq-hB-ba4" secondAttribute="trailing" id="0IR-YS-VPr"/>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="leading" secondItem="XBq-hB-ba4" secondAttribute="leading" id="3zr-gX-JMv"/>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="top" secondItem="cZ6-MF-7eB" secondAttribute="bottom" constant="121" id="BNg-8u-sVx"/>
-                            <constraint firstItem="XBq-hB-ba4" firstAttribute="top" secondItem="DQP-Fy-r9S" secondAttribute="bottom" constant="-28" id="ggx-fa-2UR"/>
+                            <constraint firstItem="XBq-hB-ba4" firstAttribute="top" secondItem="DQP-Fy-r9S" secondAttribute="bottom" constant="6" id="ggx-fa-2UR"/>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="centerX" secondItem="Dvp-QD-2zt" secondAttribute="centerX" id="h6m-4s-xqN"/>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="centerX" secondItem="Tt9-Fg-5yD" secondAttribute="centerX" id="h8s-Nd-zgj"/>
                             <constraint firstItem="DQP-Fy-r9S" firstAttribute="leading" secondItem="Tt9-Fg-5yD" secondAttribute="leadingMargin" constant="-6" id="jvn-lI-PcG"/>
