@@ -211,12 +211,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Sj-rh9">
-                                <rect key="frame" x="10" y="323" width="355" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Weekday Questionnaire " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmW-AP-beR" customClass="ORKHeadlineLabel">
                                 <rect key="frame" x="10" y="185" width="355" height="166"/>
                                 <constraints>
@@ -233,6 +227,12 @@
                                     <segue destination="8i7-B7-anX" kind="push" identifier="toWeekdayQuestion" id="QMI-Bd-Sx9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a novel tool for frequent, unobtrusive measurement of affect" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Sj-rh9">
+                                <rect key="frame" x="10" y="359" width="355" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -243,7 +243,7 @@
                             <constraint firstItem="vmW-AP-beR" firstAttribute="top" secondItem="gqA-Zq-vC9" secondAttribute="bottom" constant="121" id="TNR-8V-G64"/>
                             <constraint firstItem="vmW-AP-beR" firstAttribute="centerX" secondItem="UNC-MH-z94" secondAttribute="centerX" id="iGK-SR-UtN"/>
                             <constraint firstItem="fAA-C4-VQv" firstAttribute="top" secondItem="UNC-MH-z94" secondAttribute="bottom" constant="94" id="kDm-37-dYR"/>
-                            <constraint firstItem="exD-Sj-rh9" firstAttribute="top" secondItem="vmW-AP-beR" secondAttribute="bottom" constant="-28" id="m90-zR-B5A"/>
+                            <constraint firstItem="exD-Sj-rh9" firstAttribute="top" secondItem="vmW-AP-beR" secondAttribute="bottom" constant="8" id="m90-zR-B5A"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dth-we-9Mu">
@@ -258,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tS0-LO-a9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1581" y="2796"/>
+            <point key="canvasLocation" x="1580.5" y="2795.5"/>
         </scene>
         <!--Weekday Question View Controller-->
         <scene sceneID="MLd-0M-ocm">
