@@ -19,9 +19,9 @@ class LoginViewController: UIViewController {
     let LOGIN_TASK_NAME : String = "login task"
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "unwindToStudy" {
-            if let destination = segue.destinationViewController as? ActivityViewController {
+            if let destination = segue.destination as? ActivityViewController {
                 destination.researchNet = self.researchNet
             }
         }
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
 
 
     /// This tasks presents the login step.
-    private var loginTask: ORKTask {
+    fileprivate var loginTask: ORKTask {
         
         /*
          A login step view controller subclass is required in order to use the login step.
@@ -42,13 +42,13 @@ class LoginViewController: UIViewController {
                 let alertTitle = NSLocalizedString("Forgot password?", comment: "")
                 let alertMessage = NSLocalizedString("Please enter the email address your used to create your account", comment: "")
                 
-                let passwordPrompt = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
+                let passwordPrompt = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
                 
-                passwordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+                passwordPrompt.addTextField(configurationHandler: {(textField: UITextField!) in
                     textField.placeholder = "Email"
                 })
                 
-                passwordPrompt.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                passwordPrompt.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: { (action) -> Void in
                     let email = passwordPrompt.textFields![0] as UITextField
                     
                     print("resetting password for : ", email)
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
                     
                 }))
                 
-                self.presentViewController(passwordPrompt, animated: true, completion: nil)
+                self.present(passwordPrompt, animated: true, completion: nil)
             }
             
         }
@@ -86,39 +86,58 @@ class LoginViewController: UIViewController {
     // MARK: Transitions
     
     func toStudy() {
-        performSegueWithIdentifier("unwindToStudy", sender: nil)
+        performSegue(withIdentifier: "unwindToStudy", sender: nil)
     }
     
 }
 
 extension LoginViewController : ORKTaskViewControllerDelegate {
+    /**
+     Tells the delegate that the task has finished.
+     
+     The task view controller calls this method when an unrecoverable error occurs,
+     when the user has canceled the task (with or without saving), or when the user
+     completes the last step in the task.
+     
+     In most circumstances, the receiver should dismiss the task view controller
+     in response to this method, and may also need to collect and process the results
+     of the task.
+     
+     @param taskViewController  The `ORKTaskViewController `instance that is returning the result.
+     @param reason              An `ORKTaskViewControllerFinishReason` value indicating how the user chose to complete the task.
+     @param error               If failure occurred, an `NSError` object indicating the reason for the failure. The value of this parameter is `nil` if `result` does not indicate failure.
+     */
+    public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        code
+    }
+
     
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         switch reason {
         
-        case .Completed:
+        case .completed:
             
             self.toStudy()
             
-        case .Discarded, .Failed, .Saved:
+        case .discarded, .failed, .saved:
 
-            dismissViewControllerAnimated(true, completion: nil)
-            performSegueWithIdentifier("unwindToOnboarding", sender: nil)
+            dismiss(animated: true, completion: nil)
+            performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
            
         }
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 
-        let taskViewController = ORKTaskViewController(task: loginTask, taskRunUUID: nil)
+        let taskViewController = ORKTaskViewController(task: loginTask, taskRun: nil)
         taskViewController.delegate = self
         
-        presentViewController(taskViewController, animated: true, completion: nil)
+        present(taskViewController, animated: true, completion: nil)
         
     }
     
-    func taskViewController(taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
         
 
             if let stepViewController = stepViewController as? ORKWaitStepViewController {
@@ -128,7 +147,7 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
                 //let results = taskViewControllerResult.results as! [ORKStepResult]
          
                 // Login
-                let login_step = taskViewControllerResult.stepResultForStepIdentifier(LOGIN_STEP_IDENTIFIER)
+                let login_step = taskViewControllerResult.stepResult(forStepIdentifier: LOGIN_STEP_IDENTIFIER)
                     
                 let stepResults = login_step!.results as! [ORKQuestionResult]
                 let usernameResult = stepResults[0] as? ORKTextQuestionResult
@@ -141,17 +160,17 @@ extension LoginViewController : ORKTaskViewControllerDelegate {
                         let errorMessage = "Your username and password didn't match. Try again."
                         
                         let alert = UIAlertController(title: "Login Error",
-                            message: errorMessage, preferredStyle: .Alert)
-                        let action = UIAlertAction(title: "Ok", style: .Default, handler: {
+                            message: errorMessage, preferredStyle: .alert)
+                        let action = UIAlertAction(title: "Ok", style: .default, handler: {
                             (alert: UIAlertAction!) in stepViewController.goBackward()
                         })
                         alert.addAction(action)
-                        taskViewController.presentViewController(alert, animated: true, completion: nil)
+                        taskViewController.present(alert, animated: true, completion: nil)
 
                     } else{
 
-                        let defaults = NSUserDefaults.standardUserDefaults()
-                        defaults.setObject(responseObject!, forKey: "authKey")
+                        let defaults = UserDefaults.standard
+                        defaults.set(responseObject!, forKey: "authKey")
                         
                         stepViewController.goForward()
                     }

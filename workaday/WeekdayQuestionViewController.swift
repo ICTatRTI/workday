@@ -32,29 +32,29 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
         radioButtonController!.delegate = self
         radioButtonController!.shouldLetDeSelect = true
         
-        doneButton.backgroundColor = UIColor.clearColor()
+        doneButton.backgroundColor = UIColor.clear
         doneButton.layer.cornerRadius = 5
         doneButton.layer.borderWidth = 1
         doneButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
-        doneButton.layer.borderColor = Constants.disabledColor.CGColor
-        doneButton.enabled = false
+        doneButton.layer.borderColor = Constants.disabledColor.cgColor
+        doneButton.isEnabled = false
     }
 
-    func didSelectButton(aButton: UIButton?) {
+    func didSelectButton(_ aButton: UIButton?) {
         
         if aButton != nil {
-            doneButton!.enabled = true
-            doneButton.layer.borderColor = Constants.enabledColor.CGColor
+            doneButton!.isEnabled = true
+            doneButton.layer.borderColor = Constants.enabledColor.cgColor
             
         } else {
-            doneButton!.enabled = false
-            doneButton.layer.borderColor = Constants.disabledColor.CGColor
+            doneButton!.isEnabled = false
+            doneButton.layer.borderColor = Constants.disabledColor.cgColor
             
         }
     }
     
     // Be sure to pass around the ResearchNet object to any view controllers who may need it.
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let selectedButton = radioButtonController?.selectedButton() {
             
@@ -76,7 +76,7 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
         }
   
         if segue.identifier == "toWeekdayPamQuestion" {
-            if let destination = segue.destinationViewController as? PamViewController {
+            if let destination = segue.destination as? PamViewController {
                 destination.surveyParamters = self.surveyParamters
                 destination.device_id = self.device_id
                 destination.lat = self.lat
@@ -86,7 +86,7 @@ class WeekdayQuestionViewController: SurveyViewController, SSRadioButtonControll
         }
     }
     
-    func saveSurvey(response: String){
+    func saveSurvey(_ response: String){
         self.surveyParamters[Constants.WORK_TRANSPORTATION_QUESTION_LABEL] = response
     }
     

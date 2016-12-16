@@ -8,54 +8,54 @@
 
 import UIKit
 
-extension NSDate {
+extension Date {
     
-    convenience
+    
     init(dateString:String) {
-        let dateStringFormatter = NSDateFormatter()
+        let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd"
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        let d = dateStringFormatter.dateFromString(dateString)!
-        self.init(timeInterval:0, sinceDate:d)
+        dateStringFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let d = dateStringFormatter.date(from: dateString)!
+        (self as NSDate).init(timeInterval:0, since:d)
     }
     
     
-    func numberOfHoursUntilDateTime(toDateTime: NSDate, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
-        let calendar = NSCalendar.currentCalendar()
+    func numberOfHoursUntilDateTime(_ toDateTime: Date, inTimeZone timeZone: TimeZone? = nil) -> Int {
+        var calendar = Calendar.current
         if let timeZone = timeZone {
             calendar.timeZone = timeZone
         }
         
-        var fromDate: NSDate?, toDate: NSDate?
+        var fromDate: Date?, toDate: Date?
         
-        calendar.rangeOfUnit(.Day, startDate: &fromDate, interval: nil, forDate: self)
-        calendar.rangeOfUnit(.Day, startDate: &toDate, interval: nil, forDate: toDateTime)
+        (calendar as NSCalendar).range(of: .day, start: &fromDate, interval: nil, for: self)
+        (calendar as NSCalendar).range(of: .day, start: &toDate, interval: nil, for: toDateTime)
         
-        let difference = calendar.components(.Hour, fromDate: fromDate!, toDate: toDate!, options: [])
-        return difference.hour
+        let difference = (calendar as NSCalendar).components(.hour, from: fromDate!, to: toDate!, options: [])
+        return difference.hour!
     }
     
-    func numberOfDaysUntilDateTime(toDateTime: NSDate, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
-        let calendar = NSCalendar.currentCalendar()
+    func numberOfDaysUntilDateTime(_ toDateTime: Date, inTimeZone timeZone: TimeZone? = nil) -> Int {
+        var calendar = Calendar.current
         if let timeZone = timeZone {
             calendar.timeZone = timeZone
         }
         
-        var fromDate: NSDate?, toDate: NSDate?
+        var fromDate: Date?, toDate: Date?
         
-        calendar.rangeOfUnit(.Day, startDate: &fromDate, interval: nil, forDate: self)
-        calendar.rangeOfUnit(.Day, startDate: &toDate, interval: nil, forDate: toDateTime)
+        (calendar as NSCalendar).range(of: .day, start: &fromDate, interval: nil, for: self)
+        (calendar as NSCalendar).range(of: .day, start: &toDate, interval: nil, for: toDateTime)
         
-        let difference = calendar.components(.Day, fromDate: fromDate!, toDate: toDate!, options: [])
-        return difference.day
+        let difference = (calendar as NSCalendar).components(.day, from: fromDate!, to: toDate!, options: [])
+        return difference.day!
     }
     
-    func isGreaterThanDate(dateToCompare: NSDate) -> Bool {
+    func isGreaterThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isGreater = false
         
         //Compare Values
-        if self.compare(dateToCompare) == NSComparisonResult.OrderedDescending {
+        if self.compare(dateToCompare) == ComparisonResult.orderedDescending {
             isGreater = true
         }
         
@@ -63,12 +63,12 @@ extension NSDate {
         return isGreater
     }
     
-    func isLessThanDate(dateToCompare: NSDate) -> Bool {
+    func isLessThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isLess = false
         
         //Compare Values
-        if self.compare(dateToCompare) == NSComparisonResult.OrderedAscending {
+        if self.compare(dateToCompare) == ComparisonResult.orderedAscending {
             isLess = true
         }
         
@@ -76,12 +76,12 @@ extension NSDate {
         return isLess
     }
     
-    func equalToDate(dateToCompare: NSDate) -> Bool {
+    func equalToDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isEqualTo = false
         
         //Compare Values
-        if self.compare(dateToCompare) == NSComparisonResult.OrderedSame {
+        if self.compare(dateToCompare) == ComparisonResult.orderedSame {
             isEqualTo = true
         }
         
@@ -89,17 +89,17 @@ extension NSDate {
         return isEqualTo
     }
     
-    func addDays(daysToAdd: Int) -> NSDate {
-        let secondsInDays: NSTimeInterval = Double(daysToAdd) * 60 * 60 * 24
-        let dateWithDaysAdded: NSDate = self.dateByAddingTimeInterval(secondsInDays)
+    func addDays(_ daysToAdd: Int) -> Date {
+        let secondsInDays: TimeInterval = Double(daysToAdd) * 60 * 60 * 24
+        let dateWithDaysAdded: Date = self.addingTimeInterval(secondsInDays)
         
         //Return Result
         return dateWithDaysAdded
     }
     
-    func addHours(hoursToAdd: Int) -> NSDate {
-        let secondsInHours: NSTimeInterval = Double(hoursToAdd) * 60 * 60
-        let dateWithHoursAdded: NSDate = self.dateByAddingTimeInterval(secondsInHours)
+    func addHours(_ hoursToAdd: Int) -> Date {
+        let secondsInHours: TimeInterval = Double(hoursToAdd) * 60 * 60
+        let dateWithHoursAdded: Date = self.addingTimeInterval(secondsInHours)
         
         //Return Result
         return dateWithHoursAdded
@@ -107,19 +107,19 @@ extension NSDate {
 }
 
 
-func hexStringToUIColor (hex:String) -> UIColor {
-    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+func hexStringToUIColor (_ hex:String) -> UIColor {
+    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercased()
     
     if (cString.hasPrefix("#")) {
-        cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
     }
     
     if ((cString.characters.count) != 6) {
-        return UIColor.grayColor()
+        return UIColor.gray
     }
     
     var rgbValue:UInt32 = 0
-    NSScanner(string: cString).scanHexInt(&rgbValue)
+    Scanner(string: cString).scanHexInt32(&rgbValue)
     
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

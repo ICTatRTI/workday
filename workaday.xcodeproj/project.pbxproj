@@ -371,12 +371,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = RTI;
 				TargetAttributes = {
 					4B03D0991CB5B4E1003ACFD2 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 35J8YXY799;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -385,12 +386,12 @@
 					};
 					4B03D0B01CB5B4E1003ACFD2 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						TestTargetID = 4B03D0991CB5B4E1003ACFD2;
 					};
 					4B03D0BB1CB5B4E1003ACFD2 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						TestTargetID = 4B03D0991CB5B4E1003ACFD2;
 					};
 				};
@@ -728,7 +729,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workaday;
 				PRODUCT_NAME = workday;
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -745,7 +746,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workaday;
 				PRODUCT_NAME = workday;
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -759,7 +760,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workadayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/workday.app/workday";
 			};
 			name = Debug;
@@ -774,7 +775,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workadayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/workday.app/workday";
 			};
 			name = Release;
@@ -786,7 +787,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workadayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = workaday;
 			};
 			name = Debug;
@@ -798,7 +799,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workadayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = workaday;
 			};
 			name = Release;

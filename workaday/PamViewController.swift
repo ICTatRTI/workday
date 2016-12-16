@@ -20,10 +20,10 @@ class PamViewController: SurveyViewController {
     
     @IBAction func finishSurveyButtonTapped() {
         
-        let indexPaths : NSArray = self.collectionView!.indexPathsForSelectedItems()!
-        let indexPath : NSIndexPath = indexPaths[0] as! NSIndexPath
+        let indexPaths : NSArray = self.collectionView!.indexPathsForSelectedItems! as NSArray
+        let indexPath : IndexPath = indexPaths[0] as! IndexPath
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PamCollectionViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as! PamCollectionViewCell
         
         saveSurvey(cell.pamPhotoName)
         
@@ -35,30 +35,30 @@ class PamViewController: SurveyViewController {
                 
                 let errorMessage = "Unable to reach the server. Try again."
                 let alert = UIAlertController(title: "Submission Error",
-                    message: errorMessage, preferredStyle: .Alert)
-                let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                    message: errorMessage, preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
                 
             } else {
                 
                 // using tags to keep track of which survey we just done
-                let defaults = NSUserDefaults.standardUserDefaults()
+                let defaults = UserDefaults.standard
                 if self.finishNavigationButton.tag == 1{
-                    defaults.setObject(NSDate(), forKey: "weekday_timestamp")
+                    defaults.set(NSDate(), forKey: "weekday_timestamp")
                 } else{
-                    defaults.setObject(NSDate(), forKey: "weekend_timestamp")
+                    defaults.set(NSDate(), forKey: "weekend_timestamp")
                 }
             
                 
-                let destinationViewController = self.storyboard?.instantiateViewControllerWithIdentifier("studyViewController") as! UITabBarController
+                let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "studyViewController") as! UITabBarController
          
                 let navigationViewController = destinationViewController.viewControllers!.first as! UINavigationController
                 
                 let activityViewController = navigationViewController.viewControllers.first as! ActivityViewController
                     activityViewController.researchNet = self.researchNet
                 
-                self.presentViewController(destinationViewController, animated: true, completion: nil)
+                self.present(destinationViewController, animated: true, completion: nil)
                 
                 }
 
@@ -68,14 +68,14 @@ class PamViewController: SurveyViewController {
           
     }
     
-    func saveSurvey(response: String){
+    func saveSurvey(_ response: String){
         self.surveyParamters[Constants.PAM_QUESTION_LABEL] = response
     }
     
     @IBAction func reloadImages() {
         
-        finishNavigationButton.enabled = false
-        finishNavigationButton.layer.borderColor = Constants.disabledColor.CGColor
+        finishNavigationButton.isEnabled = false
+        finishNavigationButton.layer.borderColor = Constants.disabledColor.cgColor
         self.collectionView.reloadData()
         
     }
@@ -86,12 +86,12 @@ class PamViewController: SurveyViewController {
         collectionView.delegate = self;
         collectionView.dataSource = self
         
-        finishNavigationButton.backgroundColor = UIColor.clearColor()
+        finishNavigationButton.backgroundColor = UIColor.clear
         finishNavigationButton.layer.cornerRadius = 5
         finishNavigationButton.layer.borderWidth = 1
         finishNavigationButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
-        finishNavigationButton.layer.borderColor = Constants.disabledColor.CGColor
-        finishNavigationButton.enabled = false
+        finishNavigationButton.layer.borderColor = Constants.disabledColor.cgColor
+        finishNavigationButton.isEnabled = false
 
     }
     
@@ -101,18 +101,18 @@ class PamViewController: SurveyViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func highlightCell(indexPath : NSIndexPath, flag: Bool) {
+    func highlightCell(_ indexPath : IndexPath, flag: Bool) {
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PamCollectionViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as! PamCollectionViewCell
 
         if flag {
             cell.imageView.alpha = 0.6;
-            cell.checkIcon.hidden = false;
-            cell.backgroundCircle.hidden = false;
+            cell.checkIcon.isHidden = false;
+            cell.backgroundCircle.isHidden = false;
         } else {
             cell.imageView.alpha = 1.0;
-            cell.checkIcon.hidden = true;
-            cell.backgroundCircle.hidden = true;
+            cell.checkIcon.isHidden = true;
+            cell.backgroundCircle.isHidden = true;
         }
         
  
@@ -126,13 +126,13 @@ class PamViewController: SurveyViewController {
 // MARK:- UICollectionViewDataSource Delegate
 extension PamViewController: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 16
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! PamCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PamCollectionViewCell
         
         let random = arc4random() % 3 + 1;
         
@@ -140,17 +140,17 @@ extension PamViewController: UICollectionViewDataSource {
         let name = NSString(format: "%d_%d",indexPath.row + 1,random)
         
         cell.pamPhotoName = name as String
-        cell.imageView.image = UIImage(named: file_name.lowercaseString)
-        cell.checkIcon.hidden = true;
+        cell.imageView.image = UIImage(named: file_name.lowercased)
+        cell.checkIcon.isHidden = true;
         cell.checkIcon.image = UIImage(named:"check" )
-        cell.backgroundCircle.hidden = true;
+        cell.backgroundCircle.isHidden = true;
         cell.backgroundCircle.layer.cornerRadius = 12.0;
         cell.backgroundCircle.layer.borderWidth = 0.25;
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //1
         switch kind {
         //2
@@ -158,7 +158,7 @@ extension PamViewController: UICollectionViewDataSource {
             
             //3
             let headerView =
-                collectionView.dequeueReusableSupplementaryViewOfKind(kind,withReuseIdentifier: "PamHeaderView", forIndexPath: indexPath) as! PamHeaderView
+                collectionView.dequeueReusableSupplementaryView(ofKind: kind,withReuseIdentifier: "PamHeaderView", for: indexPath) as! PamHeaderView
             headerView.label.text = "Select the photo that best captures how you feel right now."
             
             return headerView
@@ -175,14 +175,14 @@ extension PamViewController: UICollectionViewDataSource {
 
 extension PamViewController : UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         highlightCell(indexPath, flag: true)
-        finishNavigationButton.enabled = true
-        finishNavigationButton.layer.borderColor = Constants.enabledColor.CGColor
+        finishNavigationButton.isEnabled = true
+        finishNavigationButton.layer.borderColor = Constants.enabledColor.cgColor
         
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         highlightCell(indexPath, flag: false)
 
     }

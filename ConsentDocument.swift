@@ -22,11 +22,11 @@ class ConsentDocument: ORKConsentDocument {
         title = NSLocalizedString("Research Health Study Consent Form", comment: "")
         
         let sectionTypes: [ORKConsentSectionType] = [
-            .Overview,
-            .DataGathering,
-            .Privacy,
-            .DataUse,
-            .Withdrawing
+            .overview,
+            .dataGathering,
+            .privacy,
+            .dataUse,
+            .withdrawing
         ]
         
         
@@ -35,15 +35,15 @@ class ConsentDocument: ORKConsentDocument {
             
             let consentSection = ORKConsentSection(type: contentSectionType)
             
-            if contentSectionType == .Overview {
+            if contentSectionType == .overview {
                 consentSection.htmlContent = loadHTMLContent("Consent_Welcome")
-            }else if contentSectionType == .DataGathering {
+            }else if contentSectionType == .dataGathering {
                 consentSection.htmlContent = loadHTMLContent("Consent_DataGathering")
-            }else if contentSectionType == .Privacy {
+            }else if contentSectionType == .privacy {
                 consentSection.htmlContent = loadHTMLContent("Consent_Privacy")
-            }else if contentSectionType == .DataUse {
+            }else if contentSectionType == .dataUse {
                 consentSection.htmlContent = loadHTMLContent("Consent_DataUse")
-            }else if contentSectionType == .Withdrawing {
+            }else if contentSectionType == .withdrawing {
                 consentSection.htmlContent = loadHTMLContent("Consent_Withdrawing")
             }
             

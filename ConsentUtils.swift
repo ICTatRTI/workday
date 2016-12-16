@@ -9,17 +9,17 @@
 import UIKit
 
 
-func loadHTMLContent(fileName: String)->String{
+func loadHTMLContent(_ fileName: String)->String{
     var fileContents: String? = nil
     
-    let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "html")
+    let path = Bundle.main.path(forResource: fileName, ofType: "html")
     if path == nil {
         print("OOPPPPS")
     }else{
         print(path)
         
         do {
-            fileContents = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+            fileContents = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
         } catch _ as NSError {
             print("OOPPPPS")
         }

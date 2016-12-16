@@ -13,29 +13,29 @@ import ResearchNet
 import CoreLocation
 
 enum Activity: Int {
-    case WeekdaySurvey, WeekendSurvey
+    case weekdaySurvey, weekendSurvey
     
     static var allValues: [Activity] {
         var idx = 0
         return Array(
-            AnyGenerator{
+            AnyIterator{
                 return self.init(rawValue: idx++)})
     }
     
     var title: String {
         switch self {
-        case .WeekdaySurvey:
+        case .weekdaySurvey:
             return Constants.WEEKDAY_SURVEY_TITLE
-        case .WeekendSurvey:
+        case .weekendSurvey:
             return Constants.WEEKEND_SURVEY_TITLE
         }
     }
     
     var subtitle: String {
         switch self {
-        case .WeekdaySurvey:
+        case .weekdaySurvey:
             return Constants.WEEKDAY_SURVEY_SUBTITLE
-        case .WeekendSurvey:
+        case .weekendSurvey:
             return Constants.WEEKEND_SURVEY_SUBTITLE
         }
     }
@@ -67,7 +67,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
     }
     
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if (locationFixAchieved == false) {
             locationFixAchieved = true
@@ -82,23 +82,23 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard section == 0 else { return 0 }
         
         return Activity.allValues.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("activityCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let weekday_ts = defaults.objectForKey("weekday_timestamp") as! NSDate
-        let weekend_ts = defaults.objectForKey("weekend_timestamp") as! NSDate
+        let defaults = UserDefaults.standard
+        let weekday_ts = defaults.object(forKey: "weekday_timestamp") as! Date
+        let weekend_ts = defaults.object(forKey: "weekend_timestamp") as! Date
 
         
-        let currentDateTime = NSDate()
-        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let myComponents = myCalendar.components(.Weekday, fromDate: currentDateTime)
+        let currentDateTime = Date()
+        let myCalendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        let myComponents = (myCalendar as NSCalendar).components(.weekday, from: currentDateTime)
         let weekDay = myComponents.weekday
         
                 
@@ -110,7 +110,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             
             // restrict user from taking the survey more than once a day for weekday 
             // survey or once a week for weekend survey
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             /*
              Enable weekday survey on M-F only if the survey hasnt' been completed within
@@ -119,15 +119,15 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             if (activity.title == Constants.WEEKDAY_SURVEY_TITLE ){
                 
                 if ( weekDay == 1 || weekDay == 7) {
-                    cell.accessoryType =  .Checkmark
-                    cell.selectionStyle = .None
-                    cell.userInteractionEnabled = false
+                    cell.accessoryType =  .checkmark
+                    cell.selectionStyle = .none
+                    cell.isUserInteractionEnabled = false
                 } else {
                     
                     if (weekday_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
-                        cell.accessoryType =  .Checkmark
-                        cell.selectionStyle = .None
-                        cell.userInteractionEnabled = false
+                        cell.accessoryType =  .checkmark
+                        cell.selectionStyle = .none
+                        cell.isUserInteractionEnabled = false
                     }
                 }
         
@@ -141,16 +141,16 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                 
                 if (weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5 || weekDay == 6) {
                     
-                    cell.accessoryType =  .Checkmark
-                    cell.selectionStyle = .None
-                    cell.userInteractionEnabled = false
+                    cell.accessoryType =  .checkmark
+                    cell.selectionStyle = .none
+                    cell.isUserInteractionEnabled = false
                 
                 } else  {
                     
                     if (weekend_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
-                        cell.accessoryType =  .Checkmark
-                        cell.selectionStyle = .None
-                        cell.userInteractionEnabled = false
+                        cell.accessoryType =  .checkmark
+                        cell.selectionStyle = .none
+                        cell.isUserInteractionEnabled = false
 
                     }
                     
@@ -168,33 +168,33 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
     
     
     // MARK: UITableViewDelegate
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let activity = Activity(rawValue: indexPath.row) else { return }
         
 
         switch activity {
-        case .WeekdaySurvey:
+        case .weekdaySurvey:
            
-            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekdayStoryboardID") as! WeekdayIntroViewController
+            let workdayViewController = self.storyboard?.instantiateViewController(withIdentifier: "weekdayStoryboardID") as! WeekdayIntroViewController
             
             //Set some required survye variables
-            workdayViewController.device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+            workdayViewController.device_id = UIDevice.current.identifierForVendor!.uuidString
             workdayViewController.lat = String(txtLatitude)
             workdayViewController.long = String(txtLongitude)
             workdayViewController.researchNet = self.researchNet
             
             let navigationController = UINavigationController(rootViewController: workdayViewController)
             
-            self.presentViewController(navigationController, animated: true, completion: nil)
+            self.present(navigationController, animated: true, completion: nil)
             
         
-        case .WeekendSurvey:
+        case .weekendSurvey:
             
-            let workdayViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weekendStoryboardID") as! WeekendIntroViewController
+            let workdayViewController = self.storyboard?.instantiateViewController(withIdentifier: "weekendStoryboardID") as! WeekendIntroViewController
             
             //Set some required survye variables
-            workdayViewController.device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+            workdayViewController.device_id = UIDevice.current.identifierForVendor!.uuidString
             workdayViewController.lat = String(txtLatitude)
             workdayViewController.long = String(txtLongitude)
             workdayViewController.researchNet = self.researchNet
@@ -202,7 +202,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             
             let navigationController = UINavigationController(rootViewController: workdayViewController)
             
-            self.presentViewController(navigationController, animated: true, completion: nil)
+            self.present(navigationController, animated: true, completion: nil)
 
         }
         
@@ -213,17 +213,17 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
 // Used for survey implementions with ResearchKit
 extension ActivityViewController : ORKTaskViewControllerDelegate {
     
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
 
         //write task name and complete date to local storage
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         if taskViewController.task?.identifier == "SurveyWeekdayTask" {
-            defaults.setObject(NSDate(), forKey: "weekday_timestamp")
+            defaults.set(Date(), forKey: "weekday_timestamp")
         } else{
-            defaults.setObject(NSDate(), forKey: "weekend_timestamp")
+            defaults.set(Date(), forKey: "weekend_timestamp")
         }
 
-        let device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+        let device_id = UIDevice.current.identifierForVendor!.uuidString
         let taskResult = taskViewController.result // this should be a ORKTaskResult
         let results = taskResult.results as! [ORKStepResult]//[ORKStepResult]
         var responses: [String:String] = [:]
@@ -264,14 +264,14 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
                 
                 let alert = UIAlertController(title: "Submission Error",
                     message: errorMessage, preferredStyle: .Alert)
-                let action = UIAlertAction(title: "Ok", style: .Default, handler: {
+                let action = UIAlertAction(title: "Ok", style: .default, handler: {
                     (alert: UIAlertAction!) in taskViewController.goBackward()
                 })
                 alert.addAction(action)
-                taskViewController.presentViewController(alert, animated: true, completion: nil)
+                taskViewController.present(alert, animated: true, completion: nil)
                 
              } else {
-                taskViewController.dismissViewControllerAnimated(true, completion: nil)
+                taskViewController.dismiss(animated: true, completion: nil)
              }
             
             }, device_id: device_id, lat: String(txtLatitude), long: String(txtLongitude), response: responses)
