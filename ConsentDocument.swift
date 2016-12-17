@@ -36,15 +36,15 @@ class ConsentDocument: ORKConsentDocument {
             let consentSection = ORKConsentSection(type: contentSectionType)
             
             if contentSectionType == .overview {
-                consentSection.htmlContent = loadHTMLContent("Consent_Welcome")
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_Welcome")
             }else if contentSectionType == .dataGathering {
-                consentSection.htmlContent = loadHTMLContent("Consent_DataGathering")
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_DataGathering")
             }else if contentSectionType == .privacy {
-                consentSection.htmlContent = loadHTMLContent("Consent_Privacy")
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_Privacy")
             }else if contentSectionType == .dataUse {
-                consentSection.htmlContent = loadHTMLContent("Consent_DataUse")
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_DataUse")
             }else if contentSectionType == .withdrawing {
-                consentSection.htmlContent = loadHTMLContent("Consent_Withdrawing")
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_Withdrawing")
             }
             
             return consentSection

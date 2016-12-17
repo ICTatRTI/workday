@@ -44,8 +44,8 @@ struct Constants {
     static let PAM_QUESTION_LABEL = "how do you feel today"
     
     
-    static let enabledColor = hexStringToUIColor("007aff")
-    static let disabledColor = hexStringToUIColor("#d3d3d3")
+    static let enabledColor = hexStringToUIColor(hex: "007aff")
+    static let disabledColor = hexStringToUIColor(hex: "#d3d3d3")
 
 }
 

@@ -9,14 +9,14 @@
 import UIKit
 
 
-func loadHTMLContent(_ fileName: String)->String{
+func loadHTMLContent(fileName: String)->String{
     var fileContents: String? = nil
     
     let path = Bundle.main.path(forResource: fileName, ofType: "html")
     if path == nil {
         print("OOPPPPS")
     }else{
-        print(path)
+        print(path ?? "default")
         
         do {
             fileContents = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
@@ -30,4 +30,3 @@ func loadHTMLContent(_ fileName: String)->String{
     
     
 }
-

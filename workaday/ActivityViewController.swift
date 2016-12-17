@@ -19,7 +19,8 @@ enum Activity: Int {
         var idx = 0
         return Array(
             AnyIterator{
-                return self.init(rawValue: idx++)})
+                idx = idx + 1
+                return self.init(rawValue: idx)})
     }
     
     var title: String {
@@ -66,6 +67,11 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
    
     }
     
+    func daysBetweenDates(startDate: Date, endDate: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.day], from: startDate, to: endDate)
+        return components.day!
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -124,7 +130,8 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                     cell.isUserInteractionEnabled = false
                 } else {
                     
-                    if (weekday_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
+
+                    if (  daysBetweenDates(startDate: weekday_ts, endDate: currentDateTime) < 1 ){
                         cell.accessoryType =  .checkmark
                         cell.selectionStyle = .none
                         cell.isUserInteractionEnabled = false
@@ -146,8 +153,8 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
                     cell.isUserInteractionEnabled = false
                 
                 } else  {
-                    
-                    if (weekend_ts.numberOfDaysUntilDateTime(currentDateTime) < 1 ){
+                   
+                    if (daysBetweenDates(startDate: weekend_ts, endDate: currentDateTime) < 1 ){
                         cell.accessoryType =  .checkmark
                         cell.selectionStyle = .none
                         cell.isUserInteractionEnabled = false
@@ -213,7 +220,7 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
 // Used for survey implementions with ResearchKit
 extension ActivityViewController : ORKTaskViewControllerDelegate {
     
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
 
         //write task name and complete date to local storage
         let defaults = UserDefaults.standard
@@ -263,7 +270,7 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
                 let errorMessage = "Unable to reach the server. Try again."
                 
                 let alert = UIAlertController(title: "Submission Error",
-                    message: errorMessage, preferredStyle: .Alert)
+                    message: errorMessage, preferredStyle: .alert)
                 let action = UIAlertAction(title: "Ok", style: .default, handler: {
                     (alert: UIAlertAction!) in taskViewController.goBackward()
                 })

@@ -96,7 +96,28 @@ extension ViewController: ORKTaskViewControllerDelegate {
      @param error               If failure occurred, an `NSError` object indicating the reason for the failure. The value of this parameter is `nil` if `result` does not indicate failure.
      */
     public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        <#code#>
+    
+        // Check if the user has finished the `WithdrawViewController`.
+        if taskViewController is WithdrawViewController {
+            /*
+             If the user has completed the withdrawl steps, remove them from
+             the study and transition to the onboarding view.
+             */
+            if reason == .completed {
+                ORKPasscodeViewController.removePasscodeFromKeychain()
+                
+                let defaults = UserDefaults.standard
+                defaults.removeObject(forKey: "authKey")
+                
+                // Call backend to disable user
+                
+                toOnboarding()
+            }
+            
+            // Dismiss the `WithdrawViewController`.
+            dismiss(animated: true, completion: nil)
+        }
+        
     }
 
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {

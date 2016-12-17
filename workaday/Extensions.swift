@@ -7,48 +7,9 @@
 //
 
 import UIKit
+import Foundation
 
 extension Date {
-    
-    
-    init(dateString:String) {
-        let dateStringFormatter = DateFormatter()
-        dateStringFormatter.dateFormat = "yyyy-MM-dd"
-        dateStringFormatter.locale = Locale(identifier: "en_US_POSIX")
-        let d = dateStringFormatter.date(from: dateString)!
-        (self as NSDate).init(timeInterval:0, since:d)
-    }
-    
-    
-    func numberOfHoursUntilDateTime(_ toDateTime: Date, inTimeZone timeZone: TimeZone? = nil) -> Int {
-        var calendar = Calendar.current
-        if let timeZone = timeZone {
-            calendar.timeZone = timeZone
-        }
-        
-        var fromDate: Date?, toDate: Date?
-        
-        (calendar as NSCalendar).range(of: .day, start: &fromDate, interval: nil, for: self)
-        (calendar as NSCalendar).range(of: .day, start: &toDate, interval: nil, for: toDateTime)
-        
-        let difference = (calendar as NSCalendar).components(.hour, from: fromDate!, to: toDate!, options: [])
-        return difference.hour!
-    }
-    
-    func numberOfDaysUntilDateTime(_ toDateTime: Date, inTimeZone timeZone: TimeZone? = nil) -> Int {
-        var calendar = Calendar.current
-        if let timeZone = timeZone {
-            calendar.timeZone = timeZone
-        }
-        
-        var fromDate: Date?, toDate: Date?
-        
-        (calendar as NSCalendar).range(of: .day, start: &fromDate, interval: nil, for: self)
-        (calendar as NSCalendar).range(of: .day, start: &toDate, interval: nil, for: toDateTime)
-        
-        let difference = (calendar as NSCalendar).components(.day, from: fromDate!, to: toDate!, options: [])
-        return difference.day!
-    }
     
     func isGreaterThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
@@ -107,11 +68,11 @@ extension Date {
 }
 
 
-func hexStringToUIColor (_ hex:String) -> UIColor {
-    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercased()
+func hexStringToUIColor (hex:String) -> UIColor {
+    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
     
     if (cString.hasPrefix("#")) {
-        cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
+        cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
     }
     
     if ((cString.characters.count) != 6) {
