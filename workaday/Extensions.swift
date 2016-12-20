@@ -69,10 +69,10 @@ extension Date {
 
 
 func hexStringToUIColor (hex:String) -> UIColor {
-    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
-    
+    var cString:String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+    let indexStartOfText = hex.index(hex.startIndex, offsetBy: 1)
     if (cString.hasPrefix("#")) {
-        cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        cString = cString.substring(from: indexStartOfText)
     }
     
     if ((cString.characters.count) != 6) {

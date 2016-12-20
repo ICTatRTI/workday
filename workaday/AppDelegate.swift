@@ -39,16 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         scheduleLocalNotification(9,minute: 0, weekDay: 6)
         scheduleLocalNotification(17,minute: 0, weekDay: 7)
         
-        // Default the dates that the surveys were completed
-        let calendar = Calendar.
+        // Default the dates that the surveys were completed. Default to sometime in the past, why not 1970
+        
+        let newYears1970 = Date(timeIntervalSince1970: 0)
         
         let defaults = UserDefaults.standard
         if defaults.object(forKey: "weekday_timestamp") == nil {
-            defaults.set(default_date, forKey: "weekday_timestamp")
+            defaults.set(newYears1970, forKey: "weekday_timestamp")
         }
         
         if defaults.object(forKey: "weekend_timestamp") == nil {
-            defaults.set(default_date, forKey: "weekend_timestamp")
+            defaults.set(newYears1970, forKey: "weekend_timestamp")
         }
         
         return true
