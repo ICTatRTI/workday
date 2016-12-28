@@ -20,6 +20,8 @@ run pod install
 open workaday.xcworkspace in XCode 
 ```
 
+To see this in action, check it out in the app store [here](https://itunes.apple.com/us/app/workday-questionnaire/id1101270992)
+
 
 ### Who do I talk to? ###
 
