@@ -26,13 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       
         // Configure notifications for each day (sunday is 1)
-        scheduleLocalNotification(17,minute: 0, weekDay: 1)
+        scheduleLocalNotification(17,minute: 0, weekDay: 0)
+        scheduleLocalNotification(9,minute: 0, weekDay: 1)
         scheduleLocalNotification(9,minute: 0, weekDay: 2)
         scheduleLocalNotification(9,minute: 0, weekDay: 3)
         scheduleLocalNotification(9,minute: 0, weekDay: 4)
         scheduleLocalNotification(9,minute: 0, weekDay: 5)
-        scheduleLocalNotification(9,minute: 0, weekDay: 6)
-        scheduleLocalNotification(17,minute: 0, weekDay: 7)
+        scheduleLocalNotification(17,minute: 0, weekDay: 6)
         
         
         let newYears1970 = Date(timeIntervalSince1970: 0)
