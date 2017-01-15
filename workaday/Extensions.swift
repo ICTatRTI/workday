@@ -7,55 +7,29 @@
 //
 
 import UIKit
+import Foundation
 
-extension NSDate {
+extension Date {
     
-    convenience
-    init(dateString:String) {
-        let dateStringFormatter = NSDateFormatter()
-        dateStringFormatter.dateFormat = "yyyy-MM-dd"
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        let d = dateStringFormatter.dateFromString(dateString)!
-        self.init(timeInterval:0, sinceDate:d)
+    func numberOfDaysUntilDateTime(toDateTime: Date, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
+        
+        let currentCalendar = Calendar.current
+        
+        guard let start = currentCalendar.ordinality(of: .day, in: .era, for: toDateTime as Date) else { return 0 }
+        guard let end = currentCalendar.ordinality(of: .day, in: .era, for: self) else { return 0 }
+        
+        print( start - end )
+
+        
+        return  start - end
     }
     
-    
-    func numberOfHoursUntilDateTime(toDateTime: NSDate, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        if let timeZone = timeZone {
-            calendar.timeZone = timeZone
-        }
-        
-        var fromDate: NSDate?, toDate: NSDate?
-        
-        calendar.rangeOfUnit(.Day, startDate: &fromDate, interval: nil, forDate: self)
-        calendar.rangeOfUnit(.Day, startDate: &toDate, interval: nil, forDate: toDateTime)
-        
-        let difference = calendar.components(.Hour, fromDate: fromDate!, toDate: toDate!, options: [])
-        return difference.hour
-    }
-    
-    func numberOfDaysUntilDateTime(toDateTime: NSDate, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        if let timeZone = timeZone {
-            calendar.timeZone = timeZone
-        }
-        
-        var fromDate: NSDate?, toDate: NSDate?
-        
-        calendar.rangeOfUnit(.Day, startDate: &fromDate, interval: nil, forDate: self)
-        calendar.rangeOfUnit(.Day, startDate: &toDate, interval: nil, forDate: toDateTime)
-        
-        let difference = calendar.components(.Day, fromDate: fromDate!, toDate: toDate!, options: [])
-        return difference.day
-    }
-    
-    func isGreaterThanDate(dateToCompare: NSDate) -> Bool {
+    func isGreaterThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isGreater = false
         
         //Compare Values
-        if self.compare(dateToCompare) == NSComparisonResult.OrderedDescending {
+        if self.compare(dateToCompare) == ComparisonResult.orderedDescending {
             isGreater = true
         }
         
@@ -63,12 +37,12 @@ extension NSDate {
         return isGreater
     }
     
-    func isLessThanDate(dateToCompare: NSDate) -> Bool {
+    func isLessThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isLess = false
         
         //Compare Values
-        if self.compare(dateToCompare) == NSComparisonResult.OrderedAscending {
+        if self.compare(dateToCompare) == ComparisonResult.orderedAscending {
             isLess = true
         }
         
@@ -76,12 +50,12 @@ extension NSDate {
         return isLess
     }
     
-    func equalToDate(dateToCompare: NSDate) -> Bool {
+    func equalToDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isEqualTo = false
         
         //Compare Values
-        if self.compare(dateToCompare) == NSComparisonResult.OrderedSame {
+        if self.compare(dateToCompare) == ComparisonResult.orderedSame {
             isEqualTo = true
         }
         
@@ -89,17 +63,17 @@ extension NSDate {
         return isEqualTo
     }
     
-    func addDays(daysToAdd: Int) -> NSDate {
-        let secondsInDays: NSTimeInterval = Double(daysToAdd) * 60 * 60 * 24
-        let dateWithDaysAdded: NSDate = self.dateByAddingTimeInterval(secondsInDays)
+    func addDays(_ daysToAdd: Int) -> Date {
+        let secondsInDays: TimeInterval = Double(daysToAdd) * 60 * 60 * 24
+        let dateWithDaysAdded: Date = self.addingTimeInterval(secondsInDays)
         
         //Return Result
         return dateWithDaysAdded
     }
     
-    func addHours(hoursToAdd: Int) -> NSDate {
-        let secondsInHours: NSTimeInterval = Double(hoursToAdd) * 60 * 60
-        let dateWithHoursAdded: NSDate = self.dateByAddingTimeInterval(secondsInHours)
+    func addHours(_ hoursToAdd: Int) -> Date {
+        let secondsInHours: TimeInterval = Double(hoursToAdd) * 60 * 60
+        let dateWithHoursAdded: Date = self.addingTimeInterval(secondsInHours)
         
         //Return Result
         return dateWithHoursAdded
@@ -108,18 +82,18 @@ extension NSDate {
 
 
 func hexStringToUIColor (hex:String) -> UIColor {
-    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
-    
+    var cString:String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+    let indexStartOfText = hex.index(hex.startIndex, offsetBy: 1)
     if (cString.hasPrefix("#")) {
-        cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        cString = cString.substring(from: indexStartOfText)
     }
     
     if ((cString.characters.count) != 6) {
-        return UIColor.grayColor()
+        return UIColor.gray
     }
     
     var rgbValue:UInt32 = 0
-    NSScanner(string: cString).scanHexInt(&rgbValue)
+    Scanner(string: cString).scanHexInt32(&rgbValue)
     
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

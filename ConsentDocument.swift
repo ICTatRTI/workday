@@ -22,11 +22,11 @@ class ConsentDocument: ORKConsentDocument {
         title = NSLocalizedString("Research Health Study Consent Form", comment: "")
         
         let sectionTypes: [ORKConsentSectionType] = [
-            .Overview,
-            .DataGathering,
-            .Privacy,
-            .DataUse,
-            .Withdrawing
+            .overview,
+            .dataGathering,
+            .privacy,
+            .dataUse,
+            .withdrawing
         ]
         
         
@@ -35,16 +35,16 @@ class ConsentDocument: ORKConsentDocument {
             
             let consentSection = ORKConsentSection(type: contentSectionType)
             
-            if contentSectionType == .Overview {
-                consentSection.htmlContent = loadHTMLContent("Consent_Welcome")
-            }else if contentSectionType == .DataGathering {
-                consentSection.htmlContent = loadHTMLContent("Consent_DataGathering")
-            }else if contentSectionType == .Privacy {
-                consentSection.htmlContent = loadHTMLContent("Consent_Privacy")
-            }else if contentSectionType == .DataUse {
-                consentSection.htmlContent = loadHTMLContent("Consent_DataUse")
-            }else if contentSectionType == .Withdrawing {
-                consentSection.htmlContent = loadHTMLContent("Consent_Withdrawing")
+            if contentSectionType == .overview {
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_Welcome")
+            }else if contentSectionType == .dataGathering {
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_DataGathering")
+            }else if contentSectionType == .privacy {
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_Privacy")
+            }else if contentSectionType == .dataUse {
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_DataUse")
+            }else if contentSectionType == .withdrawing {
+                consentSection.htmlContent = loadHTMLContent(fileName: "Consent_Withdrawing")
             }
             
             return consentSection

@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if (defaults.stringForKey("authKey") != nil) {
+        let defaults = UserDefaults.standard
+        if (defaults.string(forKey: "authKey") != nil) {
             toStudy()
         } else {
             toOnboarding()
@@ -28,16 +28,16 @@ class ViewController: UIViewController {
     }
     
     // Be sure to pass around the ResearchNet object to any view controllers who may need it.
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toOnboarding" {
-            if let destination = segue.destinationViewController as? OnboardingViewController {
+            if let destination = segue.destination as? OnboardingViewController {
                 destination.researchNet = self.researchNet
             }
         }
         
         if segue.identifier == "toStudy" {
           
-            if let destination = segue.destinationViewController as? UITabBarController {
+            if let destination = segue.destination as? UITabBarController {
                 let navigationViewController = destination.viewControllers!.first as! UINavigationController
                 let activityViewController = navigationViewController.viewControllers.first as! ActivityViewController
                 activityViewController.researchNet = self.researchNet
@@ -46,26 +46,26 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func unwindToStudy(segue: UIStoryboardSegue) {
+    @IBAction func unwindToStudy(_ segue: UIStoryboardSegue) {
         toStudy()
     }
     
-    @IBAction func unwindToWithdrawl(segue: UIStoryboardSegue) {
+    @IBAction func unwindToWithdrawl(_ segue: UIStoryboardSegue) {
         toWithdrawl()
     }
     
-    @IBAction func unwindToOnboarding(segue: UIStoryboardSegue) {
+    @IBAction func unwindToOnboarding(_ segue: UIStoryboardSegue) {
         toOnboarding()
     }
     
     // MARK: Transitions
     
     func toOnboarding() {
-        performSegueWithIdentifier("toOnboarding", sender: self)
+        performSegue(withIdentifier: "toOnboarding", sender: self)
     }
 
     func toStudy() {
-        performSegueWithIdentifier("toStudy", sender: self)
+        performSegue(withIdentifier: "toStudy", sender: self)
     }
 
     
@@ -73,14 +73,14 @@ class ViewController: UIViewController {
         let viewController = WithdrawViewController()
         viewController.delegate = self
         
-        presentViewController(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
 }
 
 
 extension ViewController: ORKTaskViewControllerDelegate {
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
         // Check if the user has finished the `WithdrawViewController`.
         if taskViewController is WithdrawViewController {
@@ -88,11 +88,11 @@ extension ViewController: ORKTaskViewControllerDelegate {
              If the user has completed the withdrawl steps, remove them from
              the study and transition to the onboarding view.
              */
-            if reason == .Completed {
+            if reason == .completed {
                 ORKPasscodeViewController.removePasscodeFromKeychain()
                 
-                let defaults = NSUserDefaults.standardUserDefaults()
-                defaults.removeObjectForKey("authKey")
+                let defaults = UserDefaults.standard
+                defaults.removeObject(forKey: "authKey")
                 
                 // Call backend to disable user
                 
@@ -100,7 +100,7 @@ extension ViewController: ORKTaskViewControllerDelegate {
             }
             
             // Dismiss the `WithdrawViewController`.
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }
     }
 }

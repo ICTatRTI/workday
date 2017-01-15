@@ -26,27 +26,27 @@ class OnboardingViewController: UIViewController {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toLogin" {
-            if let destination = segue.destinationViewController as? LoginViewController {
+            if let destination = segue.destination as? LoginViewController {
                 destination.researchNet = self.researchNet
             }
         }
     }
     
-    @IBAction func loginButtonTapped(sender: UIButton) {
-        performSegueWithIdentifier("toLogin", sender: self)
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "toLogin", sender: self)
         
     }
     
-    @IBAction func joinButtonTapped(sender: UIButton) {
+    @IBAction func joinButtonTapped(_ sender: UIButton) {
         let consentDocument = ConsentDocument()
         let consentStep = ORKVisualConsentStep(identifier: VISUAL_CONSSENT_STEP_IDENTIFIER, document: consentDocument)
         
 
         let signature = consentDocument.signatures!.first!
         
-        let reviewConsentStep = ORKConsentReviewStep(identifier: CONSENT_REVIEW_IDENTIFIER, signature: signature, inDocument: consentDocument)
+        let reviewConsentStep = ORKConsentReviewStep(identifier: CONSENT_REVIEW_IDENTIFIER, signature: signature, in: consentDocument)
         
         reviewConsentStep.text = "Review the consent form."
         reviewConsentStep.reasonForConsent = "Consent to join our research Study."
@@ -55,7 +55,7 @@ class OnboardingViewController: UIViewController {
         let passcodeValidationRegex = "^(?=.*\\d).{4,8}$"
         let passcodeInvalidMessage = NSLocalizedString("A valid password must be 4 and 8 digits long and include at least one numeric character.", comment: "")
         
-        let registrationOptions: ORKRegistrationStepOption = [ .IncludeGender, .IncludeDOB]
+        let registrationOptions: ORKRegistrationStepOption = [ .includeGender, .includeDOB]
         let registrationStep = ORKRegistrationStep(identifier: String(REGISTRATION_STEP), title: registrationTitle, text: "The following fields are required", passcodeValidationRegex: passcodeValidationRegex, passcodeInvalidMessage: passcodeInvalidMessage, options: registrationOptions)
         
         let waitTitle = NSLocalizedString("Creating account", comment: "")
@@ -71,10 +71,10 @@ class OnboardingViewController: UIViewController {
         
         let orderedTask = ORKOrderedTask(identifier: "Join", steps: [ consentStep,reviewConsentStep, registrationStep, waitStep,completionStep])
         
-        let taskViewController = ORKTaskViewController(task: orderedTask, taskRunUUID: nil)
+        let taskViewController = ORKTaskViewController(task: orderedTask, taskRun: nil)
         taskViewController.delegate = self
         
-        presentViewController(taskViewController, animated: true, completion: nil)
+        present(taskViewController, animated: true, completion: nil)
     }
     
 }
@@ -82,21 +82,38 @@ class OnboardingViewController: UIViewController {
 
 
 extension OnboardingViewController : ORKTaskViewControllerDelegate {
-    
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    /**
+     Tells the delegate that the task has finished.
+     
+     The task view controller calls this method when an unrecoverable error occurs,
+     when the user has canceled the task (with or without saving), or when the user
+     completes the last step in the task.
+     
+     In most circumstances, the receiver should dismiss the task view controller
+     in response to this method, and may also need to collect and process the results
+     of the task.
+     
+     @param taskViewController  The `ORKTaskViewController `instance that is returning the result.
+     @param reason              An `ORKTaskViewControllerFinishReason` value indicating how the user chose to complete the task.
+     @param error               If failure occurred, an `NSError` object indicating the reason for the failure. The value of this parameter is `nil` if `result` does not indicate failure.
+     */
+
+
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         switch reason {
-        case .Completed:
+            
+        case .completed:
 
             // put calls to back end here
-            performSegueWithIdentifier("unwindToStudy", sender: nil)
+            performSegue(withIdentifier: "unwindToStudy", sender: nil)
             
             
-        case .Discarded, .Failed, .Saved:
-            dismissViewControllerAnimated(true, completion: nil)
+        case .discarded, .failed, .saved:
+            dismiss(animated: true, completion: nil)
         }
     }
 
-    func taskViewController(taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
         
 
             if let stepViewController = stepViewController as? ORKWaitStepViewController {
@@ -107,7 +124,7 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                 
                 
             // Consent
-            let consent_step = taskViewControllerResult.stepResultForStepIdentifier(CONSENT_REVIEW_IDENTIFIER)
+            let consent_step = taskViewControllerResult.stepResult(forStepIdentifier: CONSENT_REVIEW_IDENTIFIER)
             let consent_stepResults = consent_step!.results as! [ORKConsentSignatureResult]
             let consent_signature = consent_stepResults.first!
             let first_name = consent_signature.signature?.givenName
@@ -116,7 +133,7 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                 
                 
             // Registration
-            let registration_step = taskViewControllerResult.stepResultForStepIdentifier(REGISTRATION_STEP)
+            let registration_step = taskViewControllerResult.stepResult(forStepIdentifier: REGISTRATION_STEP)
                 
             let stepResults = registration_step!.results as! [ORKQuestionResult]
             let username = (stepResults[0] as? ORKTextQuestionResult)?.textAnswer
@@ -125,9 +142,9 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
             let gender = genderAnswer![0] as? String
                 
             let dobAnswer = (stepResults[4] as? ORKDateQuestionResult)?.dateAnswer
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dob = dateFormatter.stringFromDate( dobAnswer!)
+            let dob = dateFormatter.string( from: dobAnswer!)
                 
                 
             researchNet.enrollUser({ (responseObject, error) in
@@ -136,12 +153,12 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                     let errorMessage = (responseObject?.statusCode)! == 403 ? "Username is already taken. Please try using a different username." : "Something unexpected happened. Please contact your study administrator."
  
                     let alert = UIAlertController(title: "Registration Error",
-                        message: errorMessage, preferredStyle: .Alert)
-                    let action = UIAlertAction(title: "Ok", style: .Default, handler: {
+                        message: errorMessage, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .default, handler: {
                         (alert: UIAlertAction!) in stepViewController.goBackward()
                     })
                     alert.addAction(action)
-                    taskViewController.presentViewController(alert, animated: true, completion: nil)
+                    taskViewController.present(alert, animated: true, completion: nil)
                     
                 } else {
                     
@@ -152,17 +169,17 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                             let errorMessage = "Your account isn't set up yet."
                             
                             let alert = UIAlertController(title: "Login Error",
-                                message: errorMessage, preferredStyle: .Alert)
-                            let action = UIAlertAction(title: "Ok", style: .Default, handler: {
+                                message: errorMessage, preferredStyle: .alert)
+                            let action = UIAlertAction(title: "Ok", style: .default, handler: {
                                 (alert: UIAlertAction!) in stepViewController.goBackward()
                             })
                             alert.addAction(action)
-                            taskViewController.presentViewController(alert, animated: true, completion: nil)
+                            taskViewController.present(alert, animated: true, completion: nil)
                             
                         } else{
                             
-                            let defaults = NSUserDefaults.standardUserDefaults()
-                            defaults.setObject(responseObject!, forKey: "authKey")
+                            let defaults = UserDefaults.standard
+                            defaults.set(responseObject!, forKey: "authKey")
                             stepViewController.goForward()
                         }
                         

@@ -40,14 +40,14 @@ struct StudyTasks {
         
         // The text to display can be separate from the value coded for each choice:
         let textChoices = [
-            ORKTextChoice(text: textChoiceOneText, value: "drove"),
-            ORKTextChoice(text: textChoiceTwoText, value: "biked"),
-            ORKTextChoice(text: textChoiceThreeText, value: "walked"),
-            ORKTextChoice(text: textChoiceFourText, value: "carpooled"),
-            ORKTextChoice(text: textChoiceFiveText, value: "none")
+            ORKTextChoice(text: textChoiceOneText, value: "drove" as NSCoding & NSCopying & NSObjectProtocol),
+            ORKTextChoice(text: textChoiceTwoText, value: "biked" as NSCoding & NSCopying & NSObjectProtocol),
+            ORKTextChoice(text: textChoiceThreeText, value: "walked" as NSCoding & NSCopying & NSObjectProtocol),
+            ORKTextChoice(text: textChoiceFourText, value: "carpooled" as NSCoding & NSCopying & NSObjectProtocol),
+            ORKTextChoice(text: textChoiceFiveText, value: "none" as NSCoding & NSCopying & NSObjectProtocol)
             ]
         
-        let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+        let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
         
         let questionStep = ORKQuestionStep(identifier: "How did you get to work", title: "How did you get to work today?", answer: answerFormat)
         
@@ -79,12 +79,12 @@ struct StudyTasks {
         
         // The text to display can be separate from the value coded for each choice:
         let textChoices = [
-            ORKTextChoice(text: textChoiceOneText, value: "active"),
-            ORKTextChoice(text: textChoiceTwoText, value: "medium"),
-            ORKTextChoice(text: textChoiceThreeText, value: "not")
+            ORKTextChoice(text: textChoiceOneText, value: "active" as NSCoding & NSCopying & NSObjectProtocol),
+            ORKTextChoice(text: textChoiceTwoText, value: "medium" as NSCoding & NSCopying & NSObjectProtocol),
+            ORKTextChoice(text: textChoiceThreeText, value: "not" as NSCoding & NSCopying & NSObjectProtocol)
         ]
         
-        let answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+        let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
         
         let questionStep = ORKQuestionStep(identifier: "activity level", title: "What best describes your activity level today?", answer: answerFormat)
         
