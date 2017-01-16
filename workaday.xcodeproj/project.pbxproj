@@ -15,11 +15,6 @@
 		4B03D0AB1CB5B4E1003ACFD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B03D0A91CB5B4E1003ACFD2 /* LaunchScreen.storyboard */; };
 		4B03D0B61CB5B4E1003ACFD2 /* workadayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B03D0B51CB5B4E1003ACFD2 /* workadayTests.swift */; };
 		4B03D0C11CB5B4E1003ACFD2 /* workadayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B03D0C01CB5B4E1003ACFD2 /* workadayUITests.swift */; };
-		4B0B72711D4FD86B000A0849 /* Consent_DataGathering.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B0B726C1D4FD86B000A0849 /* Consent_DataGathering.html */; };
-		4B0B72721D4FD86B000A0849 /* Consent_DataUse.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B0B726D1D4FD86B000A0849 /* Consent_DataUse.html */; };
-		4B0B72731D4FD86B000A0849 /* Consent_Privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B0B726E1D4FD86B000A0849 /* Consent_Privacy.html */; };
-		4B0B72741D4FD86B000A0849 /* Consent_Welcome.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B0B726F1D4FD86B000A0849 /* Consent_Welcome.html */; };
-		4B0B72751D4FD86B000A0849 /* Consent_Withdrawing.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B0B72701D4FD86B000A0849 /* Consent_Withdrawing.html */; };
 		4B0B72771D500493000A0849 /* ConsentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0B72761D500493000A0849 /* ConsentUtils.swift */; };
 		4B0BD2681CBEA1E9009E2AB1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD2671CBEA1E9009E2AB1 /* ProfileViewController.swift */; };
 		4B0BD26A1CBEA7DA009E2AB1 /* StudyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BD2691CBEA7DA009E2AB1 /* StudyTasks.swift */; };
@@ -35,6 +30,11 @@
 		4B303ADA1D48168D00AA6B5A /* PamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B303AD91D48168D00AA6B5A /* PamHeaderView.swift */; };
 		4B303ADC1D4816BB00AA6B5A /* PamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B303ADB1D4816BB00AA6B5A /* PamCollectionViewCell.swift */; };
 		4B4325D31CBF1A1E001F054C /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */; };
+		4B927E9C1E2CEB960010DA42 /* Consent_DataGathering.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B927E971E2CEB960010DA42 /* Consent_DataGathering.html */; };
+		4B927E9D1E2CEB960010DA42 /* Consent_DataUse.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B927E981E2CEB960010DA42 /* Consent_DataUse.html */; };
+		4B927E9E1E2CEB960010DA42 /* Consent_Privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B927E991E2CEB960010DA42 /* Consent_Privacy.html */; };
+		4B927E9F1E2CEB960010DA42 /* Consent_Welcome.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B927E9A1E2CEB960010DA42 /* Consent_Welcome.html */; };
+		4B927EA01E2CEB960010DA42 /* Consent_Withdrawing.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B927E9B1E2CEB960010DA42 /* Consent_Withdrawing.html */; };
 		4BB201D21D492C09003B981B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB201D01D492C09003B981B /* Main.storyboard */; };
 		4BB201D41D4952F2003B981B /* WeekdayQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201D31D4952F2003B981B /* WeekdayQuestionViewController.swift */; };
 		4BB201D61D495527003B981B /* WeekendQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB201D51D495527003B981B /* WeekendQuestionViewController.swift */; };
@@ -81,11 +81,6 @@
 		4B03D0BC1CB5B4E1003ACFD2 /* workadayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = workadayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B03D0C01CB5B4E1003ACFD2 /* workadayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workadayUITests.swift; sourceTree = "<group>"; };
 		4B03D0C21CB5B4E1003ACFD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B0B726C1D4FD86B000A0849 /* Consent_DataGathering.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_DataGathering.html; path = "../nida-addiction-challenge/nida-addiction-challenge/nida-addiction-challenge/Consent_DataGathering.html"; sourceTree = "<group>"; };
-		4B0B726D1D4FD86B000A0849 /* Consent_DataUse.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_DataUse.html; path = "../nida-addiction-challenge/nida-addiction-challenge/nida-addiction-challenge/Consent_DataUse.html"; sourceTree = "<group>"; };
-		4B0B726E1D4FD86B000A0849 /* Consent_Privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_Privacy.html; path = "../nida-addiction-challenge/nida-addiction-challenge/nida-addiction-challenge/Consent_Privacy.html"; sourceTree = "<group>"; };
-		4B0B726F1D4FD86B000A0849 /* Consent_Welcome.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_Welcome.html; path = "../nida-addiction-challenge/nida-addiction-challenge/nida-addiction-challenge/Consent_Welcome.html"; sourceTree = "<group>"; };
-		4B0B72701D4FD86B000A0849 /* Consent_Withdrawing.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_Withdrawing.html; path = "../nida-addiction-challenge/nida-addiction-challenge/nida-addiction-challenge/Consent_Withdrawing.html"; sourceTree = "<group>"; };
 		4B0B72761D500493000A0849 /* ConsentUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentUtils.swift; sourceTree = "<group>"; };
 		4B0BD2671CBEA1E9009E2AB1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B0BD2691CBEA7DA009E2AB1 /* StudyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTasks.swift; sourceTree = "<group>"; };
@@ -101,6 +96,11 @@
 		4B303AD91D48168D00AA6B5A /* PamHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PamHeaderView.swift; sourceTree = "<group>"; };
 		4B303ADB1D4816BB00AA6B5A /* PamCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PamCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B4325D21CBF1A1E001F054C /* WithdrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		4B927E971E2CEB960010DA42 /* Consent_DataGathering.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_DataGathering.html; path = workaday/Consent_DataGathering.html; sourceTree = "<group>"; };
+		4B927E981E2CEB960010DA42 /* Consent_DataUse.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_DataUse.html; path = workaday/Consent_DataUse.html; sourceTree = "<group>"; };
+		4B927E991E2CEB960010DA42 /* Consent_Privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_Privacy.html; path = workaday/Consent_Privacy.html; sourceTree = "<group>"; };
+		4B927E9A1E2CEB960010DA42 /* Consent_Welcome.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_Welcome.html; path = workaday/Consent_Welcome.html; sourceTree = "<group>"; };
+		4B927E9B1E2CEB960010DA42 /* Consent_Withdrawing.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Consent_Withdrawing.html; path = workaday/Consent_Withdrawing.html; sourceTree = "<group>"; };
 		4BB201D11D492C09003B981B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BB201D31D4952F2003B981B /* WeekdayQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayQuestionViewController.swift; sourceTree = "<group>"; };
 		4BB201D51D495527003B981B /* WeekendQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekendQuestionViewController.swift; sourceTree = "<group>"; };
@@ -229,11 +229,11 @@
 		4B1550E41CBDA8E400878588 /* Consent */ = {
 			isa = PBXGroup;
 			children = (
-				4B0B726C1D4FD86B000A0849 /* Consent_DataGathering.html */,
-				4B0B726D1D4FD86B000A0849 /* Consent_DataUse.html */,
-				4B0B726E1D4FD86B000A0849 /* Consent_Privacy.html */,
-				4B0B726F1D4FD86B000A0849 /* Consent_Welcome.html */,
-				4B0B72701D4FD86B000A0849 /* Consent_Withdrawing.html */,
+				4B927E971E2CEB960010DA42 /* Consent_DataGathering.html */,
+				4B927E981E2CEB960010DA42 /* Consent_DataUse.html */,
+				4B927E991E2CEB960010DA42 /* Consent_Privacy.html */,
+				4B927E9A1E2CEB960010DA42 /* Consent_Welcome.html */,
+				4B927E9B1E2CEB960010DA42 /* Consent_Withdrawing.html */,
 				4B1550E51CBDA91D00878588 /* ConsentDocument.swift */,
 				4B0B72761D500493000A0849 /* ConsentUtils.swift */,
 			);
@@ -422,12 +422,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB201D21D492C09003B981B /* Main.storyboard in Resources */,
-				4B0B72721D4FD86B000A0849 /* Consent_DataUse.html in Resources */,
-				4B0B72741D4FD86B000A0849 /* Consent_Welcome.html in Resources */,
-				4B0B72711D4FD86B000A0849 /* Consent_DataGathering.html in Resources */,
-				4B0B72751D4FD86B000A0849 /* Consent_Withdrawing.html in Resources */,
+				4B927E9D1E2CEB960010DA42 /* Consent_DataUse.html in Resources */,
+				4B927E9F1E2CEB960010DA42 /* Consent_Welcome.html in Resources */,
+				4B927E9C1E2CEB960010DA42 /* Consent_DataGathering.html in Resources */,
+				4B927EA01E2CEB960010DA42 /* Consent_Withdrawing.html in Resources */,
 				4B03D0AB1CB5B4E1003ACFD2 /* LaunchScreen.storyboard in Resources */,
-				4B0B72731D4FD86B000A0849 /* Consent_Privacy.html in Resources */,
+				4B927E9E1E2CEB960010DA42 /* Consent_Privacy.html in Resources */,
 				4B03D0A81CB5B4E1003ACFD2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
