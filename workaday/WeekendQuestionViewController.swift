@@ -29,10 +29,6 @@ class WeekendQuestionViewController: SurveyViewController, SSRadioButtonControll
         
         
         doneButton.backgroundColor = UIColor.clear
-        doneButton.layer.cornerRadius = 5
-        doneButton.layer.borderWidth = 1
-        doneButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
-        doneButton.layer.borderColor = Constants.disabledColor.cgColor
         doneButton.isEnabled = false
         
     }
@@ -42,10 +38,8 @@ class WeekendQuestionViewController: SurveyViewController, SSRadioButtonControll
         
         if aButton != nil {
             doneButton!.isEnabled = true
-            doneButton.layer.borderColor = Constants.enabledColor.cgColor
         } else {
             doneButton!.isEnabled = false
-            doneButton.layer.borderColor = Constants.disabledColor.cgColor
         }
     }
     

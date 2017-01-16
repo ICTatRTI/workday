@@ -75,7 +75,7 @@ class PamViewController: SurveyViewController {
     @IBAction func reloadImages() {
         
         finishNavigationButton.isEnabled = false
-        finishNavigationButton.layer.borderColor = Constants.disabledColor.cgColor
+
         self.collectionView.reloadData()
         
     }
@@ -87,10 +87,6 @@ class PamViewController: SurveyViewController {
         collectionView.dataSource = self
         
         finishNavigationButton.backgroundColor = UIColor.clear
-        finishNavigationButton.layer.cornerRadius = 5
-        finishNavigationButton.layer.borderWidth = 1
-        finishNavigationButton.contentEdgeInsets = UIEdgeInsetsMake(10,20,10,20)
-        finishNavigationButton.layer.borderColor = Constants.disabledColor.cgColor
         finishNavigationButton.isEnabled = false
 
     }
