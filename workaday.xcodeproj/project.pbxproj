@@ -386,6 +386,7 @@
 					};
 					4B03D0B01CB5B4E1003ACFD2 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 2PASA2PX7D;
 						LastSwiftMigration = 0820;
 						TestTargetID = 4B03D0991CB5B4E1003ACFD2;
 					};
@@ -758,6 +759,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2PASA2PX7D;
 				INFOPLIST_FILE = workadayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workadayTests;
@@ -773,6 +775,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2PASA2PX7D;
 				INFOPLIST_FILE = workadayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rti.workadayTests;

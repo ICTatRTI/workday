@@ -53,9 +53,9 @@ class OnboardingViewController: UIViewController {
         
         let registrationTitle = NSLocalizedString("Registration", comment: "")
         let passcodeValidationRegex = "^(?=.*\\d).{4,8}$"
-        let passcodeInvalidMessage = NSLocalizedString("A valid password must be 4 and 8 digits long and include at least one numeric character.", comment: "")
+        let passcodeInvalidMessage = NSLocalizedString("A valid password must be between 4 and 8 digits long and include at least one numeric character.", comment: "")
         
-        let registrationOptions: ORKRegistrationStepOption = [ .includeGender, .includeDOB]
+        let registrationOptions: ORKRegistrationStepOption = [ .includeGender]
         let registrationStep = ORKRegistrationStep(identifier: String(REGISTRATION_STEP), title: registrationTitle, text: "The following fields are required", passcodeValidationRegex: passcodeValidationRegex, passcodeInvalidMessage: passcodeInvalidMessage, options: registrationOptions)
         
         let waitTitle = NSLocalizedString("Creating account", comment: "")
@@ -141,16 +141,18 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
             let genderAnswer = (stepResults[3] as? ORKChoiceQuestionResult)?.choiceAnswers
             let gender = genderAnswer![0] as? String
                 
-            let dobAnswer = (stepResults[4] as? ORKDateQuestionResult)?.dateAnswer
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dob = dateFormatter.string( from: dobAnswer!)
+
                 
                 
             researchNet.enrollUser({ (responseObject, error) in
                     
                 if error != nil{
-                    let errorMessage = (responseObject?.statusCode)! == 403 ? "Username is already taken. Please try using a different username." : "Something unexpected happened. Please contact your study administrator."
+                    
+                    print("This is the error: ", (responseObject?.statusCode)! )
+                    let errorMessage =  "Something unexpected happened. Please contact your study administrator."
+                    
  
                     let alert = UIAlertController(title: "Registration Error",
                         message: errorMessage, preferredStyle: .alert)
@@ -187,7 +189,7 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                 }
                 
     
-                }, username: username, password: password, first_name: first_name, last_name: last_name, gender: gender, dob: dob)
+                }, username: username, password: password, first_name: first_name, last_name: last_name, gender: gender, dob: nil)
        
             }
      
