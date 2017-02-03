@@ -18,8 +18,6 @@ extension Date {
         guard let start = currentCalendar.ordinality(of: .day, in: .era, for: toDateTime as Date) else { return 0 }
         guard let end = currentCalendar.ordinality(of: .day, in: .era, for: self) else { return 0 }
         
-        print( start - end )
-
         
         return  start - end
     }

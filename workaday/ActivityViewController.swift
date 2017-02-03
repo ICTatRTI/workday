@@ -79,7 +79,6 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
             
             txtLatitude = coord.latitude
             txtLongitude = coord.longitude
-
         }
         
     }
@@ -97,12 +96,15 @@ class ActivityViewController: UITableViewController, CLLocationManagerDelegate {
         let weekday_ts = defaults.object(forKey: "weekday_timestamp") as! Date
         let weekend_ts = defaults.object(forKey: "weekend_timestamp") as! Date
 
-        let currentDateTime = Date()
+        let now = Date()
+        let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+        let currentDateTime = cal.startOfDay(for: now )
+        
         let myCalendar = Calendar(identifier: Calendar.Identifier.gregorian)
-        let myComponents = (myCalendar as NSCalendar).components(.weekday, from: currentDateTime)
+        let myComponents = (myCalendar as NSCalendar).components(.weekday, from: now)
         let weekDay = myComponents.weekday
         
-                
+        
         if let activity = Activity(rawValue: indexPath.row) {
             
             //put checkbox logic here

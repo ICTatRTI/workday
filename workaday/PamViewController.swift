@@ -42,12 +42,16 @@ class PamViewController: SurveyViewController {
                 
             } else {
                 
+                let now = Date()
+                let cal = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+                let today = cal.startOfDay(for: now )
+  
                 // using tags to keep track of which survey we just done
                 let defaults = UserDefaults.standard
                 if self.finishNavigationButton.tag == 1{
-                    defaults.set(NSDate(), forKey: "weekday_timestamp")
+                    defaults.set(today, forKey: "weekday_timestamp")
                 } else{
-                    defaults.set(NSDate(), forKey: "weekend_timestamp")
+                    defaults.set(today, forKey: "weekend_timestamp")
                 }
             
                 

@@ -150,8 +150,8 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
                     
                 if error != nil{
                     
-                    print("This is the error: ", (responseObject?.statusCode)! )
-                    let errorMessage =  "Something unexpected happened. Please contact your study administrator."
+                    let errorcode = responseObject?.statusCode
+                    let errorMessage = (responseObject?.statusCode)! == 403 ? "Username is already taken. Please try using a different username." : "Something unexpected happened. Please contact your study administrator. (error: " + "\(errorcode)" + ")"
                     
  
                     let alert = UIAlertController(title: "Registration Error",
